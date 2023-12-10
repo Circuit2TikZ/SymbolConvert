@@ -1,0 +1,14 @@
+{
+	"workbench.colorCustomizations": {
+		"activityBar.background": "#101C36",
+		"titleBar.activeBackground": "#142342",
+		"titleBar.activeForeground": "#F2F6FF"
+	},
+	"terminal.integrated.profiles.linux": {
+		"bash": {
+			"path": "bash",
+			"icon": "terminal-bash",
+			"args": ["--init-file", "${workspaceFolder}/.vscode/.bashrc", "-i"]
+		}
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"allowJs": true,
+		"lib": ["ES2023"],
+		"module": "NodeNext",
+		"noEmit": true,
+		"strictNullChecks": false
+	},
+	"exclude": [],
+	"include": ["*", "lib/**/*"]
+}

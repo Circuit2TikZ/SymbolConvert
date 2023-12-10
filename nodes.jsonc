@@ -1,0 +1,320 @@
+{
+	"$schema": "./nodes.schema.json",
+	"nodes": [
+		// 4.1 Grounds and supply voltages
+		// 4.1.1 Grounds
+		{
+			"name": "ground",
+			"groupName": "Grounds and supply voltages",
+			"pins": ["center"]
+		},
+		{
+			"name": "tlground",
+			"groupName": "Grounds and supply voltages",
+			"pins": ["center"]
+		},
+		{
+			"name": "rground",
+			"groupName": "Grounds and supply voltages",
+			"pins": ["center"]
+		},
+		{
+			"name": "sground",
+			"groupName": "Grounds and supply voltages",
+			"pins": ["center"]
+		},
+		{
+			"name": "tground",
+			"groupName": "Grounds and supply voltages",
+			"pins": ["center"]
+		},
+		{
+			"name": "nground",
+			"groupName": "Grounds and supply voltages",
+			"pins": ["center"]
+		},
+		{
+			"name": "pground",
+			"groupName": "Grounds and supply voltages",
+			"pins": ["center"]
+		},
+		{
+			"name": "cground",
+			"groupName": "Grounds and supply voltages",
+			"pins": ["center"]
+		},
+		{
+			"name": "eground",
+			"groupName": "Grounds and supply voltages",
+			"pins": ["center"]
+		},
+		{
+			"name": "eground2",
+			"groupName": "Grounds and supply voltages",
+			"pins": ["center"]
+		},
+		// 4.1.2 Power supplies
+		{
+			"name": "vcc",
+			"groupName": "Grounds and supply voltages",
+			"pins": ["center"]
+		},
+		{
+			"name": "vee",
+			"groupName": "Grounds and supply voltages",
+			"pins": ["center"]
+		},
+		// 4.10 Crossings (also available as path)
+		{
+			"name": "jump crossing"
+		},
+		{
+			"name": "plain crossing"
+		},
+		{
+			"name": "circ" // also a terminal
+		},
+		// 4.11 Arrows
+		{
+			"name": "currarrow"
+		},
+		{
+			"name": "inputarrow"
+		},
+		{
+			"name": "trarrow"
+		},
+		{
+			"name": "flowarrow"
+		},
+		// 4.12 Terminal shapes
+		{
+			"name": "ocirc"
+		},
+		{
+			"name": "diamondpole"
+		},
+		{
+			"name": "odiamondpole"
+		},
+		{
+			"name": "squarepole"
+		},
+		{
+			"name": "osquarepole"
+		},
+		// 4.13 Connectors
+		// 4.13.1 BNC connector/terminal
+		{
+			"name": "bnc",
+			"groupName": "Connectors"
+		},
+		// 4.13.2 IEC 60617 socket-plug connectors
+		{
+			"name": "iecconnshape", // is a path: iec connector
+			"groupName": "Connectors"
+		},
+		{
+			"name": "iecsocketL",
+			"groupName": "Connectors"
+		},
+		{
+			"name": "iecplugR",
+			"groupName": "Connectors"
+		},
+		{
+			"name": "iecplugL",
+			"groupName": "Connectors"
+		},
+		{
+			"name": "iecsocketR",
+			"groupName": "Connectors"
+		},
+		// 4.14 Block diagram components
+		// skip, TODO
+
+		// 4.15 Transistors
+		// 4.15.1 Standard bipolar transistors
+		{
+			"name": "npn",
+			"groupName": "Transistors",
+			"pins": ["B", "C", "E"]
+		},
+		{
+			"name": "pnp",
+			"groupName": "Transistors",
+			"pins": ["B", "C", "E"]
+		},
+		{
+			"name": "npn",
+			"groupName": "Transistors",
+			"options": ["schottky base"],
+			"pins": ["B", "C", "E"]
+		},
+		{
+			"name": "pnp",
+			"groupName": "Transistors",
+			"options": ["schottky base"],
+			"pins": ["B", "C", "E"]
+		},
+		{
+			"name": "npn",
+			"groupName": "Transistors",
+			"options": ["bodydiode"],
+			"pins": ["B", "C", "E"]
+		},
+		{
+			"name": "pnp",
+			"groupName": "Transistors",
+			"options": ["bodydiode"],
+			"pins": ["B", "C", "E"]
+		},
+		{
+			"name": "npn",
+			"groupName": "Transistors",
+			"options": ["photo"],
+			"pins": ["B", "C", "E"]
+		},
+		{
+			"name": "pnp",
+			"groupName": "Transistors",
+			"options": ["photo"],
+			"pins": ["B", "C", "E"]
+		},
+		{
+			"name": "nigbt",
+			"groupName": "Transistors",
+			"pins": ["B", "C", "E"]
+		},
+		{
+			"name": "Lnigbt",
+			"groupName": "Transistors",
+			"pins": ["B", "C", "E"]
+		},
+		{
+			"name": "Lpigbt",
+			"groupName": "Transistors",
+			"pins": ["B", "C", "E"]
+		},
+		{
+			"name": "Lpigbt",
+			"groupName": "Transistors",
+			"options": ["bodydiode"],
+			"pins": ["B", "C", "E"]
+		},
+		// a lot more must be inserted here...
+		{
+			"name": "nigfete",
+			"groupName": "Transistors",
+			"pins": ["D", "G", "S"]
+		}
+	],
+	"path": [
+		// 4.2 Resistive bipoles
+		// skip generic...
+		// american resistors
+		{
+			"displayName": "resistor",
+			"groupName": "Resistive bipoles",
+			"drawName": "american resistor",
+			// "aliases": ["R"]
+			"shapeName": "resistorshape"
+		},
+		{
+			"displayName": "variable resistor",
+			"groupName": "Resistive bipoles",
+			"drawName": "variable american resistor",
+			// "aliases": ["vR"]
+			"shapeName": "vresistorshape"
+		},
+		{
+			"displayName": "potentiometer",
+			"groupName": "Resistive bipoles",
+			"drawName": "american potentiometer",
+			// "aliases": ["pR"]
+			"shapeName": "potentiometershape",
+			"pins": ["wiper"]
+		},
+		{
+			"displayName": "resistive sensor",
+			"groupName": "Resistive bipoles",
+			"drawName": "american resistive sensor",
+			// "aliases": ["sR"]
+			"shapeName": "resistivesensshape"
+		},
+		{
+			"displayName": "ligth-dependent resistor",
+			"groupName": "Resistive bipoles",
+			"drawName": "american light dependent resistor",
+			// "aliases": ["ldr"]
+			"shapeName": "ldresistorshape"
+		},
+		// european resistors
+		{
+			"displayName": "resistor",
+			"groupName": "Resistive bipoles",
+			"drawName": "european resistor",
+			// "aliases": ["R"]
+			"shapeName": "genericshape"
+		},
+		{
+			"displayName": "variable resistor",
+			"groupName": "Resistive bipoles",
+			"drawName": "variable european resistor",
+			// "aliases": ["vR"]
+			"shapeName": "tgenericshape"
+		},
+		{
+			"displayName": "potentiometer",
+			"groupName": "Resistive bipoles",
+			"drawName": "european potentiometer",
+			// "aliases": ["pR"]
+			"shapeName": "genericpotentiometershape",
+			"pins": ["wiper"]
+		},
+		{
+			"displayName": "resistive sensor",
+			"groupName": "Resistive bipoles",
+			"drawName": "european resistive sensor",
+			// "aliases": ["sR"]
+			"shapeName": "thermistorshape"
+		},
+		{
+			"displayName": "ligth-dependent resistor",
+			"groupName": "Resistive bipoles",
+			"drawName": "european light dependent resistor",
+			// "aliases": ["ldr"]
+			"shapeName": "ldgenericshape"
+		},
+		// Other miscellaneous resistor-like devices:
+		{
+			"displayName": "varistor",
+			"groupName": "Resistive bipoles",
+			"drawName": "varistor"
+		},
+		{
+			"displayName": "photoresistor",
+			"groupName": "Resistive bipoles",
+			"drawName": "photoresistor",
+			"aliases": ["phR"]
+		},
+		{
+			"displayName": "thermistor",
+			"groupName": "Resistive bipoles",
+			"drawName": "thermistor",
+			"aliases": ["thR"]
+		},
+		{
+			"displayName": "thermistor ptc",
+			"groupName": "Resistive bipoles",
+			"drawName": "thermistor ptc",
+			"aliases": ["thRp"]
+		},
+		{
+			"displayName": "thermistor ntc",
+			"groupName": "Resistive bipoles",
+			"drawName": "thermistor ntc",
+			"aliases": ["thRn"]
+		}
+	]
+}
