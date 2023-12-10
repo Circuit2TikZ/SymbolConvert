@@ -315,6 +315,139 @@
 			"groupName": "Resistive bipoles",
 			"drawName": "thermistor ntc",
 			"aliases": ["thRn"]
+		},
+		// 4.3 Capacitors and inductors: dynamical bipoles
+		// 4.3.1 Capacitors
+		{
+			"displayName": "capacitor",
+			"groupName": "Dynamic bipoles",
+			"drawName": "capacitor",
+			"aliases": ["C"]
+		},
+		{
+			"displayName": "curved (polarized) capacitor",
+			"groupName": "Dynamic bipoles",
+			"drawName": "capacitor",
+			"aliases": ["cC"],
+			"shapeName": "ccapacitorshape"
+		},
+		{
+			"displayName": "electrolytic capacitor",
+			"groupName": "Dynamic bipoles",
+			"drawName": "ecapacitor",
+			"aliases": ["wC"]
+		},
+		{
+			"displayName": "variable capacitor",
+			"groupName": "Dynamic bipoles",
+			"drawName": "variable capacitor",
+			"aliases": ["vC"],
+			"shapeName": "vcapacitorshape",
+			"pins": ["wiper"]
+		},
+		{
+			"displayName": "capacitive sensor",
+			"groupName": "Dynamic bipoles",
+			"drawName": "capacitive sensor",
+			"aliases": ["sC"],
+			"shapeName": "capacitivesensshape",
+			"pins": ["wiper"]
+		},
+		{
+			"displayName": "piezoelectric",
+			"groupName": "Dynamic bipoles",
+			"drawName": "piezoelectric",
+			"aliases": ["PZ"]
+		},
+		{
+			"displayName": "constant phase element",
+			"groupName": "Dynamic bipoles",
+			"drawName": "cpe"
+		},
+		{
+			"displayName": "ferroelectric capacitor",
+			"groupName": "Dynamic bipoles",
+			"drawName": "ferrocap",
+			"aliases": ["feC"]
+		},
+		// 4.3.4 Inductors
+		{
+			"displayName": "inductor (cute)",
+			"groupName": "Inductors",
+			"drawName": "cute inductor",
+			//"aliases": ["L"],
+			"pins": ["midtap"]
+		},
+		{
+			"displayName": "variable inductor (cute)",
+			"groupName": "Inductors",
+			"drawName": "variable cute inductor",
+			//"aliases": ["vL"],
+			"shapeName": "vcuteinductorshape",
+			"pins": ["wiper"]
+		},
+		{
+			"displayName": "inductive sensor (cute)",
+			"groupName": "Inductors",
+			"drawName": "cute inductive sensor",
+			//"aliases": ["sL"],
+			"shapeName": "scuteinductorshape",
+			"pins": ["wiper"]
+		},
+
+		{
+			"displayName": "inductor (american)",
+			"groupName": "Inductors",
+			"drawName": "american inductor",
+			//"aliases": ["L"],
+			"pins": ["midtap"]
+		},
+		{
+			"displayName": "variable inductor (american)",
+			"groupName": "Inductors",
+			"drawName": "variable american inductor",
+			//"aliases": ["vL"],
+			"shapeName": "vamericaninductorshape",
+			"pins": ["wiper"]
+		},
+		{
+			"displayName": "inductive sensor (american)",
+			"groupName": "Inductors",
+			"drawName": "american inductive sensor",
+			//"aliases": ["sL"],
+			"shapeName": "samericaninductorshape",
+			"pins": ["wiper"]
+		},
+
+		{
+			"displayName": "inductor (european)",
+			"groupName": "Inductors",
+			"drawName": "european inductor",
+			//"aliases": ["L"],
+			"shapeName": "fullgenericshape",
+			"pins": ["midtap"]
+		},
+		{
+			"displayName": "variable inductor (european)",
+			"groupName": "Inductors",
+			"drawName": "variable european inductor",
+			//"aliases": ["vL"],
+			"shapeName": "tfullgenericshape",
+			"pins": ["wiper"]
+		},
+		{
+			"displayName": "inductive sensor (european)",
+			"groupName": "Inductors",
+			"drawName": "european inductive sensor",
+			//"aliases": ["sL"],
+			"shapeName": "sfullgenericshape",
+			"pins": ["wiper"]
+		},
+
+		{
+			"displayName": "choke (cute)",
+			"groupName": "Inductors",
+			"drawName": "cute choke"
 		}
 	]
 }
