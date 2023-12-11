@@ -1147,6 +1147,91 @@
 			"groupName": "Instruments",
 			"pins": ["i+", "i-"],
 			"drawName": "iloop2"
+		},
+
+		// 4.7 Mechanical Analogy
+		// skip
+
+		// 4.8 Miscellaneous bipoles
+		{
+			"displayName": "thermocouple",
+			"groupName": "Miscellaneous bipoles",
+			"drawName": "thermocouple"
+		},
+		{
+			"displayName": "fuse",
+			"groupName": "Miscellaneous bipoles",
+			"drawName": "fuse"
+		},
+		{
+			"displayName": "asymetric fuse",
+			"groupName": "Miscellaneous bipoles",
+			"aliases": ["asymmetric fuse"],
+			"drawName": "afuse"
+		},
+		{
+			"displayName": "squid",
+			"groupName": "Miscellaneous bipoles",
+			"drawName": "squid"
+		},
+		{
+			"displayName": "barrier",
+			"groupName": "Miscellaneous bipoles",
+			"drawName": "barrier"
+		},
+		{
+			"displayName": "open barrier",
+			"groupName": "Miscellaneous bipoles",
+			"drawName": "openbarrier"
+		},
+
+		{
+			"displayName": "gas filled surge arrester (european)",
+			"groupName": "Miscellaneous bipoles",
+			"drawName": "european gas filled surge arrester",
+			"shapeName": "european gas filled surge arrestershape"
+		},
+		{
+			"displayName": "gas filled surge arrester (american)",
+			"groupName": "Miscellaneous bipoles",
+			"drawName": "american gas filled surge arrester",
+			"shapeName": "american gas filled surge arrestershape"
+		},
+
+		{
+			"displayName": "lamp",
+			"groupName": "Miscellaneous bipoles",
+			"drawName": "lamp"
+		},
+		{
+			"displayName": "bulb",
+			"groupName": "Miscellaneous bipoles",
+			"drawName": "bulb"
+		},
+		{
+			"displayName": "loudspeaker",
+			"groupName": "Miscellaneous bipoles",
+			"drawName": "loudspeaker"
+		},
+		{
+			"displayName": "microphone",
+			"groupName": "Miscellaneous bipoles",
+			"drawName": "mic"
+		},
+		{
+			"displayName": "microphone (tail-les)",
+			"groupName": "Miscellaneous bipoles",
+			"drawName": "tlmic"
+		},
+		{
+			"displayName": "buzzer",
+			"groupName": "Miscellaneous bipoles",
+			"drawName": "buzzer"
+		},
+		{
+			"displayName": "buzzer (reversed)",
+			"groupName": "Miscellaneous bipoles",
+			"drawName": "rbuzzer"
 		}
 	]
 }
