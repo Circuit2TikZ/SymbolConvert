@@ -834,6 +834,248 @@
 			"shapeName": "emptyagtobarshape",
 			"pins": ["gate"],
 			"stroke": true
+		},
+
+		// 4.5 Sources and generators
+		// 4.5.1 Batteries
+		{
+			"displayName": "battery",
+			"groupName": "Sources and generators",
+			"drawName": "battery"
+		},
+		{
+			"displayName": "battery (single cell)",
+			"groupName": "Sources and generators",
+			"drawName": "battery1"
+		},
+		{
+			"displayName": "battery (single cell)",
+			"groupName": "Sources and generators",
+			"drawName": "battery2"
+		},
+		{
+			"displayName": "baertty",
+			"groupName": "Sources and generators",
+			"drawName": "baertty"
+		},
+		// 4.5.2 Stationary sources
+		{
+			"displayName": "voltage source (european)",
+			"groupName": "Sources and generators",
+			"drawName": "european voltage source",
+			"aliases": ["vsource"],
+			"shapeName": "vsourceshape"
+		},
+		{
+			"displayName": "current source (european)",
+			"groupName": "Sources and generators",
+			"drawName": "european current source",
+			"aliases": ["isource"],
+			"shapeName": "isourceshape"
+		},
+
+		{
+			"displayName": "voltage source (cute)",
+			"groupName": "Sources and generators",
+			"drawName": "cute european voltage source",
+			"aliases": ["vsourceC", "ceV"],
+			"shapeName": "vsourceCshape"
+		},
+		{
+			"displayName": "current source (cute)",
+			"groupName": "Sources and generators",
+			"drawName": "cute european current source",
+			"aliases": ["isourceC", "ceI"],
+			"shapeName": "isourceCshape"
+		},
+
+		{
+			"displayName": "voltage source (american)",
+			"groupName": "Sources and generators",
+			"drawName": "american voltage source",
+			"aliases": ["vsourceAM"],
+			"shapeName": "vsourceAMshape"
+		},
+		{
+			"displayName": "current source (american)",
+			"groupName": "Sources and generators",
+			"drawName": "american current source",
+			"aliases": ["isourceAM"],
+			"shapeName": "isourceAMshape"
+		},
+
+		// 4.5.3 Sinusoidal sources
+		{
+			"displayName": "sinusoidal voltage source",
+			"groupName": "Sources and generators",
+			"drawName": "sinusoidal voltage source",
+			"aliases": ["vsourcesin", "sV"],
+			"shapeName": "vsourcesinshape"
+		},
+		{
+			"displayName": "sinusoidal current source",
+			"groupName": "Sources and generators",
+			"drawName": "sinusoidal current source",
+			"aliases": ["isourcesin", "sI"],
+			"shapeName": "isourcesinshape"
+		},
+
+		// 4.5.4 Controlled sources
+		{
+			"displayName": "controlled voltage source (european)",
+			"groupName": "Sources and generators",
+			"drawName": "european controlled voltage source",
+			"aliases": ["cvsource"],
+			"shapeName": "cvsourceshape"
+		},
+		{
+			"displayName": "controlled current source (european)",
+			"groupName": "Sources and generators",
+			"drawName": "european controlled current source",
+			"aliases": ["cisource"],
+			"shapeName": "cisourceshape"
+		},
+
+		{
+			"displayName": "controlled voltage source (cute)",
+			"groupName": "Sources and generators",
+			"drawName": "cute european controlled voltage source",
+			"aliases": ["cvsourceC", "cceV"],
+			"shapeName": "cvsourceCshape"
+		},
+		{
+			"displayName": "controlled current source (cute)",
+			"groupName": "Sources and generators",
+			"drawName": "cute european controlled current source",
+			"aliases": ["cisourceC", "cceI"],
+			"shapeName": "cisourceCshape"
+		},
+
+		{
+			"displayName": "controlled voltage source (american)",
+			"groupName": "Sources and generators",
+			"drawName": "american controlled voltage source",
+			"aliases": ["cvsourceAM"],
+			"shapeName": "cvsourceAMshape"
+		},
+		{
+			"displayName": "controlled current source (american)",
+			"groupName": "Sources and generators",
+			"drawName": "american controlled current source",
+			"aliases": ["cisourceAM"],
+			"shapeName": "cisourceAMshape"
+		},
+
+		{
+			"displayName": "empty controlled source",
+			"groupName": "Sources and generators",
+			"drawName": "empty controlled source",
+			"aliases": ["ecsource"],
+			"shapeName": "ecsourceshape"
+		},
+
+		{
+			"displayName": "controlled sinusoidal voltage source",
+			"groupName": "Sources and generators",
+			"drawName": "controlled sinusoidal voltage source",
+			"aliases": ["controlled vsourcesin", "cvsourcesin", "csV"],
+			"shapeName": "cvsourcesinshape"
+		},
+		{
+			"displayName": "controlled sinusoidal current source (european)",
+			"groupName": "Sources and generators",
+			"drawName": "controlled sinusoidal current source",
+			"aliases": ["controlled isourcesin", "cisourcesin", "csI"],
+			"shapeName": "cisourcesinshape"
+		},
+
+		// 4.5.5 Noise sources
+		{
+			"displayName": "noise voltage source",
+			"groupName": "Sources and generators",
+			"drawName": "noise voltage source",
+			"aliases": ["vsourceN", "nV"],
+			"shapeName": "vsourceNshape"
+		},
+		{
+			"displayName": "noise current source",
+			"groupName": "Sources and generators",
+			"drawName": "noise current source",
+			"aliases": ["isourceN", "nI"],
+			"shapeName": "isourceNshape"
+		},
+
+		// 4.5.6 Special sources
+		{
+			"displayName": "square voltage source",
+			"groupName": "Sources and generators",
+			"drawName": "square voltage source",
+			"aliases": ["vsourcesquare", "sqV"],
+			"shapeName": "vsourcesquareshape"
+		},
+		{
+			"displayName": "triangle voltage source",
+			"groupName": "Sources and generators",
+			"drawName": "vsourcetri",
+			"aliases": ["tV"],
+			"shapeName": "vsourcetrishape"
+		},
+		// esoure is mentioned twice
+		{
+			"displayName": "photovoltaic-voltage source",
+			"groupName": "Sources and generators",
+			"drawName": "pvsource"
+		},
+		{
+			"displayName": "photovoltaic module source",
+			"groupName": "Sources and generators",
+			"drawName": "pvmodule"
+		},
+		{
+			"displayName": "current source",
+			"groupName": "Sources and generators",
+			"drawName": "ioosource",
+			"shapeName": "oosourceshape"
+		},
+		{
+			"displayName": "voltage source",
+			"groupName": "Sources and generators",
+			"drawName": "voosource",
+			"shapeName": "oosourceshape"
+		},
+		{
+			"displayName": "transformer source",
+			"groupName": "Sources and generators",
+			"drawName": "oosourcetrans"
+		},
+		{
+			"displayName": "transformer with three windings",
+			"groupName": "Sources and generators",
+			"drawName": "ooosource"
+		},
+
+		// 4.5.7 Nullator and norator
+		{
+			"displayName": "nullator",
+			"groupName": "Sources and generators",
+			"drawName": "nullator"
+		},
+		{
+			"displayName": "norator",
+			"groupName": "Sources and generators",
+			"drawName": "norator"
+		},
+
+		// 4.5.8 DC sources
+		{
+			"displayName": "DC voltage source",
+			"groupName": "Sources and generators",
+			"drawName": "dcvsource"
+		},
+		{
+			"displayName": "DC current source",
+			"groupName": "Sources and generators",
+			"drawName": "dcisource"
 		}
 	]
 }
