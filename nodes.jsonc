@@ -1076,6 +1076,77 @@
 			"displayName": "DC current source",
 			"groupName": "Sources and generators",
 			"drawName": "dcisource"
+		},
+
+		// 4.6 Instruments
+		{
+			"displayName": "ampere meter",
+			"groupName": "Instruments",
+			"drawName": "ammeter"
+		},
+		{
+			"displayName": "volt meter",
+			"groupName": "Instruments",
+			"drawName": "voltmeter"
+		},
+		{
+			"displayName": "ohm meter",
+			"groupName": "Instruments",
+			"drawName": "ohmmeter"
+		},
+
+		{
+			"displayName": "generic round meter",
+			"groupName": "Instruments",
+			"drawName": "rmeter"
+		},
+		{
+			"displayName": "generic round meter with arrow",
+			"groupName": "Instruments",
+			"drawName": "rmeterwa"
+		},
+
+		{
+			"displayName": "generic square meter",
+			"groupName": "Instruments",
+			"pins": ["in 1", "in 2"],
+			"drawName": "smeter"
+		},
+		{
+			"displayName": "ampere meter (square)",
+			"groupName": "Instruments",
+			"drawName": "qiprobe"
+		},
+		{
+			"displayName": "volt meter (square)",
+			"groupName": "Instruments",
+			"drawName": "qvprobe"
+		},
+		{
+			"displayName": "watt meter (square)",
+			"groupName": "Instruments",
+			"pins": ["v+", "v-"],
+			"drawName": "qpprobe"
+		},
+
+		{
+			"displayName": "oscilloscope",
+			"groupName": "Instruments",
+			"pins": ["in 1", "in 2"],
+			"drawName": "oscope"
+		},
+
+		{
+			"displayName": "current loop (symbolic)",
+			"groupName": "Instruments",
+			"pins": ["i"],
+			"drawName": "iloop"
+		},
+		{
+			"displayName": "current loop (real)",
+			"groupName": "Instruments",
+			"pins": ["i+", "i-"],
+			"drawName": "iloop2"
 		}
 	]
 }
