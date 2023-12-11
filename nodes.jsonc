@@ -327,7 +327,7 @@
 		{
 			"displayName": "curved (polarized) capacitor",
 			"groupName": "Dynamic bipoles",
-			"drawName": "capacitor",
+			"drawName": "curved capacitor",
 			"aliases": ["cC"],
 			"shapeName": "ccapacitorshape"
 		},
