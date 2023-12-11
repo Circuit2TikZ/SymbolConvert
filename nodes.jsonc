@@ -448,6 +448,250 @@
 			"displayName": "choke (cute)",
 			"groupName": "Inductors",
 			"drawName": "cute choke"
+		},
+
+		// 4.4 Diodes and such
+		{
+			"displayName": "diode",
+			"groupName": "Diodes",
+			"drawName": "empty diode",
+			"aliases": ["Do"]
+		},
+		{
+			"displayName": "Schottky diode",
+			"groupName": "Diodes",
+			"drawName": "empty Schottky diode",
+			"aliases": ["sDo"],
+			"shapeName": "emptysdiodeshape"
+		},
+		{
+			"displayName": "Zener diode",
+			"groupName": "Diodes",
+			"drawName": "empty Zener diode",
+			"aliases": ["zDo"],
+			"shapeName": "emptyzdiodeshape"
+		},
+		{
+			"displayName": "ZZener diode",
+			"groupName": "Diodes",
+			"drawName": "empty ZZener diode",
+			"aliases": ["zzDo"],
+			"shapeName": "emptyzzdiodeshape"
+		},
+		{
+			"displayName": "tunnel diode",
+			"groupName": "Diodes",
+			"drawName": "empty tunnel diode",
+			"aliases": ["tDo"],
+			"shapeName": "emptytdiodeshape"
+		},
+		{
+			"displayName": "photodiode",
+			"groupName": "Diodes",
+			"drawName": "empty photodiode",
+			"aliases": ["pDo"],
+			"shapeName": "emptypdiodeshape"
+		},
+		{
+			"displayName": "LED",
+			"groupName": "Diodes",
+			"drawName": "empty led",
+			"aliases": ["leDo"],
+			"shapeName": "emptylediodeshape"
+		},
+		{
+			"displayName": "laser diode",
+			"groupName": "Diodes",
+			"drawName": "empty laser diode",
+			"aliases": ["lasD"],
+			"shapeName": "emptylaserdiodeshape"
+		},
+		{
+			"displayName": "varcap",
+			"groupName": "Diodes",
+			"drawName": "empty varcap",
+			"aliases": ["VCo"],
+			"shapeName": "emptyvarcapshape"
+		},
+		{
+			"displayName": "TVS diode",
+			"groupName": "Diodes",
+			"drawName": "empty TVS diode",
+			"aliases": ["tvsDo"],
+			"shapeName": "emptytvsdiodeshape"
+		},
+		{
+			"displayName": "Shockley diode",
+			"groupName": "Diodes",
+			"drawName": "empty Shockley diode",
+			"aliases": ["shDo"],
+			"shapeName": "emptyshdiodeshape"
+		},
+
+		{
+			"displayName": "bidirectional diode",
+			"groupName": "Diodes",
+			"drawName": "empty bidirectionaldiode",
+			"aliases": ["biDo"],
+			"shapeName": "emptybidirectionaldiodeshape"
+		},
+
+		{
+			"displayName": "diode",
+			"groupName": "Diodes",
+			"drawName": "full diode",
+			"aliases": ["D*"]
+		},
+		{
+			"displayName": "Schottky diode",
+			"groupName": "Diodes",
+			"drawName": "full Schottky diode",
+			"aliases": ["sD*"],
+			"shapeName": "fullsdiodeshape"
+		},
+		{
+			"displayName": "Zener diode",
+			"groupName": "Diodes",
+			"drawName": "full Zener diode",
+			"aliases": ["zD*"],
+			"shapeName": "fullzdiodeshape"
+		},
+		{
+			"displayName": "ZZener diode",
+			"groupName": "Diodes",
+			"drawName": "full ZZener diode",
+			"aliases": ["zzD*"],
+			"shapeName": "fullzzdiodeshape"
+		},
+		{
+			"displayName": "tunnel diode",
+			"groupName": "Diodes",
+			"drawName": "full tunnel diode",
+			"aliases": ["tD*"],
+			"shapeName": "fulltdiodeshape"
+		},
+		{
+			"displayName": "photodiode",
+			"groupName": "Diodes",
+			"drawName": "full photodiode",
+			"aliases": ["pD*"],
+			"shapeName": "fullpdiodeshape"
+		},
+		{
+			"displayName": "LED",
+			"groupName": "Diodes",
+			"drawName": "full led",
+			"aliases": ["leD*"],
+			"shapeName": "fulllediodeshape"
+		},
+		{
+			"displayName": "laser diode",
+			"groupName": "Diodes",
+			"drawName": "full laser diode",
+			"aliases": ["lasD*"],
+			"shapeName": "fulllaserdiodeshape"
+		},
+		{
+			"displayName": "varcap",
+			"groupName": "Diodes",
+			"drawName": "full varcap",
+			"aliases": ["VC*"],
+			"shapeName": "fullvarcapshape"
+		},
+		{
+			"displayName": "TVS diode",
+			"groupName": "Diodes",
+			"drawName": "full TVS diode",
+			"aliases": ["tvsD*"],
+			"shapeName": "fulltvsdiodeshape"
+		},
+		{
+			"displayName": "Shockley diode",
+			"groupName": "Diodes",
+			"drawName": "full Shockley diode",
+			"aliases": ["shD*"],
+			"shapeName": "fullshdiodeshape"
+		},
+
+		{
+			"displayName": "bidirectional diode",
+			"groupName": "Diodes",
+			"drawName": "full bidirectionaldiode",
+			"aliases": ["biD*"],
+			"shapeName": "fullbidirectionaldiodeshape"
+		},
+
+		{
+			"displayName": "diode",
+			"groupName": "Diodes",
+			"drawName": "stroke diode",
+			"aliases": ["D-"],
+			"shapeName": "emptydiodeshape",
+			"stroke": true
+		},
+		{
+			"displayName": "Schottky diode",
+			"groupName": "Diodes",
+			"drawName": "stroke Schottky diode",
+			"aliases": ["sD-"],
+			"shapeName": "emptysdiodeshape",
+			"stroke": true
+		},
+		{
+			"displayName": "Zener diode",
+			"groupName": "Diodes",
+			"drawName": "stroke Zener diode",
+			"aliases": ["zD-"],
+			"shapeName": "emptyzdiodeshape",
+			"stroke": true
+		},
+		{
+			"displayName": "ZZener diode",
+			"groupName": "Diodes",
+			"drawName": "stroke ZZener diode",
+			"aliases": ["zzD-"],
+			"shapeName": "emptyzzdiodeshape",
+			"stroke": true
+		},
+		{
+			"displayName": "tunnel diode",
+			"groupName": "Diodes",
+			"drawName": "stroke tunnel diode",
+			"aliases": ["tD-"],
+			"shapeName": "emptytdiodeshape",
+			"stroke": true
+		},
+		{
+			"displayName": "photodiode",
+			"groupName": "Diodes",
+			"drawName": "stroke photodiode",
+			"aliases": ["pD-"],
+			"shapeName": "emptypdiodeshape",
+			"stroke": true
+		},
+		{
+			"displayName": "LED",
+			"groupName": "Diodes",
+			"drawName": "stroke led",
+			"aliases": ["leD-"],
+			"shapeName": "emptylediodeshape",
+			"stroke": true
+		},
+		{
+			"displayName": "laser diode",
+			"groupName": "Diodes",
+			"drawName": "stroke laser diode",
+			"aliases": ["lasD-"],
+			"shapeName": "emptylaserdiodeshape",
+			"stroke": true
+		},
+		{
+			"displayName": "varcap",
+			"groupName": "Diodes",
+			"drawName": "stroke varcap",
+			"aliases": ["VC-"],
+			"shapeName": "emptyvarcapshape",
+			"stroke": true
 		}
 	]
 }

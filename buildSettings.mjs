@@ -36,6 +36,7 @@ export const buildFolderAbs = process.cwd() + "/" + buildFolderRel;
  * @property {string} [groupName] - the name of the group, e.g. Transistors
  * @property {(string|([string, string]))[]} [options] - a list of options to set in CircuiTikZ
  * @property {string[]} [pins] - a list of additional CircuiTikZ pin (anchor) names; e.g. for potentiometer
+ * @property {boolean} [stroke=false] - draw a line through the component
  */
 
 /**
