@@ -692,6 +692,148 @@
 			"aliases": ["VC-"],
 			"shapeName": "emptyvarcapshape",
 			"stroke": true
+		},
+
+		// 4.4.1 Tripole-like diodes
+		{
+			"displayName": "triac",
+			"groupName": "Tripole-like diodes",
+			"drawName": "empty triac",
+			"aliases": ["Tro"],
+			"pins": ["gate"]
+		},
+		{
+			"displayName": "thyristor",
+			"groupName": "Tripole-like diodes",
+			"drawName": "empty thyristor",
+			"aliases": ["Tyo"],
+			"pins": ["gate"]
+		},
+		{
+			"displayName": "PUT",
+			"groupName": "Tripole-like diodes",
+			"drawName": "empty put",
+			"aliases": ["PUTo"],
+			"pins": ["gate"]
+		},
+		{
+			"displayName": "GTO",
+			"groupName": "Tripole-like diodes",
+			"drawName": "empty gto",
+			"aliases": ["GTOo"],
+			"pins": ["gate"]
+		},
+		{
+			"displayName": "GTO",
+			"groupName": "Tripole-like diodes",
+			"drawName": "empty gtobar",
+			"aliases": ["GTObo"],
+			"pins": ["gate"]
+		},
+		{
+			"displayName": "GTO (anode)",
+			"groupName": "Tripole-like diodes",
+			"drawName": "empty agtobar",
+			"aliases": ["aGTObo"],
+			"pins": ["gate"]
+		},
+
+		{
+			"displayName": "triac",
+			"groupName": "Tripole-like diodes",
+			"drawName": "full triac",
+			"aliases": ["Tr*"],
+			"pins": ["gate"]
+		},
+		{
+			"displayName": "thyristor",
+			"groupName": "Tripole-like diodes",
+			"drawName": "full thyristor",
+			"aliases": ["Ty*"],
+			"pins": ["gate"]
+		},
+		{
+			"displayName": "PUT",
+			"groupName": "Tripole-like diodes",
+			"drawName": "full put",
+			"aliases": ["PUT*"],
+			"pins": ["gate"]
+		},
+		{
+			"displayName": "GTO",
+			"groupName": "Tripole-like diodes",
+			"drawName": "full gto",
+			"aliases": ["GTO*"],
+			"pins": ["gate"]
+		},
+		{
+			"displayName": "GTO",
+			"groupName": "Tripole-like diodes",
+			"drawName": "full gtobar",
+			"aliases": ["GTOb*"],
+			"pins": ["gate"]
+		},
+		{
+			"displayName": "GTO (anode)",
+			"groupName": "Tripole-like diodes",
+			"drawName": "full agtobar",
+			"aliases": ["aGTOb*"],
+			"pins": ["gate"]
+		},
+
+		{
+			"displayName": "triac",
+			"groupName": "Tripole-like diodes",
+			"drawName": "stroke triac",
+			"aliases": ["Tr-"],
+			"shapeName": "emptytriacshape",
+			"pins": ["gate"],
+			"stroke": true
+		},
+		{
+			"displayName": "thyristor",
+			"groupName": "Tripole-like diodes",
+			"drawName": "stroke thyristor",
+			"aliases": ["Ty-"],
+			"shapeName": "emptythyristorshape",
+			"pins": ["gate"],
+			"stroke": true
+		},
+		{
+			"displayName": "PUT",
+			"groupName": "Tripole-like diodes",
+			"drawName": "stroke put",
+			"aliases": ["PUT-"],
+			"shapeName": "emptyputshape",
+			"pins": ["gate"],
+			"stroke": true
+		},
+		{
+			"displayName": "GTO",
+			"groupName": "Tripole-like diodes",
+			"drawName": "stroke gto",
+			"aliases": ["GTO-"],
+			"shapeName": "emptygtoshape",
+			"pins": ["gate"],
+			"stroke": true
+		},
+		{
+			"displayName": "GTO",
+			"groupName": "Tripole-like diodes",
+			"drawName": "stroke gtobar",
+			"aliases": ["GTOb-"],
+			"shapeName": "emptygtobarshape",
+			"pins": ["gate"],
+			"stroke": true
+		},
+		{
+			"displayName": "GTO (anode)",
+			"groupName": "Tripole-like diodes",
+			"drawName": "stroke agtobar",
+			"aliases": ["aGTOb-"],
+			"shapeName": "emptyagtobarshape",
+			"pins": ["gate"],
+			"stroke": true
 		}
 	]
 }
