@@ -66,16 +66,21 @@
 		},
 		// 4.10 Crossings (also available as path)
 		{
-			"name": "jump crossing"
+			"name": "jump crossing",
+			"groupName": "Crossings",
+			"pins": ["north", "east", "south", "west"]
 		},
 		{
-			"name": "plain crossing"
+			"name": "plain crossing",
+			"groupName": "Crossings",
+			"pins": ["north", "east", "south", "west"]
 		},
 		{
-			"name": "circ" // also a terminal
+			"name": "circ", // also a terminal
+			"groupName": "Crossings"
 		},
 		// 4.11 Arrows
-		{
+		/*{
 			"name": "currarrow"
 		},
 		{
@@ -86,9 +91,9 @@
 		},
 		{
 			"name": "flowarrow"
-		},
+		},*/
 		// 4.12 Terminal shapes
-		{
+		/*{
 			"name": "ocirc"
 		},
 		{
@@ -102,33 +107,39 @@
 		},
 		{
 			"name": "osquarepole"
-		},
+		},*/
 		// 4.13 Connectors
 		// 4.13.1 BNC connector/terminal
 		{
 			"name": "bnc",
-			"groupName": "Connectors"
+			"groupName": "Connectors",
+			"pins": ["center", "shield"] // hot=center
 		},
 		// 4.13.2 IEC 60617 socket-plug connectors
 		{
 			"name": "iecconnshape", // is a path: iec connector
-			"groupName": "Connectors"
+			"groupName": "Connectors",
+			"pins": ["left", "right"]
 		},
 		{
 			"name": "iecsocketL",
-			"groupName": "Connectors"
+			"groupName": "Connectors",
+			"pins": ["center", "right"] // left = center
 		},
 		{
 			"name": "iecplugR",
-			"groupName": "Connectors"
+			"groupName": "Connectors",
+			"pins": ["center", "right"] // left = center
 		},
 		{
 			"name": "iecplugL",
-			"groupName": "Connectors"
+			"groupName": "Connectors",
+			"pins": ["center", "right"] // left = center
 		},
 		{
 			"name": "iecsocketR",
-			"groupName": "Connectors"
+			"groupName": "Connectors",
+			"pins": ["center", "right"] // left = center
 		},
 		// 4.14 Block diagram components
 		// skip, TODO
@@ -187,6 +198,11 @@
 			"pins": ["B", "C", "E"]
 		},
 		{
+			"name": "pigbt",
+			"groupName": "Transistors",
+			"pins": ["B", "C", "E"]
+		},
+		{
 			"name": "Lnigbt",
 			"groupName": "Transistors",
 			"pins": ["B", "C", "E"]
@@ -197,17 +213,232 @@
 			"pins": ["B", "C", "E"]
 		},
 		{
+			"name": "Lnigbt",
+			"groupName": "Transistors",
+			"options": ["bodydiode"],
+			"pins": ["B", "C", "E"]
+		},
+		{
 			"name": "Lpigbt",
 			"groupName": "Transistors",
 			"options": ["bodydiode"],
 			"pins": ["B", "C", "E"]
 		},
-		// a lot more must be inserted here...
+		// 4.15.2 Multi-terminal bipolar transistors
+		// no support for arbitrary terminal count
+
+		// 4.15.3 Field-effect transistors
+		{
+			"name": "nmos",
+			"groupName": "Transistors",
+			"pins": ["D", "G", "S"]
+		},
+		{
+			"name": "pmos",
+			"groupName": "Transistors",
+			"pins": ["D", "G", "S"]
+		},
+		{
+			"name": "pmos",
+			"groupName": "Transistors",
+			"options": ["emptycircle"],
+			"pins": ["D", "G", "S"]
+		},
+		{
+			"name": "nmosd",
+			"groupName": "Transistors",
+			"pins": ["D", "G", "S"]
+		},
+		{
+			"name": "pmosd",
+			"groupName": "Transistors",
+			"pins": ["D", "G", "S"]
+		},
+		{
+			"name": "pmosd",
+			"groupName": "Transistors",
+			"options": ["emptycircle"],
+			"pins": ["D", "G", "S"]
+		},
+		{
+			"name": "hemt",
+			"groupName": "Transistors",
+			"pins": ["D", "G", "S"]
+		},
+		{
+			"name": "hemt",
+			"groupName": "Transistors",
+			"options": ["nobase"],
+			"pins": ["D", "S"]
+		},
+		{
+			"name": "GaN hemt",
+			"groupName": "Transistors",
+			"pins": ["D", "G", "S"]
+		},
+
+		{
+			"name": "nfet",
+			"groupName": "Transistors",
+			"pins": ["D", "G", "center", "S"] // bulk = center
+		},
+		{
+			"name": "nfetd",
+			"groupName": "Transistors",
+			"pins": ["D", "G", "center", "S"] // bulk = center
+		},
 		{
 			"name": "nigfete",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "S"]
+		},
+		{
+			"name": "nigfete",
+			"groupName": "Transistors",
+			"options": ["solderdot"],
+			"pins": ["D", "G", "S"]
+		},
+		{
+			"name": "nigfetebulk",
+			"groupName": "Transistors",
+			"pins": ["D", "G", "center", "S"] // bulk = center
+		},
+		{
+			"name": "nigfetd",
+			"groupName": "Transistors",
+			"pins": ["D", "G", "S"]
+		},
+		{
+			"name": "pfet",
+			"groupName": "Transistors",
+			"pins": ["D", "G", "center", "S"] // bulk = center
+		},
+		{
+			"name": "pfetd",
+			"groupName": "Transistors",
+			"pins": ["D", "G", "center", "S"] // bulk = center
+		},
+		{
+			"name": "pigfete",
+			"groupName": "Transistors",
+			"pins": ["D", "G", "S"]
+		},
+		{
+			"name": "pigfete",
+			"groupName": "Transistors",
+			"options": ["solderdot"],
+			"pins": ["D", "G", "S"]
+		},
+		{
+			"name": "pigfetebulk",
+			"groupName": "Transistors",
+			"pins": ["D", "G", "center", "S"] // bulk = center
+		},
+		{
+			"name": "pigfetd",
+			"groupName": "Transistors",
+			"pins": ["D", "G", "S"]
+		},
+
+		{
+			"name": "nigfete",
+			"groupName": "Transistors",
+			"options": ["doublegate"],
+			"pins": ["D", "G", "G2", "S"]
+		},
+		{
+			"name": "nigfete",
+			"groupName": "Transistors",
+			"options": ["solderdot", "doublegate"],
+			"pins": ["D", "G", "G2", "S"]
+		},
+		{
+			"name": "nigfetebulk",
+			"groupName": "Transistors",
+			"options": ["doublegate"],
+			"pins": ["D", "G", "G2", "center", "S"] // bulk = center
+		},
+		{
+			"name": "nigfetd",
+			"groupName": "Transistors",
+			"options": ["doublegate"],
+			"pins": ["D", "G", "G2", "S"]
+		},
+		{
+			"name": "pigfete",
+			"groupName": "Transistors",
+			"options": ["doublegate"],
+			"pins": ["D", "G", "G2", "S"]
+		},
+		{
+			"name": "pigfete",
+			"groupName": "Transistors",
+			"options": ["solderdot", "doublegate"],
+			"pins": ["D", "G", "G2", "S"]
+		},
+		{
+			"name": "pigfetebulk",
+			"groupName": "Transistors",
+			"options": ["doublegate"],
+			"pins": ["D", "G", "G2", "center", "S"] // bulk = center
+		},
+		{
+			"name": "pigfetd",
+			"groupName": "Transistors",
+			"options": ["doublegate"],
+			"pins": ["D", "G", "G2", "S"]
+		},
+
+		{
+			"name": "njfet",
+			"groupName": "Transistors",
+			"pins": ["D", "G", "S"]
+		},
+		{
+			"name": "pjfet",
+			"groupName": "Transistors",
+			"pins": ["D", "G", "S"]
+		},
+		{
+			"name": "nujt",
+			"groupName": "Transistors",
+			"pins": ["B1", "G", "B2"]
+		},
+		{
+			"name": "pujt",
+			"groupName": "Transistors",
+			"pins": ["B1", "G", "B2"]
+		},
+		{
+			"name": "nujt",
+			"groupName": "Transistors",
+			"options": ["nobase"],
+			"pins": ["B1", "B2"]
+		},
+		{
+			"name": "pujt",
+			"groupName": "Transistors",
+			"options": ["nobase"],
+			"pins": ["B1", "B2"]
+		},
+		{
+			"name": "isfet",
+			"groupName": "Transistors",
+			"pins": ["D", "S"]
+		},
+		{
+			"name": "ngfet",
+			"groupName": "Transistors",
+			"pins": ["D", "G", "S"]
+		},
+		{
+			"name": "pgfet",
+			"groupName": "Transistors",
+			"pins": ["D", "G", "S"]
 		}
+
+		// 4.16 Electronic Tubes
+		// skip
 	],
 	"path": [
 		// 4.2 Resistive bipoles
@@ -400,7 +631,7 @@
 			"groupName": "Inductors",
 			"drawName": "american inductor",
 			//"aliases": ["L"],
-			"pins": ["midtap"]
+			"pins": ["center"] // midtap = center
 		},
 		{
 			"displayName": "variable inductor (american)",

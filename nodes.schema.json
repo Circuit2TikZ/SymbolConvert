@@ -3,39 +3,55 @@
 	"$id": "urn:uuid:feee8b93-7192-4034-b404-a7fd1b9b5a12",
 	"title": "Schema for declaring CircuiTikZ node- and path-style components",
 	"type": "object",
+	"definitions": {
+		"symbolBase": {
+			"type": "object",
+			"properties": {
+				"displayName": {
+					"title": "The name to show in the UI",
+					"type": "string",
+					"minLength": 1
+				},
+				"groupName": {
+					"title": "The name of the group, e.g. Transistors",
+					"type": "string",
+					"minLength": 1
+				},
+				"options": {
+					"title": "A list of options to set in CircuiTikZ",
+					"type": "array",
+					"items": {
+						"oneOf": [
+							{ "type": "string", "minLength": 1 },
+							{ "type": "array", "minLength": 2, "maxLength": 2, "items": { "type": "string" } }
+						]
+					},
+					"uniqueItems": true
+				},
+				"pins": {
+					"title": "A list of CircuiTikZ pin (anchor) names",
+					"type": "array",
+					"items": {
+						"type": "string",
+						"minLength": 1
+					},
+					"uniqueItems": true
+				}
+			}
+		}
+	},
 	"properties": {
 		"nodes": {
 			"title": "Definitions of node-style components",
 			"type": "array",
 			"items": {
 				"type": "object",
+				"allOf": [{ "$ref": "#/definitions/symbolBase" }],
 				"properties": {
 					"name": {
 						"title": "The CircuiTikZ node name, e.g. nigfete for a n channel MOSFET",
-						"type": "string"
-					},
-					"groupName": {
-						"title": "The name of the group, e.g. Transistors",
-						"type": "string"
-					},
-					"options": {
-						"title": "A list of options to set in CircuiTikZ",
-						"type": "array",
-						"items": {
-							"type": "string"
-						},
-						"uniqueItems": true
-					},
-					"pins": {
-						"title": "A list of CircuiTikZ pin (anchor) names",
-						"type": "array",
-						"items": {
-							"oneOf": [
-								{ "type": "string" },
-								{ "type": "array", "items": { "type": "string", "minItems": 2, "maxItems": 2 } }
-							]
-						},
-						"uniqueItems": true
+						"type": "string",
+						"minLength": 1
 					}
 				},
 				"required": ["name"]
@@ -47,45 +63,25 @@
 			"type": "array",
 			"items": {
 				"type": "object",
+				"allOf": [{ "$ref": "#/definitions/symbolBase" }],
 				"properties": {
-					"displayName": {
-						"title": "The name to show in the UI",
-						"type": "string"
-					},
 					"drawName": {
 						"title": "The unique (!) CircuiTikZ name used in to[...], e.g. american resistor (not R) for an resistor",
-						"type": "string"
+						"type": "string",
+						"minLength": 1
 					},
 					"aliases": {
 						"title": "Additional names which can be used in to[...]",
 						"type": "array",
 						"items": {
-							"type": "string"
+							"type": "string",
+							"minLength": 1
 						}
 					},
 					"shapeName": {
 						"title": "The shape name used internally by CircuiTikZ; can be used to create a node",
-						"type": "string"
-					},
-					"groupName": {
-						"title": "The name of the group, e.g. Transistors",
-						"type": "string"
-					},
-					"options": {
-						"title": "A list of options to set in CircuiTikZ",
-						"type": "array",
-						"items": {
-							"type": "string"
-						},
-						"uniqueItems": true
-					},
-					"pins": {
-						"title": "A list of additional CircuiTikZ pin (anchor) names; e.g. for potentiometer",
-						"type": "array",
-						"items": {
-							"type": "string"
-						},
-						"uniqueItems": true
+						"type": "string",
+						"minLength": 1
 					},
 					"stroke": {
 						"title": "Draw a line through the component",
@@ -98,5 +94,5 @@
 		}
 	},
 
-	"required": ["nodes"]
+	"required": ["nodes", "path"]
 }
