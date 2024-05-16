@@ -1,8 +1,9 @@
 const { task, src, dest, series, parallel } = (await import("gulp")).default;
 import { compileTexToDVIVinyl } from "./lib/compileTex.mjs";
-import { convertDVItoSVGsymbol } from "./lib/convertDviToSymbol.mjs";
+import { combineSymbols, convertDVItoSVGsymbol } from "./lib/convertDviToSymbol.mjs";
 import { createNodeTexFiles, createPathTexFiles } from "./lib/createTexFilesTasks.mjs";
 import { filterNewer } from "./lib/vinylTools.mjs";
+var concat = (await import("gulp-concat")).default;
 
 task("createNodeTexFiles", createNodeTexFiles);
 
@@ -31,4 +32,14 @@ task("buildSVG", function () {
 		.pipe(dest("build/"));
 });
 
-task("default", series("buildDVI", "buildSVG"));
+task("buildSymbol", function () {
+	return src("build/*.svg", {
+
+	})
+	.pipe(concat("symbols.svg",{newLine:''}))
+	.pipe(combineSymbols())
+	.pipe(dest("./"))
+	;
+});
+
+task("default", series("buildDVI", "buildSVG", "buildSymbol"));
