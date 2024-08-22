@@ -42,4 +42,9 @@ task("buildSymbol", function () {
 	;
 });
 
-task("default", series("buildDVI", "buildSVG", "buildSymbol"));
+task("createSymbols", series("buildDVI", "buildSVG", "buildSymbol"));
+
+//EXPLANATION
+//run this to rerender all symbols defined in nodes.jsonc
+//run via "npx gulp" or "npx gulp default"
+task("default", series("createTexFiles", "createSymbols"));
