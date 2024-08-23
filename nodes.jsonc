@@ -208,19 +208,19 @@
 			"displayName": "Wilkinson divider",
 			"name": "wilkinson",
 			"groupName": "Block diagram",
-			"pins": ["in", "out1", "out 2"] 
+			"pins": ["in", "out1", "out2"] 
 		},	
 		{
 			"displayName": "Resistive splitter",
 			"name": "splitter",
 			"groupName": "Block diagram",
-			"pins": ["in", "out1", "out 2"] 
+			"pins": ["in", "out1", "out2"] 
 		},
 		{
 			"displayName": "Generic splitter",
 			"name": "genericsplitter",
 			"groupName": "Block diagram",
-			"pins": ["in", "out1", "out 2"] 
+			"pins": ["in", "out1", "out2"] 
 		},	
 		{
 			"displayName": "Grid node",
@@ -238,7 +238,7 @@
 			"displayName": "Generic fourport",
 			"name": "fourport",
 			"groupName": "Block diagram",
-			"pins": ["port 1", "port 2", "port 3", "port 4"] 
+			"pins": ["port1", "port2", "port3", "port4"] 
 		},
 		{
 			"displayName": "Coupler",
@@ -250,7 +250,7 @@
 			"displayName": "Coupler (rounded arrows)",
 			"name": "coupler2",
 			"groupName": "Block diagram",
-			"pins": ["port 1", "port 2", "port 3", "port 4"] 
+			"pins": ["port1", "port2", "port3", "port4"] 
 		},
 
 		// 4.15 Transistors - done
@@ -637,35 +637,35 @@
 			"name": "diodetube",
 			"groupName": "Tubes",
 			"options": ["filament"],
-			"pins": ["anode","cathode","filament 1","filament 2","filament center"]
+			"pins": ["anode","cathode","filament 1","filament 2"]
 		},
 		{
 			"displayName": "Triode (filament)",
 			"name": "triode",
 			"groupName": "Tubes",
 			"options": ["filament"],
-			"pins": ["anode","cathode","control","filament 1","filament 2","filament center"]
+			"pins": ["anode","cathode","control","filament 1","filament 2"]
 		},
 		{
 			"displayName": "Tetrode (filament)",
 			"name": "tetrode",
 			"groupName": "Tubes",
 			"options": ["filament"],
-			"pins": ["anode","cathode","control","screen","filament 1","filament 2","filament center"]
+			"pins": ["anode","cathode","control","screen","filament 1","filament 2"]
 		},
 		{
 			"displayName": "Pentode (filament)",
 			"name": "pentode",
 			"groupName": "Tubes",
 			"options": ["filament"],
-			"pins": ["anode","cathode","control","screen","suppressor","filament 1","filament 2","filament center"]
+			"pins": ["anode","cathode","control","screen","suppressor","filament 1","filament 2"]
 		},
 		{
 			"displayName": "Pentode with suppressor grid connected to cathode (filament)",
 			"name": "pentode suppressor to cathode",
 			"groupName": "Tubes",
 			"options": ["filament"],
-			"pins": ["anode","cathode","control","screen","filament 1","filament 2","filament center"]
+			"pins": ["anode","cathode","control","screen","filament 1","filament 2"]
 		},
 		// no cathode x no filament
 		{
@@ -709,35 +709,35 @@
 			"name": "diodetube",
 			"groupName": "Tubes",
 			"options": ["filament", "nocathode"],
-			"pins": ["anode","filament 1","filament 2","filament center"]
+			"pins": ["anode","filament 1","filament 2"]
 		},
 		{
 			"displayName": "Triode (filament, nocathode)",
 			"name": "triode",
 			"groupName": "Tubes",
 			"options": ["filament", "nocathode"],
-			"pins": ["anode","control","filament 1","filament 2","filament center"]
+			"pins": ["anode","control","filament 1","filament 2"]
 		},
 		{
 			"displayName": "Tetrode (filament, nocathode)",
 			"name": "tetrode",
 			"groupName": "Tubes",
 			"options": ["filament", "nocathode"],
-			"pins": ["anode","control","screen","filament 1","filament 2","filament center"]
+			"pins": ["anode","control","screen","filament 1","filament 2"]
 		},
 		{
 			"displayName": "Pentode (filament, nocathode)",
 			"name": "pentode",
 			"groupName": "Tubes",
 			"options": ["filament", "nocathode"],
-			"pins": ["anode","control","screen","suppressor","filament 1","filament 2","filament center"]
+			"pins": ["anode","control","screen","suppressor","filament 1","filament 2"]
 		},
 		{
 			"displayName": "Pentode with suppressor grid connected to cathode (filament, nocathode)",
 			"name": "pentode suppressor to cathode",
 			"groupName": "Tubes",
 			"options": ["filament", "nocathode"],
-			"pins": ["anode","control","screen","filament 1","filament 2","filament center"]
+			"pins": ["anode","control","screen","filament 1","filament 2"]
 		},
 		// full cathode x no filament
 		{
@@ -781,35 +781,35 @@
 			"name": "diodetube",
 			"groupName": "Tubes",
 			"options": ["filament", "fullcathode"],
-			"pins": ["anode","cathode 1","cathode 2","filament 1","filament 2","filament center"]
+			"pins": ["anode","cathode 1","cathode 2","filament 1","filament 2"]
 		},
 		{
 			"displayName": "Triode (filament, fullcathode)",
 			"name": "triode",
 			"groupName": "Tubes",
 			"options": ["filament", "fullcathode"],
-			"pins": ["anode","cathode 1","cathode 2","control","filament 1","filament 2","filament center"]
+			"pins": ["anode","cathode 1","cathode 2","control","filament 1","filament 2"]
 		},
 		{
 			"displayName": "Tetrode (filament, fullcathode)",
 			"name": "tetrode",
 			"groupName": "Tubes",
 			"options": ["filament", "fullcathode"],
-			"pins": ["anode","cathode 1","cathode 2","control","screen","filament 1","filament 2","filament center"]
+			"pins": ["anode","cathode 1","cathode 2","control","screen","filament 1","filament 2"]
 		},
 		{
 			"displayName": "Pentode (filament, fullcathode)",
 			"name": "pentode",
 			"groupName": "Tubes",
 			"options": ["filament", "fullcathode"],
-			"pins": ["anode","cathode 1","cathode 2","control","screen","suppressor","filament 1","filament 2","filament center"]
+			"pins": ["anode","cathode 1","cathode 2","control","screen","suppressor","filament 1","filament 2"]
 		},
 		{
 			"displayName": "Pentode with suppressor grid connected to cathode (filament, fullcathode)",
 			"name": "pentode suppressor to cathode",
 			"groupName": "Tubes",
 			"options": ["filament", "fullcathode"],
-			"pins": ["anode","cathode 1","cathode 2","control","screen","filament 1","filament 2","filament center"]
+			"pins": ["anode","cathode 1","cathode 2","control","screen","filament 1","filament 2"]
 		},
 
 
@@ -817,22 +817,97 @@
 			"displayName": "Magnetron",
 			"name": "magnetron",
 			"groupName": "Tubes",
-			"pins": ["anode","cathode 1","cathode 2","top","right","left"]
+			"pins": ["anode","cathode1","cathode2","top","right","left"]
 		},
 		{
 			"displayName": "Dynode",
 			"name": "dynode",
 			"groupName": "Tubes",
-			"pins": ["center","top ","top right","top left"]
+			"pins": ["center","top","top right","top left"]
 		},
 
 		// 4.16.4 Multi-anode tube
 		// variable pin amount not supported
 
-		// TODO
-
 		// 4.17 RF components
-		// TODO
+		{
+			"displayName": "Bare Antenna",
+			"name": "bareantenna",
+			"groupName": "RF components",
+			"pins": ["center","top"]
+		},
+		{
+			"displayName": "DIN Antenna",
+			"name": "dinantenna",
+			"groupName": "RF components",
+			"pins": ["center"]
+		},
+		{
+			"displayName": "Bare TX Antenna",
+			"name": "bareTXantenna",
+			"groupName": "RF components",
+			"pins": ["center","top","waves"]
+		},
+		{
+			"displayName": "Bare RX Antenna",
+			"name": "bareRXantenna",
+			"groupName": "RF components",
+			"pins": ["center","top","waves"]
+		},
+		{
+			"displayName": "Waves",
+			"name": "waves",
+			"groupName": "RF components",
+			"pins": ["left","right"]
+		},
+		{
+			"displayName": "Microstrip linear stub",
+			"name": "mslstub",
+			"groupName": "RF components",
+			"pins": ["left","right"]
+		},
+		{
+			"displayName": "Microstrip port",
+			"name": "msport",
+			"groupName": "RF components",
+			"pins": ["center","right"]
+		},
+		{
+			"displayName": "Microstrip radial stub",
+			"name": "msrstub",
+			"groupName": "RF components",
+			"pins": ["center"]
+		},
+		{
+			"displayName": "Legacy antenna (with tails)",
+			"name": "antenna",
+			"groupName": "RF components",
+			"pins": ["center"]
+		},
+		{
+			"displayName": "Legacy receiving antenna (with tails)",
+			"name": "rxantenna",
+			"groupName": "RF components",
+			"pins": ["center"]
+		},
+		{
+			"displayName": "Legacy transmitting antenna (with tails)",
+			"name": "txantenna",
+			"groupName": "RF components",
+			"pins": ["center"]
+		},
+		{
+			"displayName": "Transmission line stub",
+			"name": "tlinestub",
+			"groupName": "RF components",
+			"pins": ["center"]
+		},
+		{
+			"displayName": "Match",
+			"name": "match",
+			"groupName": "RF components",
+			"pins": ["center"]
+		}
 
 		// 4.18 Electro-Mechanical Devices
 		// TODO
@@ -1872,7 +1947,7 @@
 			"groupName": "Miscellaneous bipoles",
 			"drawName": "wfuse"
 		},
-		{
+		{ 
 			"displayName": "Relais",
 			"groupName": "Miscellaneous bipoles",
 			"drawName": "relais"
@@ -2171,6 +2246,19 @@
 			"drawName": "tacac",
 			"groupName": "Block diagram",
 			"pins": ["ac up in", "ac up out", "ac down in", "ac down out"]
+		},
+		// 4.17 RF components
+		{
+			"displayName": "Microstrip transmission line",
+			"drawName": "mstline",
+			"groupName": "RF components"
+		},
+		{
+			"displayName": "Transmission line",
+			"drawName": "tline",
+			"groupName": "RF components",
+			"aliases": ["TL", "transmission line"]
 		}
+
 	]
 }
