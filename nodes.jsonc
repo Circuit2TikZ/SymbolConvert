@@ -596,9 +596,239 @@
 			"name": "pgfet",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "S"]
-		}
+		},
 
 		// 4.16 Electronic Tubes
+		// TODO add [nocathode,fullcathode,"normal"]x["normal",filament]
+		// 1 cathode x no filament
+		{
+			"displayName": "Tube diode",
+			"name": "diodetube",
+			"groupName": "Tubes",
+			"pins": ["anode","cathode"]
+		},
+		{
+			"displayName": "Triode",
+			"name": "triode",
+			"groupName": "Tubes",
+			"pins": ["anode","cathode","control"]
+		},
+		{
+			"displayName": "Tetrode",
+			"name": "tetrode",
+			"groupName": "Tubes",
+			"pins": ["anode","cathode","control","screen"]
+		},
+		{
+			"displayName": "Pentode",
+			"name": "pentode",
+			"groupName": "Tubes",
+			"pins": ["anode","cathode","control","screen","suppressor"]
+		},
+		{
+			"displayName": "Pentode with suppressor grid connected to cathode",
+			"name": "pentode suppressor to cathode",
+			"groupName": "Tubes",
+			"pins": ["anode","cathode","control","screen"]
+		},
+		// 1 cathode x filament
+		{
+			"displayName": "Tube diode (filament)",
+			"name": "diodetube",
+			"groupName": "Tubes",
+			"options": ["filament"],
+			"pins": ["anode","cathode","filament 1","filament 2","filament center"]
+		},
+		{
+			"displayName": "Triode (filament)",
+			"name": "triode",
+			"groupName": "Tubes",
+			"options": ["filament"],
+			"pins": ["anode","cathode","control","filament 1","filament 2","filament center"]
+		},
+		{
+			"displayName": "Tetrode (filament)",
+			"name": "tetrode",
+			"groupName": "Tubes",
+			"options": ["filament"],
+			"pins": ["anode","cathode","control","screen","filament 1","filament 2","filament center"]
+		},
+		{
+			"displayName": "Pentode (filament)",
+			"name": "pentode",
+			"groupName": "Tubes",
+			"options": ["filament"],
+			"pins": ["anode","cathode","control","screen","suppressor","filament 1","filament 2","filament center"]
+		},
+		{
+			"displayName": "Pentode with suppressor grid connected to cathode (filament)",
+			"name": "pentode suppressor to cathode",
+			"groupName": "Tubes",
+			"options": ["filament"],
+			"pins": ["anode","cathode","control","screen","filament 1","filament 2","filament center"]
+		},
+		// no cathode x no filament
+		{
+			"displayName": "Tube diode (nocathode)",
+			"name": "diodetube",
+			"groupName": "Tubes",
+			"options": ["nocathode"],
+			"pins": ["anode"]
+		},
+		{
+			"displayName": "Triode (nocathode)",
+			"name": "triode",
+			"groupName": "Tubes",
+			"options": ["nocathode"],
+			"pins": ["anode","control"]
+		},
+		{
+			"displayName": "Tetrode (nocathode)",
+			"name": "tetrode",
+			"groupName": "Tubes",
+			"options": ["nocathode"],
+			"pins": ["anode","control","screen"]
+		},
+		{
+			"displayName": "Pentode (nocathode)",
+			"name": "pentode",
+			"groupName": "Tubes",
+			"options": ["nocathode"],
+			"pins": ["anode","control","screen","suppressor"]
+		},
+		{
+			"displayName": "Pentode with suppressor grid connected to cathode (nocathode)",
+			"name": "pentode suppressor to cathode",
+			"groupName": "Tubes",
+			"options": ["nocathode"],
+			"pins": ["anode","control","screen"]
+		},
+		// no cathode x filament
+		{
+			"displayName": "Tube diode (filament, nocathode)",
+			"name": "diodetube",
+			"groupName": "Tubes",
+			"options": ["filament", "nocathode"],
+			"pins": ["anode","filament 1","filament 2","filament center"]
+		},
+		{
+			"displayName": "Triode (filament, nocathode)",
+			"name": "triode",
+			"groupName": "Tubes",
+			"options": ["filament", "nocathode"],
+			"pins": ["anode","control","filament 1","filament 2","filament center"]
+		},
+		{
+			"displayName": "Tetrode (filament, nocathode)",
+			"name": "tetrode",
+			"groupName": "Tubes",
+			"options": ["filament", "nocathode"],
+			"pins": ["anode","control","screen","filament 1","filament 2","filament center"]
+		},
+		{
+			"displayName": "Pentode (filament, nocathode)",
+			"name": "pentode",
+			"groupName": "Tubes",
+			"options": ["filament", "nocathode"],
+			"pins": ["anode","control","screen","suppressor","filament 1","filament 2","filament center"]
+		},
+		{
+			"displayName": "Pentode with suppressor grid connected to cathode (filament, nocathode)",
+			"name": "pentode suppressor to cathode",
+			"groupName": "Tubes",
+			"options": ["filament", "nocathode"],
+			"pins": ["anode","control","screen","filament 1","filament 2","filament center"]
+		},
+		// full cathode x no filament
+		{
+			"displayName": "Tube diode (fullcathode)",
+			"name": "diodetube",
+			"groupName": "Tubes",
+			"options": ["fullcathode"],
+			"pins": ["anode","cathode 1","cathode 2"]
+		},
+		{
+			"displayName": "Triode (fullcathode)",
+			"name": "triode",
+			"groupName": "Tubes",
+			"options": ["fullcathode"],
+			"pins": ["anode","cathode 1","cathode 2","control"]
+		},
+		{
+			"displayName": "Tetrode (fullcathode)",
+			"name": "tetrode",
+			"groupName": "Tubes",
+			"options": ["fullcathode"],
+			"pins": ["anode","cathode 1","cathode 2","control","screen"]
+		},
+		{
+			"displayName": "Pentode (fullcathode)",
+			"name": "pentode",
+			"groupName": "Tubes",
+			"options": ["fullcathode"],
+			"pins": ["anode","cathode 1","cathode 2","control","screen","suppressor"]
+		},
+		{
+			"displayName": "Pentode with suppressor grid connected to cathode (fullcathode)",
+			"name": "pentode suppressor to cathode",
+			"groupName": "Tubes",
+			"options": ["fullcathode"],
+			"pins": ["anode","cathode 1","cathode 2","control","screen"]
+		},
+		// full cathode x filament
+		{
+			"displayName": "Tube diode (filament, fullcathode)",
+			"name": "diodetube",
+			"groupName": "Tubes",
+			"options": ["filament", "fullcathode"],
+			"pins": ["anode","cathode 1","cathode 2","filament 1","filament 2","filament center"]
+		},
+		{
+			"displayName": "Triode (filament, fullcathode)",
+			"name": "triode",
+			"groupName": "Tubes",
+			"options": ["filament", "fullcathode"],
+			"pins": ["anode","cathode 1","cathode 2","control","filament 1","filament 2","filament center"]
+		},
+		{
+			"displayName": "Tetrode (filament, fullcathode)",
+			"name": "tetrode",
+			"groupName": "Tubes",
+			"options": ["filament", "fullcathode"],
+			"pins": ["anode","cathode 1","cathode 2","control","screen","filament 1","filament 2","filament center"]
+		},
+		{
+			"displayName": "Pentode (filament, fullcathode)",
+			"name": "pentode",
+			"groupName": "Tubes",
+			"options": ["filament", "fullcathode"],
+			"pins": ["anode","cathode 1","cathode 2","control","screen","suppressor","filament 1","filament 2","filament center"]
+		},
+		{
+			"displayName": "Pentode with suppressor grid connected to cathode (filament, fullcathode)",
+			"name": "pentode suppressor to cathode",
+			"groupName": "Tubes",
+			"options": ["filament", "fullcathode"],
+			"pins": ["anode","cathode 1","cathode 2","control","screen","filament 1","filament 2","filament center"]
+		},
+
+
+		{
+			"displayName": "Magnetron",
+			"name": "magnetron",
+			"groupName": "Tubes",
+			"pins": ["anode","cathode 1","cathode 2","top","right","left"]
+		},
+		{
+			"displayName": "Dynode",
+			"name": "dynode",
+			"groupName": "Tubes",
+			"pins": ["center","top ","top right","top left"]
+		},
+
+		// 4.16.4 Multi-anode tube
+		// variable pin amount not supported
+
 		// TODO
 
 		// 4.17 RF components
