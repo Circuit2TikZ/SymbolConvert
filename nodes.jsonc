@@ -906,14 +906,111 @@
 			"name": "match",
 			"groupName": "RF components",
 			"pins": ["center"]
-		}
+		},
 
 		// 4.18 Electro-Mechanical Devices
 		// TODO
 
 		// 4.19 Transformers
-		// TODO
-
+		//inward
+		{
+			"displayName": "Transformer (cute)",
+			"name": "transformer",
+			"groupName": "Inductors",
+			"options": ["cute"],
+			"pins": ["A1","A2","B1","B2"]
+		},
+		{
+			"displayName": "Transformer (american)",
+			"name": "transformer",
+			"groupName": "Inductors",
+			"options": ["american"],
+			"pins": ["A1","A2","B1","B2"]
+		},
+		{
+			"displayName": "Transformer (european)",
+			"name": "transformer",
+			"groupName": "Inductors",
+			"options": ["european"],
+			"pins": ["A1","A2","B1","B2"]
+		},
+		{
+			"displayName": "Transformer core (cute)",
+			"name": "transformer core",
+			"groupName": "Inductors",
+			"options": ["cute"],
+			"pins": ["A1","A2","B1","B2"]
+		},
+		{
+			"displayName": "Transformer core (american)",
+			"name": "transformer core",
+			"groupName": "Inductors",
+			"options": ["american"],
+			"pins": ["A1","A2","B1","B2"]
+		},
+		{
+			"displayName": "Transformer core (european)",
+			"name": "transformer core",
+			"groupName": "Inductors",
+			"options": ["european"],
+			"pins": ["A1","A2","B1","B2"]
+		},
+		{
+			"displayName": "Gyrator",
+			"name": "gyrator",
+			"groupName": "Inductors",
+			"pins": ["A1","A2","B1","B2"]
+		},
+		//inline
+		{
+			"displayName": "Transformer (cute, inline)",
+			"name": "transformer",
+			"groupName": "Inductors",
+			"options": ["cute","circuitikz/quadpoles style=inline"],
+			"pins": ["A1","A2","B1","B2"]
+		},
+		{
+			"displayName": "Transformer (american, inline)",
+			"name": "transformer",
+			"groupName": "Inductors",
+			"options": ["american","circuitikz/quadpoles style=inline"],
+			"pins": ["A1","A2","B1","B2"]
+		},
+		{
+			"displayName": "Transformer (european, inline)",
+			"name": "transformer",
+			"groupName": "Inductors",
+			"options": ["european","circuitikz/quadpoles style=inline"],
+			"pins": ["A1","A2","B1","B2"]
+		},
+		{
+			"displayName": "Transformer core (cute, inline)",
+			"name": "transformer core",
+			"groupName": "Inductors",
+			"options": ["cute","circuitikz/quadpoles style=inline"],
+			"pins": ["A1","A2","B1","B2"]
+		},
+		{
+			"displayName": "Transformer core (american, inline)",
+			"name": "transformer core",
+			"groupName": "Inductors",
+			"options": ["american","circuitikz/quadpoles style=inline"],
+			"pins": ["A1","A2","B1","B2"]
+		},
+		{
+			"displayName": "Transformer core (european, inline)",
+			"name": "transformer core",
+			"groupName": "Inductors",
+			"options": ["european","circuitikz/quadpoles style=inline"],
+			"pins": ["A1","A2","B1","B2"]
+		},
+		{
+			"displayName": "Gyrator (inline)",
+			"name": "gyrator",
+			"groupName": "Inductors",
+			"options": ["circuitikz/quadpoles style=inline"],
+			"pins": ["A1","A2","B1","B2"]
+		}
 		// 4.20 Amplifiers
 		// TODO
 
@@ -1110,14 +1207,14 @@
 		// cute
 		{
 			"displayName": "Inductor (cute)",
-			"groupName": "Inductive bipoles",
+			"groupName": "Inductors",
 			"drawName": "cute inductor",
 			//"aliases": ["L"],
 			"pins": ["midtap"]
 		},
 		{
 			"displayName": "Variable inductor (cute)",
-			"groupName": "Inductive bipoles",
+			"groupName": "Inductors",
 			"drawName": "variable cute inductor",
 			//"aliases": ["vL"],
 			"shapeName": "vcuteinductorshape",
@@ -1125,7 +1222,7 @@
 		},
 		{
 			"displayName": "Inductive sensor (cute)",
-			"groupName": "Inductive bipoles",
+			"groupName": "Inductors",
 			"drawName": "cute inductive sensor",
 			//"aliases": ["sL"],
 			"shapeName": "scuteinductorshape",
@@ -1134,14 +1231,14 @@
 		// american
 		{
 			"displayName": "Inductor (american)",
-			"groupName": "Inductive bipoles",
+			"groupName": "Inductors",
 			"drawName": "american inductor",
 			//"aliases": ["L"],
 			"pins": ["center"] // midtap = center
 		},
 		{
 			"displayName": "Variable inductor (american)",
-			"groupName": "Inductive bipoles",
+			"groupName": "Inductors",
 			"drawName": "variable american inductor",
 			//"aliases": ["vL"],
 			"shapeName": "vamericaninductorshape",
@@ -1149,7 +1246,7 @@
 		},
 		{
 			"displayName": "Inductive sensor (american)",
-			"groupName": "Inductive bipoles",
+			"groupName": "Inductors",
 			"drawName": "american inductive sensor",
 			//"aliases": ["sL"],
 			"shapeName": "samericaninductorshape",
@@ -1158,7 +1255,7 @@
 		//european
 		{
 			"displayName": "Inductor (european)",
-			"groupName": "Inductive bipoles",
+			"groupName": "Inductors",
 			"drawName": "european inductor",
 			//"aliases": ["L"],
 			"shapeName": "fullgenericshape",
@@ -1166,7 +1263,7 @@
 		},
 		{
 			"displayName": "Variable inductor (european)",
-			"groupName": "Inductive bipoles",
+			"groupName": "Inductors",
 			"drawName": "variable european inductor",
 			//"aliases": ["vL"],
 			"shapeName": "tfullgenericshape",
@@ -1174,7 +1271,7 @@
 		},
 		{
 			"displayName": "Inductive sensor (european)",
-			"groupName": "Inductive bipoles",
+			"groupName": "Inductors",
 			"drawName": "european inductive sensor",
 			//"aliases": ["sL"],
 			"shapeName": "sfullgenericshape",
@@ -1183,7 +1280,7 @@
 
 		{
 			"displayName": "Choke",
-			"groupName": "Inductive bipoles",
+			"groupName": "Inductors",
 			"drawName": "cute choke"
 		},
 
