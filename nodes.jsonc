@@ -599,7 +599,6 @@
 		},
 
 		// 4.16 Electronic Tubes
-		// TODO add [nocathode,fullcathode,"normal"]x["normal",filament]
 		// 1 cathode x no filament
 		{
 			"displayName": "Tube diode",
@@ -1901,27 +1900,27 @@
 		// 4.7 Mechanical Analogy - done
 		{
 			"displayName": "Mechanical damping",
-			"groupName": "Mechanical Analogy",
+			"groupName": "Mechanical",
 			"drawName": "damper"
 		},
 		{
 			"displayName": "Mechanical inerter",
-			"groupName": "Mechanical Analogy",
+			"groupName": "Mechanical",
 			"drawName": "inerter"
 		},
 		{
 			"displayName": "Mechanical stiffness",
-			"groupName": "Mechanical Analogy",
+			"groupName": "Mechanical",
 			"drawName": "spring"
 		},
 		{
 			"displayName": "Mechanical viscoelastic element",
-			"groupName": "Mechanical Analogy",
+			"groupName": "Mechanical",
 			"drawName": "viscoe"
 		},
 		{
 			"displayName": "Mechanical mass",
-			"groupName": "Mechanical Analogy",
+			"groupName": "Mechanical",
 			"drawName": "mass"
 		},
 
@@ -2051,7 +2050,8 @@
 		{
 			"displayName": "IEC 60617 connector (path)",
 			"groupName": "Wiring",
-			"drawName": "iec connector"
+			"drawName": "iec connector",
+			"shapeName": "iecconnshape"
 		},
 		// 4.14 Block diagram components
 		{
@@ -2141,7 +2141,7 @@
 		},
 		{
 			"displayName": "Instrumentation amplifier",
-			"drawName": "imap",
+			"drawName": "iamp",
 			"groupName": "Block diagram",
 			"pins": ["up","down"]
 		},
