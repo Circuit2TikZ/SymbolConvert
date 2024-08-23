@@ -961,6 +961,12 @@
 			"groupName": "Inductors",
 			"pins": ["A1","A2","B1","B2"]
 		},
+		{
+			"displayName": "Generic double bipole (configure in TikZ)",
+			"name": "double bipole",
+			"groupName": "Miscellaneous",
+			"pins": ["A1","A2","B1","B2"]
+		},
 		//inline
 		{
 			"displayName": "Transformer (cute, inline)",
@@ -1010,9 +1016,76 @@
 			"groupName": "Inductors",
 			"options": ["circuitikz/quadpoles style=inline"],
 			"pins": ["A1","A2","B1","B2"]
-		}
+		},
+		{
+			"displayName": "Generic double bipole (inline, configure in TikZ)",
+			"name": "double bipole",
+			"groupName": "Miscellaneous",
+			"options": ["circuitikz/quadpoles style=inline"],
+			"pins": ["A1","A2","B1","B2"]
+		},
+
 		// 4.20 Amplifiers
-		// TODO
+		{
+			"displayName": "Operational amplifier",
+			"name": "op amp",
+			"groupName": "Amplifiers",
+			"pins": ["+","-","out","up","down"]
+		},
+		{
+			"displayName": "Operational amplifier compliant to DIN/EN 60617",
+			"name": "en amp",
+			"groupName": "Amplifiers",
+			"pins": ["+","-","out","up","down"]
+		},
+		{
+			"displayName": "Fully differential operational amplifier",
+			"name": "fd op amp",
+			"groupName": "Amplifiers",
+			"pins": ["+","-","out +","out -","up","down"]
+		},
+		{
+			"displayName": "Transconductance amplifier",
+			"name": "gm amp",
+			"groupName": "Amplifiers",
+			"pins": ["+","-","out","up","down"]
+		},
+		{
+			"displayName": "Plain instrumentation amplifier",
+			"name": "inst amp",
+			"groupName": "Amplifiers",
+			"pins": ["+","-","out","up","down","refv up","refv down"]
+		},
+		{
+			"displayName": "Fully differential instrumentation amplifier",
+			"name": "fd inst amp",
+			"groupName": "Amplifiers",
+			"pins": ["+","-","out +","out -","up","down","refv up","refv down"]
+		},
+		{
+			"displayName": "Instrumentation amplifier with amplification resistance terminals",
+			"name": "inst amp ra",
+			"groupName": "Amplifiers",
+			"pins": ["+","-","out","up","down","refv up","refv down","ra+","ra-"]
+		},
+		{
+			"displayName": "Plain amplifier (two inputs)",
+			"name": "plain amp",
+			"groupName": "Amplifiers",
+			"pins": ["in up","in down","out"]
+		},
+		{
+			"displayName": "Plain amplifier (one inputs)",
+			"name": "plain mono amp",
+			"groupName": "Amplifiers",
+			"pins": ["in","out"]
+		},
+		{
+			"displayName": "Buffer",
+			"name": "buffer",
+			"groupName": "Amplifiers",
+			"pins": ["in","out"]
+		}
 
 		// 4.21 Switches, Buttons and jumpers
 		// TODO
@@ -2024,107 +2097,107 @@
 		// 4.8 Miscellaneous bipoles - done
 		{
 			"displayName": "Thermocouple",
-			"groupName": "Miscellaneous bipoles",
+			"groupName": "Miscellaneous",
 			"drawName": "thermocouple"
 		},
 		{
 			"displayName": "Fuse",
-			"groupName": "Miscellaneous bipoles",
+			"groupName": "Miscellaneous",
 			"drawName": "fuse"
 		},
 		{
 			"displayName": "Fuse (asymetric)",
-			"groupName": "Miscellaneous bipoles",
+			"groupName": "Miscellaneous",
 			"aliases": ["asymmetric fuse"],
 			"drawName": "afuse"
 		},
 		{
 			"displayName": "Fuse (wiggly)",
-			"groupName": "Miscellaneous bipoles",
+			"groupName": "Miscellaneous",
 			"drawName": "wfuse"
 		},
 		{ 
 			"displayName": "Relais",
-			"groupName": "Miscellaneous bipoles",
+			"groupName": "Miscellaneous",
 			"drawName": "relais"
 		},
 		{
 			"displayName": "Squid",
-			"groupName": "Miscellaneous bipoles",
+			"groupName": "Miscellaneous",
 			"drawName": "squid"
 		},
 		{
 			"displayName": "Barrier",
-			"groupName": "Miscellaneous bipoles",
+			"groupName": "Miscellaneous",
 			"drawName": "barrier"
 		},
 		{
 			"displayName": "Open barrier",
-			"groupName": "Miscellaneous bipoles",
+			"groupName": "Miscellaneous",
 			"drawName": "openbarrier"
 		},
 
 		{
 			"displayName": "Gas filled surge arrester (european)",
-			"groupName": "Miscellaneous bipoles",
+			"groupName": "Miscellaneous",
 			"drawName": "european gas filled surge arrester",
 			"shapeName": "european gas filled surge arrestershape"
 		},
 		{
 			"displayName": "Gas filled surge arrester (american)",
-			"groupName": "Miscellaneous bipoles",
+			"groupName": "Miscellaneous",
 			"drawName": "american gas filled surge arrester",
 			"shapeName": "american gas filled surge arrestershape"
 		},
 
 		{
 			"displayName": "Lamp",
-			"groupName": "Miscellaneous bipoles",
+			"groupName": "Miscellaneous",
 			"drawName": "lamp"
 		},
 		{
 			"displayName": "Bulb",
-			"groupName": "Miscellaneous bipoles",
+			"groupName": "Miscellaneous",
 			"drawName": "bulb"
 		},
 		{
 			"displayName": "Neon lamp (double cathode style),",
-			"groupName": "Miscellaneous bipoles",
+			"groupName": "Miscellaneous",
 			"drawName": "neonlampcc"
 		},
 		{
 			"displayName": "Neon lamp (anode and cathode style)",
-			"groupName": "Miscellaneous bipoles",
+			"groupName": "Miscellaneous",
 			"drawName": "neonlampac"
 		},
 		{
 			"displayName": "Spark gap (unenclosed)",
-			"groupName": "Miscellaneous bipoles",
+			"groupName": "Miscellaneous",
 			"drawName": "sparkgap"
 		},
 		{
 			"displayName": "Loudspeaker",
-			"groupName": "Miscellaneous bipoles",
+			"groupName": "Miscellaneous",
 			"drawName": "loudspeaker"
 		},
 		{
 			"displayName": "Microphone",
-			"groupName": "Miscellaneous bipoles",
+			"groupName": "Miscellaneous",
 			"drawName": "mic"
 		},
 		{
 			"displayName": "Microphone (tailless)",
-			"groupName": "Miscellaneous bipoles",
+			"groupName": "Miscellaneous",
 			"drawName": "tlmic"
 		},
 		{
 			"displayName": "Buzzer",
-			"groupName": "Miscellaneous bipoles",
+			"groupName": "Miscellaneous",
 			"drawName": "buzzer"
 		},
 		{
 			"displayName": "Buzzer (reversed)",
-			"groupName": "Miscellaneous bipoles",
+			"groupName": "Miscellaneous",
 			"drawName": "rbuzzer"
 		},
 		// 4.9 Multiple wires (buses) - done
