@@ -173,7 +173,85 @@
 			"pins": ["left", "right"] // left = center
 		},
 		// 4.14 Block diagram components
-		// TODO		
+		{
+			"displayName": "Mixer",
+			"name": "mixer",
+			"groupName": "Block diagram",
+			"pins": ["n", "s", "w", "e"] 
+		},
+		{
+			"displayName": "Mixer (boxed)",
+			"name": "mixer",
+			"options": ["boxed"],
+			"groupName": "Block diagram",
+			"pins": ["left up", "left down", "right up", "right down"] 
+		},
+		{
+			"displayName": "Adder",
+			"name": "adder",
+			"groupName": "Block diagram",
+			"pins": ["north", "south", "west", "east"]  
+		},
+		{
+			"displayName": "Oscillator",
+			"name": "oscillator",
+			"groupName": "Block diagram",
+			"pins": ["n", "s", "w", "e"] 
+		},	
+		{
+			"displayName": "Circulator",
+			"name": "circulator",
+			"groupName": "Block diagram",
+			"pins": ["left", "up", "right", "down"] 
+		},
+		{
+			"displayName": "Wilkinson divider",
+			"name": "wilkinson",
+			"groupName": "Block diagram",
+			"pins": ["in", "out1", "out 2"] 
+		},	
+		{
+			"displayName": "Resistive splitter",
+			"name": "splitter",
+			"groupName": "Block diagram",
+			"pins": ["in", "out1", "out 2"] 
+		},
+		{
+			"displayName": "Generic splitter",
+			"name": "genericsplitter",
+			"groupName": "Block diagram",
+			"pins": ["in", "out1", "out 2"] 
+		},	
+		{
+			"displayName": "Grid node",
+			"name": "gridnode",
+			"groupName": "Block diagram",
+			"pins": ["left", "up", "right", "down"] 
+		},
+		{
+			"displayName": "Mach Zehnder Modulator",
+			"name": "mzm",
+			"groupName": "Block diagram",
+			"pins": ["in", "out", "mod"] 
+		},
+		{
+			"displayName": "Generic fourport",
+			"name": "fourport",
+			"groupName": "Block diagram",
+			"pins": ["port 1", "port 2", "port 3", "port 4"] 
+		},
+		{
+			"displayName": "Coupler",
+			"name": "coupler",
+			"groupName": "Block diagram",
+			"pins": ["left up", "left down", "right up", "right down"]
+		},
+		{
+			"displayName": "Coupler (rounded arrows)",
+			"name": "coupler2",
+			"groupName": "Block diagram",
+			"pins": ["port 1", "port 2", "port 3", "port 4"] 
+		},
 
 		// 4.15 Transistors - done
 		// 4.15.1 Standard bipolar transistors
@@ -1669,6 +1747,200 @@
 			"displayName": "IEC 60617 connector (path)",
 			"groupName": "Wiring",
 			"drawName": "iec connector"
+		},
+		// 4.14 Block diagram components
+		{
+			"displayName": "Generic two port",
+			"drawName": "twoport",
+			"groupName": "Block diagram",
+			"pins": ["n", "s", "w", "e"] 
+		},
+		{
+			"displayName": "Generic two port split",
+			"drawName": "twoportsplit",
+			"groupName": "Block diagram",
+			"pins": ["left up", "left down", "right up", "right down"] 
+		},
+		{
+			"displayName": "VCO",
+			"drawName": "vco",
+			"groupName": "Block diagram" 
+		},
+		{
+			"displayName": "VCO (boxed)",
+			"drawName": "vco",
+			"options": ["box"],
+			"groupName": "Block diagram",
+			"pins": ["left up", "left down", "right up", "right down"] 
+		},
+		{
+			"displayName": "Bandpass",
+			"drawName": "bandpass",
+			"groupName": "Block diagram" 
+		},
+		{
+			"displayName": "Bandstop",
+			"drawName": "bandstop",
+			"groupName": "Block diagram" 
+		},
+		{
+			"displayName": "Highpass",
+			"drawName": "highpass",
+			"groupName": "Block diagram" 
+		},
+		{
+			"displayName": "Lowpass",
+			"drawName": "lowpass",
+			"groupName": "Block diagram" 
+		},
+		{
+			"displayName": "Allpass",
+			"drawName": "allpass",
+			"groupName": "Block diagram" 
+		},
+		{
+			"displayName": "Highpass (two waves)",
+			"drawName": "highpass2",
+			"groupName": "Block diagram" 
+		},
+		{
+			"displayName": "Lowpass (two waves)",
+			"drawName": "lowpass2",
+			"groupName": "Block diagram" 
+		},
+		{
+			"displayName": "A/D converter",
+			"drawName": "adc",
+			"groupName": "Block diagram" 
+		},
+		{
+			"displayName": "D/A converter",
+			"drawName": "dac",
+			"groupName": "Block diagram" 
+		},
+		{
+			"displayName": "DSP",
+			"drawName": "dsp",
+			"groupName": "Block diagram" 
+		},
+		{
+			"displayName": "FFT",
+			"drawName": "fft",
+			"groupName": "Block diagram" 
+		},
+		{
+			"displayName": "Amplifier",
+			"drawName": "amp",
+			"groupName": "Block diagram",
+			"pins": ["up","down"]
+		},
+		{
+			"displayName": "Instrumentation amplifier",
+			"drawName": "imap",
+			"groupName": "Block diagram",
+			"pins": ["up","down"]
+		},
+		{
+			"displayName": "VGA",
+			"drawName": "vamp",
+			"groupName": "Block diagram"
+		},
+		{
+			"displayName": "PI attenuator",
+			"drawName": "piattenuator",
+			"groupName": "Block diagram"
+		},
+		{
+			"displayName": "Var. PI attenuator",
+			"drawName": "vpiattenuator",
+			"groupName": "Block diagram"
+		},
+		{
+			"displayName": "T attenuator",
+			"drawName": "tattenuator",
+			"groupName": "Block diagram"
+		},
+		{
+			"displayName": "Var. T attenuator",
+			"drawName": "vtattenuator",
+			"groupName": "Block diagram"
+		},
+		{
+			"displayName": "Phase shifter",
+			"drawName": "phaseshifter",
+			"groupName": "Block diagram"
+		},
+		{
+			"displayName": "Var. phase shifter",
+			"drawName": "vphaseshifter",
+			"groupName": "Block diagram"
+		},
+		{
+			"displayName": "Detector",
+			"drawName": "detector",
+			"groupName": "Block diagram"
+		},
+		{
+			"displayName": "Saturation",
+			"drawName": "saturation",
+			"groupName": "Block diagram"
+		},
+		{
+			"displayName": "Sigmoid",
+			"drawName": "sigmoid",
+			"groupName": "Block diagram"
+		},
+		{
+			"displayName": "Comparison (all-or-nothing)",
+			"drawName": "allornothing",
+			"groupName": "Block diagram"
+		},
+		{
+			"displayName": "Optical fiber",
+			"drawName": "fiber",
+			"groupName": "Block diagram"
+		},
+		{
+			"displayName": "Single wire DC/DC converter",
+			"drawName": "sdcdc",
+			"groupName": "Block diagram",
+			"pins": ["dc up in", "dc up out", "dc down in", "dc down out"]
+		},
+		{
+			"displayName": "Single phase AC/DC converter",
+			"drawName": "sacdc",
+			"groupName": "Block diagram",
+			"pins": ["ac up in", "dc up out", "ac down in", "dc down out"]
+		},
+		{
+			"displayName": "Single phase DC/AC converter",
+			"drawName": "sdcac",
+			"groupName": "Block diagram",
+			"pins": ["dc up in", "ac up out", "dc down in", "ac down out"]
+		},
+		{
+			"displayName": "Single phase AC/AC converter",
+			"drawName": "sacac",
+			"groupName": "Block diagram",
+			"pins": ["ac up in", "ac up out", "ac down in", "ac down out"]
+		},
+		{
+			"displayName": "Three phases AC/DC converter",
+			"drawName": "tacdc",
+			"groupName": "Block diagram",
+			"pins": ["ac up in", "dc up out", "ac down in", "dc down out"]
+		},
+		{
+			"displayName": "Three phases DC/AC converter",
+			"drawName": "tdcac",
+			"groupName": "Block diagram",
+			"pins": ["dc up in", "ac up out", "dc down in", "ac down out"]
+		},
+		{
+			"displayName": "Three phases AC/AC converter",
+			"drawName": "tacac",
+			"groupName": "Block diagram",
+			"pins": ["ac up in", "ac up out", "ac down in", "ac down out"]
 		}
 	]
 }
