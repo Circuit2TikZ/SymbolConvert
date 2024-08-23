@@ -1,83 +1,98 @@
 {
 	"$schema": "./nodes.schema.json",
 	"nodes": [
-		// 4.1 Grounds and supply voltages
+		// 4.1 Grounds and supply voltages - done
 		// 4.1.1 Grounds
 		{
+			"displayName": "Ground",
 			"name": "ground",
 			"groupName": "Grounds and supply voltages",
 			"pins": ["center"]
 		},
 		{
+			"displayName": "Ground (tailless)",
 			"name": "tlground",
 			"groupName": "Grounds and supply voltages",
 			"pins": ["center"]
 		},
 		{
+			"displayName": "Reference ground",
 			"name": "rground",
 			"groupName": "Grounds and supply voltages",
 			"pins": ["center"]
 		},
 		{
+			"displayName": "Signal ground",
 			"name": "sground",
 			"groupName": "Grounds and supply voltages",
 			"pins": ["center"]
 		},
 		{
+			"displayName": "Thicker tailless reference ground",
 			"name": "tground",
 			"groupName": "Grounds and supply voltages",
 			"pins": ["center"]
 		},
 		{
+			"displayName": "Noiseless ground",
 			"name": "nground",
 			"groupName": "Grounds and supply voltages",
 			"pins": ["center"]
 		},
 		{
+			"displayName": "Protective ground",
 			"name": "pground",
 			"groupName": "Grounds and supply voltages",
 			"pins": ["center"]
 		},
 		{
+			"displayName": "Chassis ground",
 			"name": "cground",
 			"groupName": "Grounds and supply voltages",
 			"pins": ["center"]
 		},
 		{
+			"displayName": "European style ground",
 			"name": "eground",
 			"groupName": "Grounds and supply voltages",
 			"pins": ["center"]
 		},
 		{
+			"displayName": "European style ground (v2)",
 			"name": "eground2",
 			"groupName": "Grounds and supply voltages",
 			"pins": ["center"]
 		},
 		// 4.1.2 Power supplies
 		{
+			"displayName": "VCC/VDD",
 			"name": "vcc",
 			"groupName": "Grounds and supply voltages",
 			"pins": ["center"]
 		},
 		{
+			"displayName": "VEE/VSS",
 			"name": "vee",
 			"groupName": "Grounds and supply voltages",
 			"pins": ["center"]
 		},
-		// 4.10 Crossings (also available as path)
+		// 4.10 Crossings - done
 		{
+			"displayName": "Jumper-style crossing node",
 			"name": "jump crossing",
-			"groupName": "Crossings",
+			"groupName": "Wiring",
 			"pins": ["north", "east", "south", "west"]
 		},
 		{
+			"displayName": "Plain style crossing node",
 			"name": "plain crossing",
-			"groupName": "Crossings",
+			"groupName": "Wiring",
 			"pins": ["north", "east", "south", "west"]
 		},
 		{
-			"name": "circ", // also a terminal
-			"groupName": "Crossings"
+			"displayName": "Connected terminal",
+			"name": "circ",
+			"groupName": "Wiring"
 		},
 		// 4.11 Arrows
 		/*{
@@ -92,297 +107,356 @@
 		{
 			"name": "flowarrow"
 		},*/
-		// 4.12 Terminal shapes
-		/*{
-			"name": "ocirc"
+		// 4.12 Terminal shapes - done
+		{
+			"displayName": "Unconnected terminal",
+			"name": "ocirc",
+			"groupName": "Wiring"
 		},
 		{
-			"name": "diamondpole"
+			"displayName": "Diamond-square terminal",
+			"name": "diamondpole",
+			"groupName": "Wiring"
 		},
 		{
-			"name": "odiamondpole"
+			"displayName": "Open diamond-square terminal",
+			"name": "odiamondpole",
+			"groupName": "Wiring"
 		},
 		{
-			"name": "squarepole"
+			"displayName": "Square-shape terminal",
+			"name": "squarepole",
+			"groupName": "Wiring"
 		},
 		{
-			"name": "osquarepole"
-		},*/
-		// 4.13 Connectors
+			"displayName": "Open square-shape terminal",
+			"name": "osquarepole",
+			"groupName": "Wiring"
+		},
+		// 4.13 Connectors - done
 		// 4.13.1 BNC connector/terminal
 		{
+			"displayName": "BNC connector",
 			"name": "bnc",
-			"groupName": "Connectors",
+			"groupName": "Wiring",
 			"pins": ["center", "shield"] // hot=center
 		},
 		// 4.13.2 IEC 60617 socket-plug connectors
 		{
+			"displayName": "IEC 60617 connector",
 			"name": "iecconnshape", // is a path: iec connector
-			"groupName": "Connectors",
+			"groupName": "Wiring",
 			"pins": ["left", "right"]
 		},
 		{
+			"displayName": "IEC 60617 female socket (left side)",
 			"name": "iecsocketL",
-			"groupName": "Connectors",
-			"pins": ["center", "right"] // left = center
+			"groupName": "Wiring",
+			"pins": ["left", "right"] // left = center
 		},
 		{
+			"displayName": "IEC 60617 male plug (right side)",
 			"name": "iecplugR",
-			"groupName": "Connectors",
-			"pins": ["center", "right"] // left = center
+			"groupName": "Wiring",
+			"pins": ["left", "right"] // left = center
 		},
 		{
+			"displayName": "IEC 60617 male plug (left side)",
 			"name": "iecplugL",
-			"groupName": "Connectors",
-			"pins": ["center", "right"] // left = center
+			"groupName": "Wiring",
+			"pins": ["left", "right"] // left = center
 		},
 		{
+			"displayName": "IEC 60617 female socket (right side)",
 			"name": "iecsocketR",
-			"groupName": "Connectors",
-			"pins": ["center", "right"] // left = center
+			"groupName": "Wiring",
+			"pins": ["left", "right"] // left = center
 		},
 		// 4.14 Block diagram components
-		// skip, TODO
+		// TODO		
 
-		// 4.15 Transistors
+		// 4.15 Transistors - done
 		// 4.15.1 Standard bipolar transistors
 		{
+			"displayName": "NPN",
 			"name": "npn",
 			"groupName": "Transistors",
 			"pins": ["B", "C", "E"]
 		},
 		{
+			"displayName": "PNP",
 			"name": "pnp",
 			"groupName": "Transistors",
 			"pins": ["B", "C", "E"]
 		},
 		{
+			"displayName": "NPN (schottky)",
 			"name": "npn",
 			"groupName": "Transistors",
 			"options": ["schottky base"],
 			"pins": ["B", "C", "E"]
 		},
 		{
+			"displayName": "PNP (schottky)",
 			"name": "pnp",
 			"groupName": "Transistors",
 			"options": ["schottky base"],
 			"pins": ["B", "C", "E"]
 		},
 		{
+			"displayName": "NPN (bodydiode)",
 			"name": "npn",
 			"groupName": "Transistors",
 			"options": ["bodydiode"],
-			"pins": ["B", "C", "E"]
+			"pins": ["B", "C", "E","body C out","body E out"]
 		},
 		{
+			"displayName": "PNP (bodydiode)",
 			"name": "pnp",
 			"groupName": "Transistors",
 			"options": ["bodydiode"],
-			"pins": ["B", "C", "E"]
+			"pins": ["B", "C", "E","body C out","body E out"]
 		},
 		{
+			"displayName": "NPN (photo)",
 			"name": "npn",
 			"groupName": "Transistors",
 			"options": ["photo"],
 			"pins": ["B", "C", "E"]
 		},
 		{
+			"displayName": "PNP (photo)",
 			"name": "pnp",
 			"groupName": "Transistors",
 			"options": ["photo"],
 			"pins": ["B", "C", "E"]
 		},
 		{
+			"displayName": "NIGBT",
 			"name": "nigbt",
 			"groupName": "Transistors",
 			"pins": ["B", "C", "E"]
 		},
 		{
+			"displayName": "PIGBT",
 			"name": "pigbt",
 			"groupName": "Transistors",
 			"pins": ["B", "C", "E"]
 		},
 		{
+			"displayName": "LNIGBT",
 			"name": "Lnigbt",
 			"groupName": "Transistors",
 			"pins": ["B", "C", "E"]
 		},
 		{
+			"displayName": "LPIGBT",
 			"name": "Lpigbt",
 			"groupName": "Transistors",
 			"pins": ["B", "C", "E"]
 		},
 		{
+			"displayName": "LNIGBT (bodydiode)",
 			"name": "Lnigbt",
 			"groupName": "Transistors",
 			"options": ["bodydiode"],
-			"pins": ["B", "C", "E"]
+			"pins": ["B", "C", "E","body C out","body E out"]
 		},
 		{
+			"displayName": "LPIGBT (bodydiode)",
 			"name": "Lpigbt",
 			"groupName": "Transistors",
 			"options": ["bodydiode"],
-			"pins": ["B", "C", "E"]
+			"pins": ["B", "C", "E","body C out","body E out"]
 		},
 		// 4.15.2 Multi-terminal bipolar transistors
 		// no support for arbitrary terminal count
 
 		// 4.15.3 Field-effect transistors
 		{
+			"displayName": "NMOS",
 			"name": "nmos",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "S"]
 		},
 		{
+			"displayName": "PMOS",
 			"name": "pmos",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "S"]
 		},
 		{
+			"displayName": "PMOS (emptycircle)",
 			"name": "pmos",
 			"groupName": "Transistors",
 			"options": ["emptycircle"],
 			"pins": ["D", "G", "S"]
 		},
 		{
+			"displayName": "NMOS (depletion)",
 			"name": "nmosd",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "S"]
 		},
 		{
+			"displayName": "PMOS (depletion)",
 			"name": "pmosd",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "S"]
 		},
 		{
+			"displayName": "PMOS (depletion, emptycircle)",
 			"name": "pmosd",
 			"groupName": "Transistors",
 			"options": ["emptycircle"],
 			"pins": ["D", "G", "S"]
 		},
 		{
+			"displayName": "HEMT",
 			"name": "hemt",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "S"]
 		},
 		{
+			"displayName": "HEMT (nobase)",
 			"name": "hemt",
 			"groupName": "Transistors",
 			"options": ["nobase"],
 			"pins": ["D", "S"]
 		},
 		{
+			"displayName": "GaN HEMT",
 			"name": "GaN hemt",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "S"]
 		},
 
 		{
+			"displayName": "NFET",
 			"name": "nfet",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "center", "S"] // bulk = center
 		},
 		{
+			"displayName": "NFET (depletion)",
 			"name": "nfetd",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "center", "S"] // bulk = center
 		},
 		{
+			"displayName": "NIGFET",
 			"name": "nigfete",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "S"]
 		},
 		{
+			"displayName": "NIGFET (solderdot)",
 			"name": "nigfete",
 			"groupName": "Transistors",
 			"options": ["solderdot"],
 			"pins": ["D", "G", "S"]
 		},
 		{
+			"displayName": "NIGFET (bulk)",
 			"name": "nigfetebulk",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "center", "S"] // bulk = center
 		},
 		{
+			"displayName": "NIGFET (depletion)",
 			"name": "nigfetd",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "S"]
 		},
 		{
+			"displayName": "PFET",
 			"name": "pfet",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "center", "S"] // bulk = center
 		},
 		{
+			"displayName": "PFET (depletion)",
 			"name": "pfetd",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "center", "S"] // bulk = center
 		},
 		{
+			"displayName": "PIGFET",
 			"name": "pigfete",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "S"]
 		},
 		{
+			"displayName": "PIGFET (solderdot)",
 			"name": "pigfete",
 			"groupName": "Transistors",
 			"options": ["solderdot"],
 			"pins": ["D", "G", "S"]
 		},
 		{
+			"displayName": "PIGFET (bulk)",
 			"name": "pigfetebulk",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "center", "S"] // bulk = center
 		},
 		{
+			"displayName": "PIGFET (depletion)",
 			"name": "pigfetd",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "S"]
 		},
 
 		{
+			"displayName": "NIGFET (doublegate)",
 			"name": "nigfete",
 			"groupName": "Transistors",
 			"options": ["doublegate"],
 			"pins": ["D", "G", "G2", "S"]
 		},
 		{
+			"displayName": "NIGFET (solderdot, doublegate)",
 			"name": "nigfete",
 			"groupName": "Transistors",
 			"options": ["solderdot", "doublegate"],
 			"pins": ["D", "G", "G2", "S"]
 		},
 		{
+			"displayName": "NIGFET (bulk, doublegate)",
 			"name": "nigfetebulk",
 			"groupName": "Transistors",
 			"options": ["doublegate"],
 			"pins": ["D", "G", "G2", "center", "S"] // bulk = center
 		},
 		{
+			"displayName": "NIGFET (depletion, doublegate)",
 			"name": "nigfetd",
 			"groupName": "Transistors",
 			"options": ["doublegate"],
 			"pins": ["D", "G", "G2", "S"]
 		},
 		{
+			"displayName": "PIGFET (doublegate)",
 			"name": "pigfete",
 			"groupName": "Transistors",
 			"options": ["doublegate"],
 			"pins": ["D", "G", "G2", "S"]
 		},
 		{
+			"displayName": "PIGFET (solderdot, doublegate)",
 			"name": "pigfete",
 			"groupName": "Transistors",
 			"options": ["solderdot", "doublegate"],
 			"pins": ["D", "G", "G2", "S"]
 		},
 		{
+			"displayName": "PIGFET (bulk, doublegate)",
 			"name": "pigfetebulk",
 			"groupName": "Transistors",
 			"options": ["doublegate"],
 			"pins": ["D", "G", "G2", "center", "S"] // bulk = center
 		},
 		{
+			"displayName": "PIGFET (depletion, doublegate)",
 			"name": "pigfetd",
 			"groupName": "Transistors",
 			"options": ["doublegate"],
@@ -390,76 +464,116 @@
 		},
 
 		{
+			"displayName": "n-type JFET",
 			"name": "njfet",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "S"]
 		},
 		{
+			"displayName": "p-type JFET",
 			"name": "pjfet",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "S"]
 		},
 		{
+			"displayName": "n-type UJT",
 			"name": "nujt",
 			"groupName": "Transistors",
 			"pins": ["B1", "G", "B2"]
 		},
 		{
+			"displayName": "p-type UJT",
 			"name": "pujt",
 			"groupName": "Transistors",
 			"pins": ["B1", "G", "B2"]
 		},
 		{
+			"displayName": "n-type UJT (nobase)",
 			"name": "nujt",
 			"groupName": "Transistors",
 			"options": ["nobase"],
 			"pins": ["B1", "B2"]
 		},
 		{
+			"displayName": "p-type UJT (nobase)",
 			"name": "pujt",
 			"groupName": "Transistors",
 			"options": ["nobase"],
 			"pins": ["B1", "B2"]
 		},
 		{
+			"displayName": "ISFET",
 			"name": "isfet",
 			"groupName": "Transistors",
 			"pins": ["D", "S"]
 		},
 		{
+			"displayName": "n-type graphene FET",
 			"name": "ngfet",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "S"]
 		},
 		{
+			"displayName": "p-type graphene FET",
 			"name": "pgfet",
 			"groupName": "Transistors",
 			"pins": ["D", "G", "S"]
 		}
 
 		// 4.16 Electronic Tubes
+		// TODO
+
+		// 4.17 RF components
+		// TODO
+
+		// 4.18 Electro-Mechanical Devices
+		// TODO
+
+		// 4.19 Transformers
+		// TODO
+
+		// 4.20 Amplifiers
+		// TODO
+
+		// 4.21 Switches, Buttons and jumpers
+		// TODO
+		
+		// 4.22 Logic gates
+		// TODO
+
+		// 4.23 Flip Flops
+		// TODO
+
+		// 4.24 Multiplexer and de-multiplexer
+		// skip - no variable number of ports (maybe include some of the most common ones?)
+
+		// 4.25 Chips (integrated circuits)
+		// skip - no variable number of ports
+
+		// 4.26 Seven segment displays
 		// skip
 	],
 	"path": [
-		// 4.2 Resistive bipoles
-		// skip generic...
+		// 4.2 Resistive bipoles - done
+		// skip short, open, generic...
 		// american resistors
 		{
-			"displayName": "resistor",
+			"displayName": "Resistor (american)",
 			"groupName": "Resistive bipoles",
 			"drawName": "american resistor",
 			// "aliases": ["R"]
 			"shapeName": "resistorshape"
 		},
 		{
-			"displayName": "variable resistor",
+			"displayName": "Variable resistor (american)",
 			"groupName": "Resistive bipoles",
 			"drawName": "variable american resistor",
 			// "aliases": ["vR"]
-			"shapeName": "vresistorshape"
+			"shapeName": "vresistorshape",
+			"pins": ["wiper"]
 		},
 		{
-			"displayName": "potentiometer",
+			"displayName": "Potentiometer (american)",
 			"groupName": "Resistive bipoles",
 			"drawName": "american potentiometer",
 			// "aliases": ["pR"]
@@ -467,14 +581,15 @@
 			"pins": ["wiper"]
 		},
 		{
-			"displayName": "resistive sensor",
+			"displayName": "Resistive sensor (american)",
 			"groupName": "Resistive bipoles",
 			"drawName": "american resistive sensor",
 			// "aliases": ["sR"]
-			"shapeName": "resistivesensshape"
+			"shapeName": "resistivesensshape",
+			"pins": ["wiper","label"]
 		},
 		{
-			"displayName": "ligth-dependent resistor",
+			"displayName": "Ligth-Dependent resistor (american)",
 			"groupName": "Resistive bipoles",
 			"drawName": "american light dependent resistor",
 			// "aliases": ["ldr"]
@@ -482,21 +597,22 @@
 		},
 		// european resistors
 		{
-			"displayName": "resistor",
+			"displayName": "Resistor (european)",
 			"groupName": "Resistive bipoles",
 			"drawName": "european resistor",
 			// "aliases": ["R"]
 			"shapeName": "genericshape"
 		},
 		{
-			"displayName": "variable resistor",
+			"displayName": "Variable resistor (european)",
 			"groupName": "Resistive bipoles",
 			"drawName": "variable european resistor",
 			// "aliases": ["vR"]
-			"shapeName": "tgenericshape"
+			"shapeName": "tgenericshape",
+			"pins": ["wiper"]
 		},
 		{
-			"displayName": "potentiometer",
+			"displayName": "Potentiometer (european)",
 			"groupName": "Resistive bipoles",
 			"drawName": "european potentiometer",
 			// "aliases": ["pR"]
@@ -504,14 +620,15 @@
 			"pins": ["wiper"]
 		},
 		{
-			"displayName": "resistive sensor",
+			"displayName": "Resistive sensor (european)",
 			"groupName": "Resistive bipoles",
 			"drawName": "european resistive sensor",
 			// "aliases": ["sR"]
-			"shapeName": "thermistorshape"
+			"shapeName": "thermistorshape",
+			"pins": ["wiper","label"]
 		},
 		{
-			"displayName": "ligth-dependent resistor",
+			"displayName": "Ligth-Dependent resistor (european)",
 			"groupName": "Resistive bipoles",
 			"drawName": "european light dependent resistor",
 			// "aliases": ["ldr"]
@@ -519,341 +636,347 @@
 		},
 		// Other miscellaneous resistor-like devices:
 		{
-			"displayName": "varistor",
+			"displayName": "Varistor",
 			"groupName": "Resistive bipoles",
 			"drawName": "varistor"
 		},
 		{
-			"displayName": "photoresistor",
+			"displayName": "Metal-Oxide varistor",
+			"groupName": "Resistive bipoles",
+			"drawName": "mov"
+		},
+		{
+			"displayName": "Photoresistor",
 			"groupName": "Resistive bipoles",
 			"drawName": "photoresistor",
 			"aliases": ["phR"]
 		},
 		{
-			"displayName": "thermistor",
+			"displayName": "Thermistor",
 			"groupName": "Resistive bipoles",
 			"drawName": "thermistor",
 			"aliases": ["thR"]
 		},
 		{
-			"displayName": "thermistor ptc",
+			"displayName": "Thermistor (PTC)",
 			"groupName": "Resistive bipoles",
 			"drawName": "thermistor ptc",
 			"aliases": ["thRp"]
 		},
 		{
-			"displayName": "thermistor ntc",
+			"displayName": "Thermistor (NTC)",
 			"groupName": "Resistive bipoles",
 			"drawName": "thermistor ntc",
 			"aliases": ["thRn"]
 		},
-		// 4.3 Capacitors and inductors: dynamical bipoles
+		// 4.3 Capacitors and inductors: dynamical bipoles - done
 		// 4.3.1 Capacitors
 		{
-			"displayName": "capacitor",
-			"groupName": "Dynamic bipoles",
+			"displayName": "Capacitor",
+			"groupName": "Capacitive and dynamic bipoles",
 			"drawName": "capacitor",
 			"aliases": ["C"]
 		},
 		{
-			"displayName": "curved (polarized) capacitor",
-			"groupName": "Dynamic bipoles",
+			"displayName": "Curved (polarized) capacitor",
+			"groupName": "Capacitive and dynamic bipoles",
 			"drawName": "curved capacitor",
 			"aliases": ["cC"],
 			"shapeName": "ccapacitorshape"
 		},
 		{
-			"displayName": "electrolytic capacitor",
-			"groupName": "Dynamic bipoles",
+			"displayName": "Electrolytic capacitor",
+			"groupName": "Capacitive and dynamic bipoles",
 			"drawName": "ecapacitor",
-			"aliases": ["wC"]
+			"aliases": ["eC","elko"]
 		},
 		{
-			"displayName": "variable capacitor",
-			"groupName": "Dynamic bipoles",
+			"displayName": "Variable capacitor",
+			"groupName": "Capacitive and dynamic bipoles",
 			"drawName": "variable capacitor",
 			"aliases": ["vC"],
 			"shapeName": "vcapacitorshape",
 			"pins": ["wiper"]
 		},
 		{
-			"displayName": "capacitive sensor",
-			"groupName": "Dynamic bipoles",
+			"displayName": "Capacitive sensor",
+			"groupName": "Capacitive and dynamic bipoles",
 			"drawName": "capacitive sensor",
 			"aliases": ["sC"],
 			"shapeName": "capacitivesensshape",
-			"pins": ["wiper"]
+			"pins": ["wiper","label"]
 		},
 		{
-			"displayName": "piezoelectric",
-			"groupName": "Dynamic bipoles",
+			"displayName": "Piezoelectric element",
+			"groupName": "Capacitive and dynamic bipoles",
 			"drawName": "piezoelectric",
 			"aliases": ["PZ"]
 		},
 		{
-			"displayName": "constant phase element",
-			"groupName": "Dynamic bipoles",
+			"displayName": "Constant phase element",
+			"groupName": "Capacitive and dynamic bipoles",
 			"drawName": "cpe"
 		},
 		{
-			"displayName": "ferroelectric capacitor",
-			"groupName": "Dynamic bipoles",
+			"displayName": "Ferroelectric capacitor",
+			"groupName": "Capacitive and dynamic bipoles",
 			"drawName": "ferrocap",
-			"aliases": ["feC"]
+			"aliases": ["feC"],
+			"pins": ["curve left","curve right","kink left","kink right"]
 		},
 		// 4.3.4 Inductors
+		// cute
 		{
-			"displayName": "inductor (cute)",
-			"groupName": "Inductors",
+			"displayName": "Inductor (cute)",
+			"groupName": "Inductive bipoles",
 			"drawName": "cute inductor",
 			//"aliases": ["L"],
 			"pins": ["midtap"]
 		},
 		{
-			"displayName": "variable inductor (cute)",
-			"groupName": "Inductors",
+			"displayName": "Variable inductor (cute)",
+			"groupName": "Inductive bipoles",
 			"drawName": "variable cute inductor",
 			//"aliases": ["vL"],
 			"shapeName": "vcuteinductorshape",
 			"pins": ["wiper"]
 		},
 		{
-			"displayName": "inductive sensor (cute)",
-			"groupName": "Inductors",
+			"displayName": "Inductive sensor (cute)",
+			"groupName": "Inductive bipoles",
 			"drawName": "cute inductive sensor",
 			//"aliases": ["sL"],
 			"shapeName": "scuteinductorshape",
-			"pins": ["wiper"]
+			"pins": ["wiper","label"]
 		},
-
+		// american
 		{
-			"displayName": "inductor (american)",
-			"groupName": "Inductors",
+			"displayName": "Inductor (american)",
+			"groupName": "Inductive bipoles",
 			"drawName": "american inductor",
 			//"aliases": ["L"],
 			"pins": ["center"] // midtap = center
 		},
 		{
-			"displayName": "variable inductor (american)",
-			"groupName": "Inductors",
+			"displayName": "Variable inductor (american)",
+			"groupName": "Inductive bipoles",
 			"drawName": "variable american inductor",
 			//"aliases": ["vL"],
 			"shapeName": "vamericaninductorshape",
 			"pins": ["wiper"]
 		},
 		{
-			"displayName": "inductive sensor (american)",
-			"groupName": "Inductors",
+			"displayName": "Inductive sensor (american)",
+			"groupName": "Inductive bipoles",
 			"drawName": "american inductive sensor",
 			//"aliases": ["sL"],
 			"shapeName": "samericaninductorshape",
-			"pins": ["wiper"]
+			"pins": ["wiper","label"]
 		},
-
+		//european
 		{
-			"displayName": "inductor (european)",
-			"groupName": "Inductors",
+			"displayName": "Inductor (european)",
+			"groupName": "Inductive bipoles",
 			"drawName": "european inductor",
 			//"aliases": ["L"],
 			"shapeName": "fullgenericshape",
 			"pins": ["midtap"]
 		},
 		{
-			"displayName": "variable inductor (european)",
-			"groupName": "Inductors",
+			"displayName": "Variable inductor (european)",
+			"groupName": "Inductive bipoles",
 			"drawName": "variable european inductor",
 			//"aliases": ["vL"],
 			"shapeName": "tfullgenericshape",
 			"pins": ["wiper"]
 		},
 		{
-			"displayName": "inductive sensor (european)",
-			"groupName": "Inductors",
+			"displayName": "Inductive sensor (european)",
+			"groupName": "Inductive bipoles",
 			"drawName": "european inductive sensor",
 			//"aliases": ["sL"],
 			"shapeName": "sfullgenericshape",
-			"pins": ["wiper"]
+			"pins": ["wiper","label"]
 		},
 
 		{
-			"displayName": "choke (cute)",
-			"groupName": "Inductors",
+			"displayName": "Choke",
+			"groupName": "Inductive bipoles",
 			"drawName": "cute choke"
 		},
 
-		// 4.4 Diodes and such
+		// 4.4 Diodes and such - done
+		//empty
 		{
-			"displayName": "diode",
+			"displayName": "Empty diode",
 			"groupName": "Diodes",
 			"drawName": "empty diode",
 			"aliases": ["Do"]
 		},
 		{
-			"displayName": "Schottky diode",
+			"displayName": "Empty Schottky diode",
 			"groupName": "Diodes",
 			"drawName": "empty Schottky diode",
 			"aliases": ["sDo"],
 			"shapeName": "emptysdiodeshape"
 		},
 		{
-			"displayName": "Zener diode",
+			"displayName": "Empty Zener diode",
 			"groupName": "Diodes",
 			"drawName": "empty Zener diode",
 			"aliases": ["zDo"],
 			"shapeName": "emptyzdiodeshape"
 		},
 		{
-			"displayName": "ZZener diode",
+			"displayName": "Empty ZZener diode",
 			"groupName": "Diodes",
 			"drawName": "empty ZZener diode",
 			"aliases": ["zzDo"],
 			"shapeName": "emptyzzdiodeshape"
 		},
 		{
-			"displayName": "tunnel diode",
+			"displayName": "Empty tunnel diode",
 			"groupName": "Diodes",
 			"drawName": "empty tunnel diode",
 			"aliases": ["tDo"],
 			"shapeName": "emptytdiodeshape"
 		},
 		{
-			"displayName": "photodiode",
+			"displayName": "Empty photodiode",
 			"groupName": "Diodes",
 			"drawName": "empty photodiode",
 			"aliases": ["pDo"],
 			"shapeName": "emptypdiodeshape"
 		},
 		{
-			"displayName": "LED",
+			"displayName": "Empty LED",
 			"groupName": "Diodes",
 			"drawName": "empty led",
 			"aliases": ["leDo"],
 			"shapeName": "emptylediodeshape"
 		},
 		{
-			"displayName": "laser diode",
+			"displayName": "Empty laser diode",
 			"groupName": "Diodes",
 			"drawName": "empty laser diode",
 			"aliases": ["lasD"],
 			"shapeName": "emptylaserdiodeshape"
 		},
 		{
-			"displayName": "varcap",
+			"displayName": "Empty varcap",
 			"groupName": "Diodes",
 			"drawName": "empty varcap",
 			"aliases": ["VCo"],
 			"shapeName": "emptyvarcapshape"
 		},
 		{
-			"displayName": "TVS diode",
+			"displayName": "Empty TVS diode",
 			"groupName": "Diodes",
 			"drawName": "empty TVS diode",
 			"aliases": ["tvsDo"],
 			"shapeName": "emptytvsdiodeshape"
 		},
 		{
-			"displayName": "Shockley diode",
+			"displayName": "Empty Shockley diode",
 			"groupName": "Diodes",
 			"drawName": "empty Shockley diode",
 			"aliases": ["shDo"],
 			"shapeName": "emptyshdiodeshape"
 		},
-
 		{
-			"displayName": "bidirectional diode",
+			"displayName": "Empty bidirectional diode",
 			"groupName": "Diodes",
 			"drawName": "empty bidirectionaldiode",
 			"aliases": ["biDo"],
 			"shapeName": "emptybidirectionaldiodeshape"
 		},
-
+		//full
 		{
-			"displayName": "diode",
+			"displayName": "Full diode",
 			"groupName": "Diodes",
 			"drawName": "full diode",
 			"aliases": ["D*"]
 		},
 		{
-			"displayName": "Schottky diode",
+			"displayName": "Full Schottky diode",
 			"groupName": "Diodes",
 			"drawName": "full Schottky diode",
 			"aliases": ["sD*"],
 			"shapeName": "fullsdiodeshape"
 		},
 		{
-			"displayName": "Zener diode",
+			"displayName": "Full Zener diode",
 			"groupName": "Diodes",
 			"drawName": "full Zener diode",
 			"aliases": ["zD*"],
 			"shapeName": "fullzdiodeshape"
 		},
 		{
-			"displayName": "ZZener diode",
+			"displayName": "Full ZZener diode",
 			"groupName": "Diodes",
 			"drawName": "full ZZener diode",
 			"aliases": ["zzD*"],
 			"shapeName": "fullzzdiodeshape"
 		},
 		{
-			"displayName": "tunnel diode",
+			"displayName": "Full tunnel diode",
 			"groupName": "Diodes",
 			"drawName": "full tunnel diode",
 			"aliases": ["tD*"],
 			"shapeName": "fulltdiodeshape"
 		},
 		{
-			"displayName": "photodiode",
+			"displayName": "Full photodiode",
 			"groupName": "Diodes",
 			"drawName": "full photodiode",
 			"aliases": ["pD*"],
 			"shapeName": "fullpdiodeshape"
 		},
 		{
-			"displayName": "LED",
+			"displayName": "Full LED",
 			"groupName": "Diodes",
 			"drawName": "full led",
 			"aliases": ["leD*"],
 			"shapeName": "fulllediodeshape"
 		},
 		{
-			"displayName": "laser diode",
+			"displayName": "Full laser diode",
 			"groupName": "Diodes",
 			"drawName": "full laser diode",
 			"aliases": ["lasD*"],
 			"shapeName": "fulllaserdiodeshape"
 		},
 		{
-			"displayName": "varcap",
+			"displayName": "Full varcap",
 			"groupName": "Diodes",
 			"drawName": "full varcap",
 			"aliases": ["VC*"],
 			"shapeName": "fullvarcapshape"
 		},
 		{
-			"displayName": "TVS diode",
+			"displayName": "Full TVS diode",
 			"groupName": "Diodes",
 			"drawName": "full TVS diode",
 			"aliases": ["tvsD*"],
 			"shapeName": "fulltvsdiodeshape"
 		},
 		{
-			"displayName": "Shockley diode",
+			"displayName": "Full Shockley diode",
 			"groupName": "Diodes",
 			"drawName": "full Shockley diode",
 			"aliases": ["shD*"],
 			"shapeName": "fullshdiodeshape"
 		},
-
 		{
-			"displayName": "bidirectional diode",
+			"displayName": "Full bidirectional diode",
 			"groupName": "Diodes",
 			"drawName": "full bidirectionaldiode",
 			"aliases": ["biD*"],
 			"shapeName": "fullbidirectionaldiodeshape"
 		},
-
+		//stroke
 		{
-			"displayName": "diode",
+			"displayName": "Stroke diode",
 			"groupName": "Diodes",
 			"drawName": "stroke diode",
 			"aliases": ["D-"],
@@ -861,7 +984,7 @@
 			"stroke": true
 		},
 		{
-			"displayName": "Schottky diode",
+			"displayName": "Stroke Schottky diode",
 			"groupName": "Diodes",
 			"drawName": "stroke Schottky diode",
 			"aliases": ["sD-"],
@@ -869,7 +992,7 @@
 			"stroke": true
 		},
 		{
-			"displayName": "Zener diode",
+			"displayName": "Stroke Zener diode",
 			"groupName": "Diodes",
 			"drawName": "stroke Zener diode",
 			"aliases": ["zD-"],
@@ -877,7 +1000,7 @@
 			"stroke": true
 		},
 		{
-			"displayName": "ZZener diode",
+			"displayName": "Stroke ZZener diode",
 			"groupName": "Diodes",
 			"drawName": "stroke ZZener diode",
 			"aliases": ["zzD-"],
@@ -885,7 +1008,7 @@
 			"stroke": true
 		},
 		{
-			"displayName": "tunnel diode",
+			"displayName": "Stroke tunnel diode",
 			"groupName": "Diodes",
 			"drawName": "stroke tunnel diode",
 			"aliases": ["tD-"],
@@ -893,7 +1016,7 @@
 			"stroke": true
 		},
 		{
-			"displayName": "photodiode",
+			"displayName": "Stroke photodiode",
 			"groupName": "Diodes",
 			"drawName": "stroke photodiode",
 			"aliases": ["pD-"],
@@ -901,7 +1024,7 @@
 			"stroke": true
 		},
 		{
-			"displayName": "LED",
+			"displayName": "Stroke LED",
 			"groupName": "Diodes",
 			"drawName": "stroke led",
 			"aliases": ["leD-"],
@@ -909,7 +1032,7 @@
 			"stroke": true
 		},
 		{
-			"displayName": "laser diode",
+			"displayName": "Stroke laser diode",
 			"groupName": "Diodes",
 			"drawName": "stroke laser diode",
 			"aliases": ["lasD-"],
@@ -917,7 +1040,7 @@
 			"stroke": true
 		},
 		{
-			"displayName": "varcap",
+			"displayName": "Stroke varcap",
 			"groupName": "Diodes",
 			"drawName": "stroke varcap",
 			"aliases": ["VC-"],
@@ -926,95 +1049,96 @@
 		},
 
 		// 4.4.1 Tripole-like diodes
+		//empty
 		{
-			"displayName": "triac",
-			"groupName": "Tripole-like diodes",
+			"displayName": "Empty triac",
+			"groupName": "Diodes",
 			"drawName": "empty triac",
 			"aliases": ["Tro"],
 			"pins": ["gate"]
 		},
 		{
-			"displayName": "thyristor",
-			"groupName": "Tripole-like diodes",
+			"displayName": "Empty thyristor",
+			"groupName": "Diodes",
 			"drawName": "empty thyristor",
 			"aliases": ["Tyo"],
 			"pins": ["gate"]
 		},
 		{
-			"displayName": "PUT",
-			"groupName": "Tripole-like diodes",
+			"displayName": "Empty PUT",
+			"groupName": "Diodes",
 			"drawName": "empty put",
 			"aliases": ["PUTo"],
 			"pins": ["gate"]
 		},
 		{
-			"displayName": "GTO",
-			"groupName": "Tripole-like diodes",
+			"displayName": "Empty GTO",
+			"groupName": "Diodes",
 			"drawName": "empty gto",
 			"aliases": ["GTOo"],
 			"pins": ["gate"]
 		},
 		{
-			"displayName": "GTO",
-			"groupName": "Tripole-like diodes",
+			"displayName": "Empty GTO (bar-type)",
+			"groupName": "Diodes",
 			"drawName": "empty gtobar",
 			"aliases": ["GTObo"],
 			"pins": ["gate"]
 		},
 		{
-			"displayName": "GTO (anode)",
-			"groupName": "Tripole-like diodes",
+			"displayName": "Empty GTO (bar-type on anode)",
+			"groupName": "Diodes",
 			"drawName": "empty agtobar",
 			"aliases": ["aGTObo"],
 			"pins": ["gate"]
 		},
-
+		//full
 		{
-			"displayName": "triac",
-			"groupName": "Tripole-like diodes",
+			"displayName": "Full triac",
+			"groupName": "Diodes",
 			"drawName": "full triac",
 			"aliases": ["Tr*"],
 			"pins": ["gate"]
 		},
 		{
-			"displayName": "thyristor",
-			"groupName": "Tripole-like diodes",
+			"displayName": "Full thyristor",
+			"groupName": "Diodes",
 			"drawName": "full thyristor",
 			"aliases": ["Ty*"],
 			"pins": ["gate"]
 		},
 		{
-			"displayName": "PUT",
-			"groupName": "Tripole-like diodes",
+			"displayName": "Full PUT",
+			"groupName": "Diodes",
 			"drawName": "full put",
 			"aliases": ["PUT*"],
 			"pins": ["gate"]
 		},
 		{
-			"displayName": "GTO",
-			"groupName": "Tripole-like diodes",
+			"displayName": "Full GTO",
+			"groupName": "Diodes",
 			"drawName": "full gto",
 			"aliases": ["GTO*"],
 			"pins": ["gate"]
 		},
 		{
-			"displayName": "GTO",
-			"groupName": "Tripole-like diodes",
+			"displayName": "Full GTO (bar-type)",
+			"groupName": "Diodes",
 			"drawName": "full gtobar",
 			"aliases": ["GTOb*"],
 			"pins": ["gate"]
 		},
 		{
-			"displayName": "GTO (anode)",
-			"groupName": "Tripole-like diodes",
+			"displayName": "Full GTO  (bar-type on anode)",
+			"groupName": "Diodes",
 			"drawName": "full agtobar",
 			"aliases": ["aGTOb*"],
 			"pins": ["gate"]
 		},
-
+		//stroke
 		{
-			"displayName": "triac",
-			"groupName": "Tripole-like diodes",
+			"displayName": "Stroke triac",
+			"groupName": "Diodes",
 			"drawName": "stroke triac",
 			"aliases": ["Tr-"],
 			"shapeName": "emptytriacshape",
@@ -1022,8 +1146,8 @@
 			"stroke": true
 		},
 		{
-			"displayName": "thyristor",
-			"groupName": "Tripole-like diodes",
+			"displayName": "Stroke thyristor",
+			"groupName": "Diodes",
 			"drawName": "stroke thyristor",
 			"aliases": ["Ty-"],
 			"shapeName": "emptythyristorshape",
@@ -1031,8 +1155,8 @@
 			"stroke": true
 		},
 		{
-			"displayName": "PUT",
-			"groupName": "Tripole-like diodes",
+			"displayName": "Stroke PUT",
+			"groupName": "Diodes",
 			"drawName": "stroke put",
 			"aliases": ["PUT-"],
 			"shapeName": "emptyputshape",
@@ -1040,8 +1164,8 @@
 			"stroke": true
 		},
 		{
-			"displayName": "GTO",
-			"groupName": "Tripole-like diodes",
+			"displayName": "Stroke GTO",
+			"groupName": "Diodes",
 			"drawName": "stroke gto",
 			"aliases": ["GTO-"],
 			"shapeName": "emptygtoshape",
@@ -1049,8 +1173,8 @@
 			"stroke": true
 		},
 		{
-			"displayName": "GTO",
-			"groupName": "Tripole-like diodes",
+			"displayName": "Stroke GTO (bar-type)",
+			"groupName": "Diodes",
 			"drawName": "stroke gtobar",
 			"aliases": ["GTOb-"],
 			"shapeName": "emptygtobarshape",
@@ -1058,8 +1182,8 @@
 			"stroke": true
 		},
 		{
-			"displayName": "GTO (anode)",
-			"groupName": "Tripole-like diodes",
+			"displayName": "Stroke GTO  (bar-type on anode)",
+			"groupName": "Diodes",
 			"drawName": "stroke agtobar",
 			"aliases": ["aGTOb-"],
 			"shapeName": "emptyagtobarshape",
@@ -1067,38 +1191,38 @@
 			"stroke": true
 		},
 
-		// 4.5 Sources and generators
+		// 4.5 Sources and generators - done
 		// 4.5.1 Batteries
 		{
-			"displayName": "battery",
+			"displayName": "Battery",
 			"groupName": "Sources and generators",
 			"drawName": "battery"
 		},
 		{
-			"displayName": "battery (single cell)",
+			"displayName": "Battery (single cell)",
 			"groupName": "Sources and generators",
 			"drawName": "battery1"
 		},
 		{
-			"displayName": "battery (single cell)",
+			"displayName": "Battery (single cell)",
 			"groupName": "Sources and generators",
 			"drawName": "battery2"
 		},
 		{
-			"displayName": "baertty",
+			"displayName": "Randall Munroe's baertty",
 			"groupName": "Sources and generators",
 			"drawName": "baertty"
 		},
 		// 4.5.2 Stationary sources
 		{
-			"displayName": "voltage source (european)",
+			"displayName": "Voltage source (european)",
 			"groupName": "Sources and generators",
 			"drawName": "european voltage source",
 			"aliases": ["vsource"],
 			"shapeName": "vsourceshape"
 		},
 		{
-			"displayName": "current source (european)",
+			"displayName": "Current source (european)",
 			"groupName": "Sources and generators",
 			"drawName": "european current source",
 			"aliases": ["isource"],
@@ -1106,14 +1230,14 @@
 		},
 
 		{
-			"displayName": "voltage source (cute)",
+			"displayName": "Voltage source (cute)",
 			"groupName": "Sources and generators",
 			"drawName": "cute european voltage source",
 			"aliases": ["vsourceC", "ceV"],
 			"shapeName": "vsourceCshape"
 		},
 		{
-			"displayName": "current source (cute)",
+			"displayName": "Current source (cute)",
 			"groupName": "Sources and generators",
 			"drawName": "cute european current source",
 			"aliases": ["isourceC", "ceI"],
@@ -1121,14 +1245,14 @@
 		},
 
 		{
-			"displayName": "voltage source (american)",
+			"displayName": "Voltage source (american)",
 			"groupName": "Sources and generators",
 			"drawName": "american voltage source",
 			"aliases": ["vsourceAM"],
 			"shapeName": "vsourceAMshape"
 		},
 		{
-			"displayName": "current source (american)",
+			"displayName": "Current source (american)",
 			"groupName": "Sources and generators",
 			"drawName": "american current source",
 			"aliases": ["isourceAM"],
@@ -1137,14 +1261,14 @@
 
 		// 4.5.3 Sinusoidal sources
 		{
-			"displayName": "sinusoidal voltage source",
+			"displayName": "Sinusoidal voltage source",
 			"groupName": "Sources and generators",
 			"drawName": "sinusoidal voltage source",
 			"aliases": ["vsourcesin", "sV"],
 			"shapeName": "vsourcesinshape"
 		},
 		{
-			"displayName": "sinusoidal current source",
+			"displayName": "Sinusoidal current source",
 			"groupName": "Sources and generators",
 			"drawName": "sinusoidal current source",
 			"aliases": ["isourcesin", "sI"],
@@ -1153,14 +1277,14 @@
 
 		// 4.5.4 Controlled sources
 		{
-			"displayName": "controlled voltage source (european)",
+			"displayName": "Controlled voltage source (european)",
 			"groupName": "Sources and generators",
 			"drawName": "european controlled voltage source",
 			"aliases": ["cvsource"],
 			"shapeName": "cvsourceshape"
 		},
 		{
-			"displayName": "controlled current source (european)",
+			"displayName": "Controlled current source (european)",
 			"groupName": "Sources and generators",
 			"drawName": "european controlled current source",
 			"aliases": ["cisource"],
@@ -1168,14 +1292,14 @@
 		},
 
 		{
-			"displayName": "controlled voltage source (cute)",
+			"displayName": "Controlled voltage source (cute)",
 			"groupName": "Sources and generators",
 			"drawName": "cute european controlled voltage source",
 			"aliases": ["cvsourceC", "cceV"],
 			"shapeName": "cvsourceCshape"
 		},
 		{
-			"displayName": "controlled current source (cute)",
+			"displayName": "Controlled current source (cute)",
 			"groupName": "Sources and generators",
 			"drawName": "cute european controlled current source",
 			"aliases": ["cisourceC", "cceI"],
@@ -1183,14 +1307,14 @@
 		},
 
 		{
-			"displayName": "controlled voltage source (american)",
+			"displayName": "Controlled voltage source (american)",
 			"groupName": "Sources and generators",
 			"drawName": "american controlled voltage source",
 			"aliases": ["cvsourceAM"],
 			"shapeName": "cvsourceAMshape"
 		},
 		{
-			"displayName": "controlled current source (american)",
+			"displayName": "Controlled current source (american)",
 			"groupName": "Sources and generators",
 			"drawName": "american controlled current source",
 			"aliases": ["cisourceAM"],
@@ -1198,7 +1322,7 @@
 		},
 
 		{
-			"displayName": "empty controlled source",
+			"displayName": "Empty controlled source",
 			"groupName": "Sources and generators",
 			"drawName": "empty controlled source",
 			"aliases": ["ecsource"],
@@ -1206,14 +1330,14 @@
 		},
 
 		{
-			"displayName": "controlled sinusoidal voltage source",
+			"displayName": "Controlled sinusoidal voltage source",
 			"groupName": "Sources and generators",
 			"drawName": "controlled sinusoidal voltage source",
 			"aliases": ["controlled vsourcesin", "cvsourcesin", "csV"],
 			"shapeName": "cvsourcesinshape"
 		},
 		{
-			"displayName": "controlled sinusoidal current source (european)",
+			"displayName": "Controlled sinusoidal current source (european)",
 			"groupName": "Sources and generators",
 			"drawName": "controlled sinusoidal current source",
 			"aliases": ["controlled isourcesin", "cisourcesin", "csI"],
@@ -1222,14 +1346,14 @@
 
 		// 4.5.5 Noise sources
 		{
-			"displayName": "noise voltage source",
+			"displayName": "Noise voltage source",
 			"groupName": "Sources and generators",
 			"drawName": "noise voltage source",
 			"aliases": ["vsourceN", "nV"],
 			"shapeName": "vsourceNshape"
 		},
 		{
-			"displayName": "noise current source",
+			"displayName": "Noise current source",
 			"groupName": "Sources and generators",
 			"drawName": "noise current source",
 			"aliases": ["isourceN", "nI"],
@@ -1238,61 +1362,61 @@
 
 		// 4.5.6 Special sources
 		{
-			"displayName": "square voltage source",
+			"displayName": "Square voltage source",
 			"groupName": "Sources and generators",
 			"drawName": "square voltage source",
 			"aliases": ["vsourcesquare", "sqV"],
 			"shapeName": "vsourcesquareshape"
 		},
 		{
-			"displayName": "triangle voltage source",
+			"displayName": "Triangle voltage source",
 			"groupName": "Sources and generators",
 			"drawName": "vsourcetri",
 			"aliases": ["tV"],
 			"shapeName": "vsourcetrishape"
 		},
-		// esoure is mentioned twice
+		// esource is mentioned twice
 		{
-			"displayName": "photovoltaic-voltage source",
+			"displayName": "Photovoltaic-voltage source",
 			"groupName": "Sources and generators",
 			"drawName": "pvsource"
 		},
 		{
-			"displayName": "photovoltaic module source",
+			"displayName": "Photovoltaic module source",
 			"groupName": "Sources and generators",
 			"drawName": "pvmodule"
 		},
 		{
-			"displayName": "current source",
+			"displayName": "Current source",
 			"groupName": "Sources and generators",
 			"drawName": "ioosource",
 			"shapeName": "oosourceshape"
 		},
 		{
-			"displayName": "voltage source",
+			"displayName": "Voltage source",
 			"groupName": "Sources and generators",
 			"drawName": "voosource",
 			"shapeName": "oosourceshape"
 		},
 		{
-			"displayName": "transformer source",
+			"displayName": "Transformer source",
 			"groupName": "Sources and generators",
 			"drawName": "oosourcetrans"
 		},
 		{
-			"displayName": "transformer with three windings",
+			"displayName": "Transformer with three windings",
 			"groupName": "Sources and generators",
 			"drawName": "ooosource"
 		},
 
 		// 4.5.7 Nullator and norator
 		{
-			"displayName": "nullator",
+			"displayName": "Nullator",
 			"groupName": "Sources and generators",
 			"drawName": "nullator"
 		},
 		{
-			"displayName": "norator",
+			"displayName": "Norator",
 			"groupName": "Sources and generators",
 			"drawName": "norator"
 		},
@@ -1309,160 +1433,242 @@
 			"drawName": "dcisource"
 		},
 
-		// 4.6 Instruments
+		// 4.6 Instruments - done
+		// "rotated instruments" necessary to make standard behaviour in svg and circuitikz equal
 		{
-			"displayName": "ampere meter",
+			"displayName": "Ampere meter",
 			"groupName": "Instruments",
 			"drawName": "ammeter"
 		},
 		{
-			"displayName": "volt meter",
+			"displayName": "Volt meter",
 			"groupName": "Instruments",
 			"drawName": "voltmeter"
 		},
 		{
-			"displayName": "ohm meter",
+			"displayName": "Ohm meter",
 			"groupName": "Instruments",
 			"drawName": "ohmmeter"
 		},
 
 		{
-			"displayName": "generic round meter",
+			"displayName": "Generic round meter",
 			"groupName": "Instruments",
-			"drawName": "rmeter"
+			"drawName": "rmeter",
+			"options": ["rotated instruments"]
 		},
 		{
-			"displayName": "generic round meter with arrow",
+			"displayName": "Generic round meter with arrow",
 			"groupName": "Instruments",
-			"drawName": "rmeterwa"
+			"drawName": "rmeterwa",
+			"options": ["rotated instruments"]
 		},
 
 		{
-			"displayName": "generic square meter",
+			"displayName": "Generic square meter",
 			"groupName": "Instruments",
 			"pins": ["in 1", "in 2"],
-			"drawName": "smeter"
+			"drawName": "smeter",
+			"options": ["rotated instruments"]
 		},
 		{
-			"displayName": "ampere meter (square)",
+			"displayName": "Ampere meter (square)",
 			"groupName": "Instruments",
 			"drawName": "qiprobe"
 		},
 		{
-			"displayName": "volt meter (square)",
+			"displayName": "Volt meter (square)",
 			"groupName": "Instruments",
 			"drawName": "qvprobe"
 		},
 		{
-			"displayName": "watt meter (square)",
+			"displayName": "Watt meter (square)",
 			"groupName": "Instruments",
 			"pins": ["v+", "v-"],
 			"drawName": "qpprobe"
 		},
 
 		{
-			"displayName": "oscilloscope",
+			"displayName": "Oscilloscope",
 			"groupName": "Instruments",
 			"pins": ["in 1", "in 2"],
-			"drawName": "oscope"
+			"drawName": "oscope",
+			"options": ["rotated instruments"]
 		},
 
 		{
-			"displayName": "current loop (symbolic)",
+			"displayName": "Current loop (symbolic)",
 			"groupName": "Instruments",
 			"pins": ["i"],
 			"drawName": "iloop"
 		},
 		{
-			"displayName": "current loop (real)",
+			"displayName": "Current loop (real)",
 			"groupName": "Instruments",
 			"pins": ["i+", "i-"],
 			"drawName": "iloop2"
 		},
-
-		// 4.7 Mechanical Analogy
-		// skip
-
-		// 4.8 Miscellaneous bipoles
 		{
-			"displayName": "thermocouple",
+			"displayName": "Current tap (probe)",
+			"groupName": "Instruments",
+			"pins": ["tap"],
+			"drawName": "currtap"
+		},
+
+		// 4.7 Mechanical Analogy - done
+		{
+			"displayName": "Mechanical damping",
+			"groupName": "Mechanical Analogy",
+			"drawName": "damper"
+		},
+		{
+			"displayName": "Mechanical inerter",
+			"groupName": "Mechanical Analogy",
+			"drawName": "inerter"
+		},
+		{
+			"displayName": "Mechanical stiffness",
+			"groupName": "Mechanical Analogy",
+			"drawName": "spring"
+		},
+		{
+			"displayName": "Mechanical viscoelastic element",
+			"groupName": "Mechanical Analogy",
+			"drawName": "viscoe"
+		},
+		{
+			"displayName": "Mechanical mass",
+			"groupName": "Mechanical Analogy",
+			"drawName": "mass"
+		},
+
+		// 4.8 Miscellaneous bipoles - done
+		{
+			"displayName": "Thermocouple",
 			"groupName": "Miscellaneous bipoles",
 			"drawName": "thermocouple"
 		},
 		{
-			"displayName": "fuse",
+			"displayName": "Fuse",
 			"groupName": "Miscellaneous bipoles",
 			"drawName": "fuse"
 		},
 		{
-			"displayName": "asymetric fuse",
+			"displayName": "Fuse (asymetric)",
 			"groupName": "Miscellaneous bipoles",
 			"aliases": ["asymmetric fuse"],
 			"drawName": "afuse"
 		},
 		{
-			"displayName": "squid",
+			"displayName": "Fuse (wiggly)",
+			"groupName": "Miscellaneous bipoles",
+			"drawName": "wfuse"
+		},
+		{
+			"displayName": "Relais",
+			"groupName": "Miscellaneous bipoles",
+			"drawName": "relais"
+		},
+		{
+			"displayName": "Squid",
 			"groupName": "Miscellaneous bipoles",
 			"drawName": "squid"
 		},
 		{
-			"displayName": "barrier",
+			"displayName": "Barrier",
 			"groupName": "Miscellaneous bipoles",
 			"drawName": "barrier"
 		},
 		{
-			"displayName": "open barrier",
+			"displayName": "Open barrier",
 			"groupName": "Miscellaneous bipoles",
 			"drawName": "openbarrier"
 		},
 
 		{
-			"displayName": "gas filled surge arrester (european)",
+			"displayName": "Gas filled surge arrester (european)",
 			"groupName": "Miscellaneous bipoles",
 			"drawName": "european gas filled surge arrester",
 			"shapeName": "european gas filled surge arrestershape"
 		},
 		{
-			"displayName": "gas filled surge arrester (american)",
+			"displayName": "Gas filled surge arrester (american)",
 			"groupName": "Miscellaneous bipoles",
 			"drawName": "american gas filled surge arrester",
 			"shapeName": "american gas filled surge arrestershape"
 		},
 
 		{
-			"displayName": "lamp",
+			"displayName": "Lamp",
 			"groupName": "Miscellaneous bipoles",
 			"drawName": "lamp"
 		},
 		{
-			"displayName": "bulb",
+			"displayName": "Bulb",
 			"groupName": "Miscellaneous bipoles",
 			"drawName": "bulb"
 		},
 		{
-			"displayName": "loudspeaker",
+			"displayName": "Neon lamp (double cathode style),",
+			"groupName": "Miscellaneous bipoles",
+			"drawName": "neonlampcc"
+		},
+		{
+			"displayName": "Neon lamp (anode and cathode style)",
+			"groupName": "Miscellaneous bipoles",
+			"drawName": "neonlampac"
+		},
+		{
+			"displayName": "Spark gap (unenclosed)",
+			"groupName": "Miscellaneous bipoles",
+			"drawName": "sparkgap"
+		},
+		{
+			"displayName": "Loudspeaker",
 			"groupName": "Miscellaneous bipoles",
 			"drawName": "loudspeaker"
 		},
 		{
-			"displayName": "microphone",
+			"displayName": "Microphone",
 			"groupName": "Miscellaneous bipoles",
 			"drawName": "mic"
 		},
 		{
-			"displayName": "microphone (tail-les)",
+			"displayName": "Microphone (tailless)",
 			"groupName": "Miscellaneous bipoles",
 			"drawName": "tlmic"
 		},
 		{
-			"displayName": "buzzer",
+			"displayName": "Buzzer",
 			"groupName": "Miscellaneous bipoles",
 			"drawName": "buzzer"
 		},
 		{
-			"displayName": "buzzer (reversed)",
+			"displayName": "Buzzer (reversed)",
 			"groupName": "Miscellaneous bipoles",
 			"drawName": "rbuzzer"
+		},
+		// 4.9 Multiple wires (buses) - done
+		{
+			"displayName": "Single line multiple wires",
+			"groupName": "Wiring",
+			"drawName": "multiwire"
+		},
+		{
+			"displayName": "Double line multiple wires",
+			"groupName": "Wiring",
+			"drawName": "bmultiwire"
+		},
+		{
+			"displayName": "Triple line multiple wires",
+			"groupName": "Wiring",
+			"drawName": "tmultiwire"
+		},
+		// 4.13.2 - done
+		{
+			"displayName": "IEC 60617 connector (path)",
+			"groupName": "Wiring",
+			"drawName": "iec connector"
 		}
 	]
 }
