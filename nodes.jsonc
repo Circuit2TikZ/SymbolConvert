@@ -1138,12 +1138,221 @@
 			"name": "proximeter",
 			"groupName": "Switches, buttons and jumpers",
 			"pins": ["hlines nw","hlines sw","hlines ne","hlines se"]
-		}
+		},
 		// 4.21.4 Rotary switches
 		// skip - no generic switches with variable terminal count
 		
 		// 4.22 Logic gates
 		// TODO how to handle multiple inputs? all variations up to 4?
+		// 4.22.1 American Logic gates
+		{
+			"displayName": "AND gate (american)",
+			"name": "american and port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "in 2", "out"]
+		},
+		{
+			"displayName": "OR gate (american)",
+			"name": "american or port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "in 2", "out"]
+		},
+		{
+			"displayName": "NAND gate (american)",
+			"name": "american nand port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "in 2", "out"]
+		},
+		{
+			"displayName": "NOR gate (american)",
+			"name": "american nor port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "in 2", "out"]
+		},
+		{
+			"displayName": "XOR gate (american)",
+			"name": "american xor port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "in 2", "out"]
+		},
+		{
+			"displayName": "XNOR gate (american)",
+			"name": "american xnor port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "in 2", "out"]
+		},
+		{
+			"displayName": "Buffer port (american)",
+			"name": "american buffer port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "out"]
+		},
+		{
+			"displayName": "NOT gate (american)",
+			"name": "american not port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "out"]
+		},
+		// 4.22.2 IEEE logic gates
+		{
+			"displayName": "AND gate (IEEE)",
+			"name": "ieeestd and port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "bin 1", "in 2", "bin 2", "out", "bout"]
+		},
+		{
+			"displayName": "OR gate (IEEE)",
+			"name": "ieeestd or port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "bin 1", "in 2", "bin 2", "out", "bout"]
+		},
+		{
+			"displayName": "NAND gate (IEEE)",
+			"name": "ieeestd nand port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "bin 1", "in 2", "bin 2", "out", "bout"]
+		},
+		{
+			"displayName": "NOR gate (IEEE)",
+			"name": "ieeestd nor port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "bin 1", "in 2", "bin 2", "out", "bout"]
+		},
+		{
+			"displayName": "XOR gate (IEEE)",
+			"name": "ieeestd xor port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "bin 1", "in 2", "bin 2", "out", "bout"]
+		},
+		{
+			"displayName": "XNOR gate (IEEE)",
+			"name": "ieeestd xnor port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "bin 1", "in 2", "bin 2", "out", "bout"]
+		},
+		{
+			"displayName": "Buffer port (IEEE)",
+			"name": "ieeestd buffer port",
+			"groupName": "Logic gates",
+			"pins": ["in", "bin", "out", "up", "down"]
+		},
+		{
+			"displayName": "NOT gate (IEEE)",
+			"name": "ieeestd not port",
+			"groupName": "Logic gates",
+			"pins": ["in", "bin", "out", "bout"]
+		},
+		{
+			"displayName": "Transmission gate (IEEE)",
+			"name": "ieee tgate",
+			"groupName": "Logic gates",
+			"pins": ["in", "bin", "out", "bout", "gate", "notgate"]
+		},
+		{
+			"displayName": "Double Transmission gate (IEEE)",
+			"name": "ieee double tgate",
+			"groupName": "Logic gates",
+			"pins": ["in", "bin", "out", "bout", "gate", "notgate"]
+		},
+		{
+			"displayName": "Inverting dot for IEEE ports",
+			"name": "notcirc",
+			"groupName": "Logic gates",
+			"pins": ["east", "west"]
+		},
+		{
+			"displayName": "Schmitt symbol for input pins",
+			"name": "schmitt symbol",
+			"groupName": "Logic gates",
+			"pins": ["south east", "north west"]
+		},
+		// 4.22.3 European Logic gates
+		{
+			"displayName": "AND gate (european)",
+			"name": "european and port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "in 2", "out"]
+		},
+		{
+			"displayName": "OR gate (european)",
+			"name": "european or port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "in 2", "out"]
+		},
+		{
+			"displayName": "NAND gate (european)",
+			"name": "european nand port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "in 2", "out"]
+		},
+		{
+			"displayName": "NOR gate (european)",
+			"name": "european nor port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "in 2", "out"]
+		},
+		{
+			"displayName": "XOR gate (european)",
+			"name": "european xor port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "in 2", "out"]
+		},
+		{
+			"displayName": "XNOR gate (european)",
+			"name": "european xnor port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "in 2", "out"]
+		},
+		{
+			"displayName": "Buffer port (european)",
+			"name": "european buffer port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "out"]
+		},
+		{
+			"displayName": "NOT gate (european)",
+			"name": "european not port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "out"]
+		},
+		{
+			"displayName": "Blank port (european)",
+			"name": "european blank port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "out"]
+		},
+		{
+			"displayName": "Blank not port (european)",
+			"name": "european blank not port",
+			"groupName": "Logic gates",
+			"pins": ["in 1", "out"]
+		},
+
+		// Schmitt triggers
+		{
+			"displayName": "Non-Inverting Schmitt trigger",
+			"name": "schmitt",
+			"groupName": "Logic gates",
+			"pins": ["in", "out"]
+		},
+		{
+			"displayName": "Inverting Schmitt trigger",
+			"name": "invschmitt",
+			"groupName": "Logic gates",
+			"pins": ["in", "out"]
+		},
+		{
+			"displayName": "Non-Inverting Schmitt trigger (IEEE)",
+			"name": "ieeestd schmitt port",
+			"groupName": "Logic gates",
+			"pins": ["in", "bin", "out", "bout"]
+		},
+		{
+			"displayName": "Inverting Schmitt trigger (IEEE)",
+			"name": "ieeestd invschmitt port",
+			"groupName": "Logic gates",
+			"pins": ["in", "bin", "out", "bout"]
+		}
 
 		// 4.23 Flip Flops
 		// TODO
@@ -2700,5 +2909,7 @@
 			"pins": ["left","right","tap up","tap down"],
 			"shapeName": "cdsjumpershape"
 		}
+		// 4.22.4 Path-style logic gates
+		// skip
 	]
 }
