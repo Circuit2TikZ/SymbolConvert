@@ -1085,13 +1085,65 @@
 			"name": "buffer",
 			"groupName": "Amplifiers",
 			"pins": ["in","out"]
-		}
+		},
 
 		// 4.21 Switches, Buttons and jumpers
-		// TODO
+		// 4.21.1 Traditional switches
+		{
+			"displayName": "SPDT",
+			"name": "spdt",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["in","out 1","out 2"]
+		},
+		// 4.21.2 Cute switches
+		{
+			"displayName": "Cute SPDT up",
+			"name": "cute spdt up",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["in","out 1","out 2"]
+		},
+		{
+			"displayName": "Cute SPDT mid",
+			"name": "cute spdt mid",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["in","out 1","out 2"]
+		},
+		{
+			"displayName": "Cute SPDT down",
+			"name": "cute spdt down",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["in","out 1","out 2"]
+		},
+		{
+			"displayName": "Cute SPDT up with arrow",
+			"name": "cute spdt up arrow",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["in","out 1","out 2"]
+		},
+		{
+			"displayName": "Cute SPDT mid with arrow",
+			"name": "cute spdt mid arrow",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["in","out 1","out 2"]
+		},
+		{
+			"displayName": "Cute SPDT down with arrow",
+			"name": "cute spdt down arrow",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["in","out 1","out 2"]
+		},
+		// 4.21.3 Proximity switches
+		{
+			"displayName": "Proximeter",
+			"name": "proximeter",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["hlines nw","hlines sw","hlines ne","hlines se"]
+		}
+		// 4.21.4 Rotary switches
+		// skip - no generic switches with variable terminal count
 		
 		// 4.22 Logic gates
-		// TODO
+		// TODO how to handle multiple inputs? all variations up to 4?
 
 		// 4.23 Flip Flops
 		// TODO
@@ -2428,7 +2480,225 @@
 			"drawName": "tline",
 			"groupName": "RF components",
 			"aliases": ["TL", "transmission line"]
-		}
+		},
+		// 4.21 Switches, Buttons and jumpers
+		// 4.21.1 Traditional switches
+		{
+			"displayName": "Switch",
+			"drawName": "switch",
+			"groupName": "Switches, buttons and jumpers",
+			"aliases": ["spst"],
+			"shapeName": "cspstshape",
+			"pins": ["left", "right"]
+		},
+		{
+			"displayName": "Closing switch",
+			"drawName": "closing switch",
+			"groupName": "Switches, buttons and jumpers",
+			"aliases": ["cspst"],
+			"shapeName": "cspstshape",
+			"pins": ["left", "right"]
+		},
+		{
+			"displayName": "Opening switch",
+			"drawName": "opening switch",
+			"groupName": "Switches, buttons and jumpers",
+			"aliases": ["ospst"],
+			"shapeName": "ospstshape",
+			"pins": ["left", "right"]
+		},
+		{
+			"displayName": "Normally open switch",
+			"drawName": "normal open switch",
+			"groupName": "Switches, buttons and jumpers",
+			"aliases": ["nos"],
+			"shapeName": "nosshape",
+			"pins": ["left", "right"]
+		},
+		{
+			"displayName": "Normally closed switch",
+			"drawName": "normal closed switch",
+			"groupName": "Switches, buttons and jumpers",
+			"aliases": ["ncs"],
+			"shapeName": "ncsshape",
+			"pins": ["left", "right"]
+		},
+		{
+			"displayName": "Opening normally closed switch",
+			"drawName": "opening normal closed switch",
+			"groupName": "Switches, buttons and jumpers",
+			"aliases": ["oncs"],
+			"shapeName": "oncsshape",
+			"pins": ["left", "right"]
+		},
+		{
+			"displayName": "Closing normally closed switch",
+			"drawName": "closing normal closed switch",
+			"groupName": "Switches, buttons and jumpers",
+			"aliases": ["cncs"],
+			"shapeName": "cncsshape",
+			"pins": ["left", "right"]
+		},
+		{
+			"displayName": "Opening normally open switch",
+			"drawName": "opening normal open switch",
+			"groupName": "Switches, buttons and jumpers",
+			"aliases": ["onos"],
+			"shapeName": "onosshape",
+			"pins": ["left", "right"]
+		},
+		{
+			"displayName": "Closing normally open switch",
+			"drawName": "closing normal open switch",
+			"groupName": "Switches, buttons and jumpers",
+			"aliases": ["cnos"],
+			"shapeName": "cnosshape",
+			"pins": ["left", "right"]
+		},
+		{
+			"displayName": "Normally open push button",
+			"drawName": "push button",
+			"groupName": "Switches, buttons and jumpers",
+			"aliases": ["nopb"],
+			"pins": ["tip"]
+		},
+		{
+			"displayName": "Normally closed push button",
+			"drawName": "normally closed push button",
+			"groupName": "Switches, buttons and jumpers",
+			"aliases": ["ncpb"],
+			"shapeName": "ncpushbuttonshape",
+			"pins": ["tip"]
+		},
+		{
+			"displayName": "Normally open push button (in closed position)",
+			"drawName": "normally open push button closed",
+			"groupName": "Switches, buttons and jumpers",
+			"aliases": ["nopbc"],
+			"shapeName": "pushbuttoncshape",
+			"pins": ["tip"]
+		},
+		{
+			"displayName": "Normally closed push button (in open position)",
+			"drawName": "normally closed push button open",
+			"groupName": "Switches, buttons and jumpers",
+			"aliases": ["ncpbo"],
+			"shapeName": "ncpushbuttonoshape",
+			"pins": ["tip"]
+		},
+		{
+			"displayName": "Toggle switch",
+			"drawName": "toggle switch",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["in","out 1","out 2"]
+		},
+		{
+			"displayName": "Reed switch",
+			"drawName": "reed",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["left", "right"]
+		},
+		// 4.21.2 Cute switches
+		{
+			"displayName": "Cute closed switch",
+			"drawName": "cute closed switch",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["in", "out"]
+		},
+		{
+			"displayName": "Cute open switch",
+			"drawName": "cute open switch",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["in", "out"]
+		},
+		{
+			"displayName": "Cute closing switch",
+			"drawName": "cute closing switch",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["in", "out"]
+		},
+		{
+			"displayName": "Cute opening switch",
+			"drawName": "cute opening switch",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["in", "out"]
+		},
+		// 4.21.3 Proximity switches
+		//Doesn't compile for some reason
+		// {
+		// 	"displayName": "Proximeter inline",
+		// 	"drawName": "inline proximeter",
+		// 	"groupName": "Switches, buttons and jumpers",
+		// 	"pins": ["hlines nw","hlines sw","hlines ne","hlines se","left","right"],
+		// 	"shapeName": "proximeter"
+		// },
+		// 4.21.6 Jumpers
+		{
+			"displayName": "Bare jumper",
+			"drawName": "bare jumper",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["in", "out"],
+			"shapeName": "bjumpershape"
+		},
+		{
+			"displayName": "Open jumper",
+			"drawName": "open jumper",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["in", "out", "top arc"],
+			"shapeName": "ojumpershape"
+		},
+		{
+			"displayName": "Closed jumper",
+			"drawName": "closed jumper",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["left", "right", "top arc"],
+			"shapeName": "cjumpershape"
+		},
+		// 4.21.6.2 Two-ways (three-pins) jumpers
+		// skip - TODO? all possible combinations would be necessary
 
+		// 4.21.7 Solder jumpers
+		{
+			"displayName": "Open solder jumper",
+			"drawName": "open solder jumper",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["in","out"],
+			"shapeName": "osjumpershape"
+		},
+		{
+			"displayName": "Closed solder jumper",
+			"drawName": "closed solder jumper",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["left","right"],
+			"shapeName": "csjumpershape"
+		},
+		{
+			"displayName": "Open double solder jumper",
+			"drawName": "open double solder jumper",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["in","out","tap"],
+			"shapeName": "odsjumpershape"
+		},
+		{
+			"displayName": "Left double solder jumper",
+			"drawName": "left double solder jumper",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["left","right","tap up","tap down"],
+			"shapeName": "ldsjumpershape"
+		},
+		{
+			"displayName": "Right double solder jumper",
+			"drawName": "right double solder jumper",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["left","right","tap up","tap down"],
+			"shapeName": "rdsjumpershape"
+		},
+		{
+			"displayName": "Closed double solder jumper",
+			"drawName": "closed double solder jumper",
+			"groupName": "Switches, buttons and jumpers",
+			"pins": ["left","right","tap up","tap down"],
+			"shapeName": "cdsjumpershape"
+		}
 	]
 }
