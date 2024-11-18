@@ -4,19 +4,19 @@
  * @module buildSettings
  */
 
-import { requireJSONsync } from "./lib/requireJSONC.mjs";
+import { requireJSONsync } from "./lib/requireJSONC.mjs"
 
 /**
  * The relative path to the folder used for building with trailing slash
  * @constant {string}
  */
-export const buildFolderRel = "build/";
+export const buildFolderRel = "build/"
 
 /**
  * The absolute path to the folder used for building
  * @constant {string}
  */
-export const buildFolderAbs = process.cwd() + "/" + buildFolderRel;
+export const buildFolderAbs = process.cwd() + "/" + buildFolderRel
 
 /**
  * @typedef {object} NodeDescription
@@ -46,4 +46,4 @@ export const buildFolderAbs = process.cwd() + "/" + buildFolderRel;
  */
 
 /** @type {NODES_AND_PATHS_TYPE} */
-export const NODES_AND_PATHS = requireJSONsync("./nodes.jsonc", import.meta.url, true);
+export const NODES_AND_PATHS = requireJSONsync("./nodes.jsonc", import.meta.url, true)
