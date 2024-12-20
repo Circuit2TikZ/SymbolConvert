@@ -177,68 +177,68 @@
 			"displayName": "Mixer",
 			"name": "mixer",
 			"groupName": "Block diagram",
-			"pins": ["n", "s", "w", "e"] 
-		},
-		{
-			"displayName": "Mixer (boxed)",
-			"name": "mixer",
-			"options": ["boxed"],
-			"groupName": "Block diagram",
-			"pins": ["left up", "left down", "right up", "right down"] 
+			"options": [
+				{
+					"name": "boxed",
+					"addPins": ["left up", "left down", "right up", "right down"],
+					"subPins": ["n", "s", "w", "e"]
+				}
+			],
+			"pins": ["n", "s", "w", "e"]
 		},
 		{
 			"displayName": "Adder",
 			"name": "adder",
 			"groupName": "Block diagram",
-			"pins": ["north", "south", "west", "east"]  
+			"pins": ["north", "south", "west", "east"]
 		},
 		{
 			"displayName": "Oscillator",
 			"name": "oscillator",
 			"groupName": "Block diagram",
-			"pins": ["n", "s", "w", "e"] 
-		},	
+			"pins": ["n", "s", "w", "e"]
+		},
 		{
 			"displayName": "Circulator",
 			"name": "circulator",
 			"groupName": "Block diagram",
-			"pins": ["left", "up", "right", "down"] 
+			"pins": ["left", "up", "right", "down"]
 		},
 		{
 			"displayName": "Wilkinson divider",
 			"name": "wilkinson",
 			"groupName": "Block diagram",
-			"pins": ["in", "out1", "out2"] 
-		},	
+			"pins": ["in", "out1", "out2"]
+		},
 		{
 			"displayName": "Resistive splitter",
 			"name": "splitter",
 			"groupName": "Block diagram",
-			"pins": ["in", "out1", "out2"] 
+			"pins": ["in", "out1", "out2"]
 		},
 		{
 			"displayName": "Generic splitter",
 			"name": "genericsplitter",
 			"groupName": "Block diagram",
-			"pins": ["in", "out1", "out2"] 
-		},	
+			"pins": ["in", "out1", "out2"]
+		},
 		{
 			"displayName": "Grid node",
 			"name": "gridnode",
 			"groupName": "Block diagram",
-			"pins": ["left", "up", "right", "down"] 
+			"pins": ["left", "up", "right", "down"]
 		},
 		{
 			"displayName": "Mach Zehnder Modulator",
 			"name": "mzm",
 			"groupName": "Block diagram",
-			"pins": ["in", "out", "mod"] 
+			"pins": ["in", "out", "mod"]
 		},
 		{
 			"displayName": "Generic fourport",
 			"name": "fourport",
 			"groupName": "Block diagram",
-			"pins": ["port1", "port2", "port3", "port4"] 
+			"pins": ["port1", "port2", "port3", "port4"]
 		},
 		{
 			"displayName": "Coupler",
@@ -250,7 +250,7 @@
 			"displayName": "Coupler (rounded arrows)",
 			"name": "coupler2",
 			"groupName": "Block diagram",
-			"pins": ["port1", "port2", "port3", "port4"] 
+			"pins": ["port1", "port2", "port3", "port4"]
 		},
 
 		// 4.15 Transistors - done
@@ -259,93 +259,65 @@
 			"displayName": "NPN",
 			"name": "npn",
 			"groupName": "Transistors",
+			"options": [
+				{ "name": "schottky base" },
+				{ "name": "photo", "addPins": ["arrows"], "subPins": ["B"] },
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] }
+			],
 			"pins": ["B", "C", "E"]
 		},
 		{
 			"displayName": "PNP",
 			"name": "pnp",
 			"groupName": "Transistors",
-			"pins": ["B", "C", "E"]
-		},
-		{
-			"displayName": "NPN (schottky)",
-			"name": "npn",
-			"groupName": "Transistors",
-			"options": ["schottky base"],
-			"pins": ["B", "C", "E"]
-		},
-		{
-			"displayName": "PNP (schottky)",
-			"name": "pnp",
-			"groupName": "Transistors",
-			"options": ["schottky base"],
-			"pins": ["B", "C", "E"]
-		},
-		{
-			"displayName": "NPN (bodydiode)",
-			"name": "npn",
-			"groupName": "Transistors",
-			"options": ["bodydiode"],
-			"pins": ["B", "C", "E","body C out","body E out"]
-		},
-		{
-			"displayName": "PNP (bodydiode)",
-			"name": "pnp",
-			"groupName": "Transistors",
-			"options": ["bodydiode"],
-			"pins": ["B", "C", "E","body C out","body E out"]
-		},
-		{
-			"displayName": "NPN (photo)",
-			"name": "npn",
-			"groupName": "Transistors",
-			"options": ["photo"],
-			"pins": ["B", "C", "E"]
-		},
-		{
-			"displayName": "PNP (photo)",
-			"name": "pnp",
-			"groupName": "Transistors",
-			"options": ["photo"],
+			"options": [
+				{ "name": "schottky base" },
+				{ "name": "photo", "addPins": ["arrows"], "subPins": ["B"] },
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] }
+			],
 			"pins": ["B", "C", "E"]
 		},
 		{
 			"displayName": "NIGBT",
 			"name": "nigbt",
 			"groupName": "Transistors",
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] }
+			],
 			"pins": ["B", "C", "E"]
 		},
 		{
 			"displayName": "PIGBT",
 			"name": "pigbt",
 			"groupName": "Transistors",
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] }
+			],
 			"pins": ["B", "C", "E"]
 		},
 		{
 			"displayName": "LNIGBT",
 			"name": "Lnigbt",
 			"groupName": "Transistors",
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] }
+			],
 			"pins": ["B", "C", "E"]
 		},
 		{
 			"displayName": "LPIGBT",
 			"name": "Lpigbt",
 			"groupName": "Transistors",
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] }
+			],
 			"pins": ["B", "C", "E"]
-		},
-		{
-			"displayName": "LNIGBT (bodydiode)",
-			"name": "Lnigbt",
-			"groupName": "Transistors",
-			"options": ["bodydiode"],
-			"pins": ["B", "C", "E","body C out","body E out"]
-		},
-		{
-			"displayName": "LPIGBT (bodydiode)",
-			"name": "Lpigbt",
-			"groupName": "Transistors",
-			"options": ["bodydiode"],
-			"pins": ["B", "C", "E","body C out","body E out"]
 		},
 		// 4.15.2 Multi-terminal bipolar transistors
 		// no support for arbitrary terminal count
@@ -355,57 +327,76 @@
 			"displayName": "NMOS",
 			"name": "nmos",
 			"groupName": "Transistors",
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
+				{ "name": "arrowmos" },
+				{ "name": "bulk", "addPins": ["bulk"] },
+				{ "name": "ferroel gate" }
+			],
 			"pins": ["D", "G", "S"]
 		},
 		{
 			"displayName": "PMOS",
 			"name": "pmos",
 			"groupName": "Transistors",
-			"pins": ["D", "G", "S"]
-		},
-		{
-			"displayName": "PMOS (emptycircle)",
-			"name": "pmos",
-			"groupName": "Transistors",
-			"options": ["emptycircle"],
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
+				{ "name": "arrowmos" },
+				{ "name": "bulk", "addPins": ["bulk"] },
+				{ "enumOptions": [{ "name": "nocircle" }, { "name": "emptycircle" }] },
+				{ "name": "ferroel gate" }
+			],
 			"pins": ["D", "G", "S"]
 		},
 		{
 			"displayName": "NMOS (depletion)",
 			"name": "nmosd",
 			"groupName": "Transistors",
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
+				{ "name": "arrowmos" },
+				{ "name": "bulk", "addPins": ["bulk"] },
+				{ "name": "ferroel gate" }
+			],
 			"pins": ["D", "G", "S"]
 		},
 		{
 			"displayName": "PMOS (depletion)",
 			"name": "pmosd",
 			"groupName": "Transistors",
-			"pins": ["D", "G", "S"]
-		},
-		{
-			"displayName": "PMOS (depletion, emptycircle)",
-			"name": "pmosd",
-			"groupName": "Transistors",
-			"options": ["emptycircle"],
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
+				{ "name": "arrowmos" },
+				{ "name": "bulk", "addPins": ["bulk"] },
+				{ "enumOptions": [{ "name": "nocircle" }, { "name": "emptycircle" }] },
+				{ "name": "ferroel gate" }
+			],
 			"pins": ["D", "G", "S"]
 		},
 		{
 			"displayName": "HEMT",
 			"name": "hemt",
 			"groupName": "Transistors",
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
+				{ "name": "circuitikz/tripoles/hemt/split gate=true", "displayName": "split gate" },
+				{ "name": "circuitikz/tripoles/hemt/source arrow=1", "displayName": "source arrow" }
+			],
 			"pins": ["D", "G", "S"]
-		},
-		{
-			"displayName": "HEMT (nobase)",
-			"name": "hemt",
-			"groupName": "Transistors",
-			"options": ["nobase"],
-			"pins": ["D", "S"]
 		},
 		{
 			"displayName": "GaN HEMT",
 			"name": "GaN hemt",
 			"groupName": "Transistors",
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] }
+			],
 			"pins": ["D", "G", "S"]
 		},
 
@@ -413,188 +404,202 @@
 			"displayName": "NFET",
 			"name": "nfet",
 			"groupName": "Transistors",
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
+				{ "name": "ferroel gate" }
+			],
 			"pins": ["D", "G", "center", "S"] // bulk = center
 		},
 		{
 			"displayName": "NFET (depletion)",
 			"name": "nfetd",
 			"groupName": "Transistors",
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
+				{ "name": "ferroel gate" }
+			],
 			"pins": ["D", "G", "center", "S"] // bulk = center
 		},
 		{
 			"displayName": "NIGFET",
 			"name": "nigfete",
 			"groupName": "Transistors",
-			"pins": ["D", "G", "S"]
-		},
-		{
-			"displayName": "NIGFET (solderdot)",
-			"name": "nigfete",
-			"groupName": "Transistors",
-			"options": ["solderdot"],
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{
+					"enumOptions": [
+						{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
+						{ "name": "doublegate", "addPins": ["G2"] }
+					]
+				},
+				{ "name": "ferroel gate" },
+				{ "name": "solderdot" }
+			],
 			"pins": ["D", "G", "S"]
 		},
 		{
 			"displayName": "NIGFET (bulk)",
 			"name": "nigfetebulk",
 			"groupName": "Transistors",
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{
+					"enumOptions": [
+						{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
+						{ "name": "doublegate", "addPins": ["G2"] }
+					]
+				},
+				{ "name": "ferroel gate" },
+				{ "name": "solderdot" }
+			],
 			"pins": ["D", "G", "center", "S"] // bulk = center
 		},
 		{
 			"displayName": "NIGFET (depletion)",
 			"name": "nigfetd",
 			"groupName": "Transistors",
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{
+					"enumOptions": [
+						{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
+						{ "name": "doublegate", "addPins": ["G2"] }
+					]
+				},
+				{ "name": "ferroel gate" },
+				{ "name": "solderdot" }
+			],
 			"pins": ["D", "G", "S"]
 		},
 		{
 			"displayName": "PFET",
 			"name": "pfet",
 			"groupName": "Transistors",
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
+				{ "name": "ferroel gate" }
+			],
 			"pins": ["D", "G", "center", "S"] // bulk = center
 		},
 		{
 			"displayName": "PFET (depletion)",
 			"name": "pfetd",
 			"groupName": "Transistors",
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
+				{ "name": "ferroel gate" }
+			],
 			"pins": ["D", "G", "center", "S"] // bulk = center
 		},
 		{
 			"displayName": "PIGFET",
 			"name": "pigfete",
 			"groupName": "Transistors",
-			"pins": ["D", "G", "S"]
-		},
-		{
-			"displayName": "PIGFET (solderdot)",
-			"name": "pigfete",
-			"groupName": "Transistors",
-			"options": ["solderdot"],
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{
+					"enumOptions": [
+						{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
+						{ "name": "doublegate", "addPins": ["G2"] }
+					]
+				},
+				{ "name": "ferroel gate" },
+				{ "name": "solderdot" }
+			],
 			"pins": ["D", "G", "S"]
 		},
 		{
 			"displayName": "PIGFET (bulk)",
 			"name": "pigfetebulk",
 			"groupName": "Transistors",
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{
+					"enumOptions": [
+						{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
+						{ "name": "doublegate", "addPins": ["G2"] }
+					]
+				},
+				{ "name": "ferroel gate" },
+				{ "name": "solderdot" }
+			],
 			"pins": ["D", "G", "center", "S"] // bulk = center
 		},
 		{
 			"displayName": "PIGFET (depletion)",
 			"name": "pigfetd",
 			"groupName": "Transistors",
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{
+					"enumOptions": [
+						{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
+						{ "name": "doublegate", "addPins": ["G2"] }
+					]
+				},
+				{ "name": "ferroel gate" },
+				{ "name": "solderdot" }
+			],
 			"pins": ["D", "G", "S"]
-		},
-
-		{
-			"displayName": "NIGFET (doublegate)",
-			"name": "nigfete",
-			"groupName": "Transistors",
-			"options": ["doublegate"],
-			"pins": ["D", "G", "G2", "S"]
-		},
-		{
-			"displayName": "NIGFET (solderdot, doublegate)",
-			"name": "nigfete",
-			"groupName": "Transistors",
-			"options": ["solderdot", "doublegate"],
-			"pins": ["D", "G", "G2", "S"]
-		},
-		{
-			"displayName": "NIGFET (bulk, doublegate)",
-			"name": "nigfetebulk",
-			"groupName": "Transistors",
-			"options": ["doublegate"],
-			"pins": ["D", "G", "G2", "center", "S"] // bulk = center
-		},
-		{
-			"displayName": "NIGFET (depletion, doublegate)",
-			"name": "nigfetd",
-			"groupName": "Transistors",
-			"options": ["doublegate"],
-			"pins": ["D", "G", "G2", "S"]
-		},
-		{
-			"displayName": "PIGFET (doublegate)",
-			"name": "pigfete",
-			"groupName": "Transistors",
-			"options": ["doublegate"],
-			"pins": ["D", "G", "G2", "S"]
-		},
-		{
-			"displayName": "PIGFET (solderdot, doublegate)",
-			"name": "pigfete",
-			"groupName": "Transistors",
-			"options": ["solderdot", "doublegate"],
-			"pins": ["D", "G", "G2", "S"]
-		},
-		{
-			"displayName": "PIGFET (bulk, doublegate)",
-			"name": "pigfetebulk",
-			"groupName": "Transistors",
-			"options": ["doublegate"],
-			"pins": ["D", "G", "G2", "center", "S"] // bulk = center
-		},
-		{
-			"displayName": "PIGFET (depletion, doublegate)",
-			"name": "pigfetd",
-			"groupName": "Transistors",
-			"options": ["doublegate"],
-			"pins": ["D", "G", "G2", "S"]
 		},
 
 		{
 			"displayName": "n-type JFET",
 			"name": "njfet",
 			"groupName": "Transistors",
+			"options": [{ "name": "bodydiode", "addPins": ["body C out", "body E out"] }],
 			"pins": ["D", "G", "S"]
 		},
 		{
 			"displayName": "p-type JFET",
 			"name": "pjfet",
 			"groupName": "Transistors",
+			"options": [{ "name": "bodydiode", "addPins": ["body C out", "body E out"] }],
 			"pins": ["D", "G", "S"]
 		},
 		{
 			"displayName": "n-type UJT",
 			"name": "nujt",
 			"groupName": "Transistors",
-			"pins": ["B1", "G", "B2"]
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{ "name": "nogate", "subPins": ["G"] }
+			],
+			"pins": ["B1", "G", "B2", "kink"]
 		},
 		{
 			"displayName": "p-type UJT",
 			"name": "pujt",
 			"groupName": "Transistors",
+			"options": [
+				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
+				{ "name": "nogate", "subPins": ["G"] }
+			],
 			"pins": ["B1", "G", "B2"]
-		},
-		{
-			"displayName": "n-type UJT (nobase)",
-			"name": "nujt",
-			"groupName": "Transistors",
-			"options": ["nobase"],
-			"pins": ["B1", "B2"]
-		},
-		{
-			"displayName": "p-type UJT (nobase)",
-			"name": "pujt",
-			"groupName": "Transistors",
-			"options": ["nobase"],
-			"pins": ["B1", "B2"]
 		},
 		{
 			"displayName": "ISFET",
 			"name": "isfet",
 			"groupName": "Transistors",
+			"options": [{ "name": "bodydiode", "addPins": ["body C out", "body E out"] }],
 			"pins": ["D", "S"]
 		},
 		{
 			"displayName": "n-type graphene FET",
 			"name": "ngfet",
 			"groupName": "Transistors",
+			"options": [{ "name": "bodydiode", "addPins": ["body C out", "body E out"] }],
 			"pins": ["D", "G", "S"]
 		},
 		{
 			"displayName": "p-type graphene FET",
 			"name": "pgfet",
 			"groupName": "Transistors",
+			"options": [{ "name": "bodydiode", "addPins": ["body C out", "body E out"] }],
 			"pins": ["D", "G", "S"]
 		},
 
@@ -604,225 +609,88 @@
 			"displayName": "Tube diode",
 			"name": "diodetube",
 			"groupName": "Tubes",
-			"pins": ["anode","cathode"]
+			"options": [
+				{ "name": "filament", "addPins": ["filament 1", "filament 2", "filament center"] },
+				{
+					"enumOptions": [
+						{ "name": "nocathode", "subPins": ["cathode"] },
+						{ "name": "fullcathode", "subPins": ["cathode"], "addPins": ["cathode 1", "cathode 2"] }
+					]
+				}
+			],
+			"pins": ["anode", "cathode"]
 		},
 		{
 			"displayName": "Triode",
 			"name": "triode",
 			"groupName": "Tubes",
-			"pins": ["anode","cathode","control"]
+			"options": [
+				{ "name": "filament", "addPins": ["filament 1", "filament 2", "filament center"] },
+				{
+					"enumOptions": [
+						{ "name": "nocathode", "subPins": ["cathode"] },
+						{ "name": "fullcathode", "subPins": ["cathode"], "addPins": ["cathode 1", "cathode 2"] }
+					]
+				}
+			],
+			"pins": ["anode", "cathode", "control"]
 		},
 		{
 			"displayName": "Tetrode",
 			"name": "tetrode",
 			"groupName": "Tubes",
-			"pins": ["anode","cathode","control","screen"]
+			"options": [
+				{ "name": "filament", "addPins": ["filament 1", "filament 2", "filament center"] },
+				{
+					"enumOptions": [
+						{ "name": "nocathode", "subPins": ["cathode"] },
+						{ "name": "fullcathode", "subPins": ["cathode"], "addPins": ["cathode 1", "cathode 2"] }
+					]
+				}
+			],
+			"pins": ["anode", "cathode", "control", "screen"]
 		},
 		{
 			"displayName": "Pentode",
 			"name": "pentode",
 			"groupName": "Tubes",
-			"pins": ["anode","cathode","control","screen","suppressor"]
+			"options": [
+				{ "name": "filament", "addPins": ["filament 1", "filament 2", "filament center"] },
+				{
+					"enumOptions": [
+						{ "name": "nocathode", "subPins": ["cathode"] },
+						{ "name": "fullcathode", "subPins": ["cathode"], "addPins": ["cathode 1", "cathode 2"] }
+					]
+				}
+			],
+			"pins": ["anode", "cathode", "control", "screen", "suppressor"]
 		},
 		{
 			"displayName": "Pentode with suppressor grid connected to cathode",
 			"name": "pentode suppressor to cathode",
 			"groupName": "Tubes",
-			"pins": ["anode","cathode","control","screen"]
+			"options": [
+				{ "name": "filament", "addPins": ["filament 1", "filament 2", "filament center"] },
+				{
+					"enumOptions": [
+						{ "name": "nocathode", "subPins": ["cathode"] },
+						{ "name": "fullcathode", "subPins": ["cathode"], "addPins": ["cathode 1", "cathode 2"] }
+					]
+				}
+			],
+			"pins": ["anode", "cathode", "control", "screen"]
 		},
-		// 1 cathode x filament
-		{
-			"displayName": "Tube diode (filament)",
-			"name": "diodetube",
-			"groupName": "Tubes",
-			"options": ["filament"],
-			"pins": ["anode","cathode","filament 1","filament 2"]
-		},
-		{
-			"displayName": "Triode (filament)",
-			"name": "triode",
-			"groupName": "Tubes",
-			"options": ["filament"],
-			"pins": ["anode","cathode","control","filament 1","filament 2"]
-		},
-		{
-			"displayName": "Tetrode (filament)",
-			"name": "tetrode",
-			"groupName": "Tubes",
-			"options": ["filament"],
-			"pins": ["anode","cathode","control","screen","filament 1","filament 2"]
-		},
-		{
-			"displayName": "Pentode (filament)",
-			"name": "pentode",
-			"groupName": "Tubes",
-			"options": ["filament"],
-			"pins": ["anode","cathode","control","screen","suppressor","filament 1","filament 2"]
-		},
-		{
-			"displayName": "Pentode with suppressor grid connected to cathode (filament)",
-			"name": "pentode suppressor to cathode",
-			"groupName": "Tubes",
-			"options": ["filament"],
-			"pins": ["anode","cathode","control","screen","filament 1","filament 2"]
-		},
-		// no cathode x no filament
-		{
-			"displayName": "Tube diode (nocathode)",
-			"name": "diodetube",
-			"groupName": "Tubes",
-			"options": ["nocathode"],
-			"pins": ["anode"]
-		},
-		{
-			"displayName": "Triode (nocathode)",
-			"name": "triode",
-			"groupName": "Tubes",
-			"options": ["nocathode"],
-			"pins": ["anode","control"]
-		},
-		{
-			"displayName": "Tetrode (nocathode)",
-			"name": "tetrode",
-			"groupName": "Tubes",
-			"options": ["nocathode"],
-			"pins": ["anode","control","screen"]
-		},
-		{
-			"displayName": "Pentode (nocathode)",
-			"name": "pentode",
-			"groupName": "Tubes",
-			"options": ["nocathode"],
-			"pins": ["anode","control","screen","suppressor"]
-		},
-		{
-			"displayName": "Pentode with suppressor grid connected to cathode (nocathode)",
-			"name": "pentode suppressor to cathode",
-			"groupName": "Tubes",
-			"options": ["nocathode"],
-			"pins": ["anode","control","screen"]
-		},
-		// no cathode x filament
-		{
-			"displayName": "Tube diode (filament, nocathode)",
-			"name": "diodetube",
-			"groupName": "Tubes",
-			"options": ["filament", "nocathode"],
-			"pins": ["anode","filament 1","filament 2"]
-		},
-		{
-			"displayName": "Triode (filament, nocathode)",
-			"name": "triode",
-			"groupName": "Tubes",
-			"options": ["filament", "nocathode"],
-			"pins": ["anode","control","filament 1","filament 2"]
-		},
-		{
-			"displayName": "Tetrode (filament, nocathode)",
-			"name": "tetrode",
-			"groupName": "Tubes",
-			"options": ["filament", "nocathode"],
-			"pins": ["anode","control","screen","filament 1","filament 2"]
-		},
-		{
-			"displayName": "Pentode (filament, nocathode)",
-			"name": "pentode",
-			"groupName": "Tubes",
-			"options": ["filament", "nocathode"],
-			"pins": ["anode","control","screen","suppressor","filament 1","filament 2"]
-		},
-		{
-			"displayName": "Pentode with suppressor grid connected to cathode (filament, nocathode)",
-			"name": "pentode suppressor to cathode",
-			"groupName": "Tubes",
-			"options": ["filament", "nocathode"],
-			"pins": ["anode","control","screen","filament 1","filament 2"]
-		},
-		// full cathode x no filament
-		{
-			"displayName": "Tube diode (fullcathode)",
-			"name": "diodetube",
-			"groupName": "Tubes",
-			"options": ["fullcathode"],
-			"pins": ["anode","cathode 1","cathode 2"]
-		},
-		{
-			"displayName": "Triode (fullcathode)",
-			"name": "triode",
-			"groupName": "Tubes",
-			"options": ["fullcathode"],
-			"pins": ["anode","cathode 1","cathode 2","control"]
-		},
-		{
-			"displayName": "Tetrode (fullcathode)",
-			"name": "tetrode",
-			"groupName": "Tubes",
-			"options": ["fullcathode"],
-			"pins": ["anode","cathode 1","cathode 2","control","screen"]
-		},
-		{
-			"displayName": "Pentode (fullcathode)",
-			"name": "pentode",
-			"groupName": "Tubes",
-			"options": ["fullcathode"],
-			"pins": ["anode","cathode 1","cathode 2","control","screen","suppressor"]
-		},
-		{
-			"displayName": "Pentode with suppressor grid connected to cathode (fullcathode)",
-			"name": "pentode suppressor to cathode",
-			"groupName": "Tubes",
-			"options": ["fullcathode"],
-			"pins": ["anode","cathode 1","cathode 2","control","screen"]
-		},
-		// full cathode x filament
-		{
-			"displayName": "Tube diode (filament, fullcathode)",
-			"name": "diodetube",
-			"groupName": "Tubes",
-			"options": ["filament", "fullcathode"],
-			"pins": ["anode","cathode 1","cathode 2","filament 1","filament 2"]
-		},
-		{
-			"displayName": "Triode (filament, fullcathode)",
-			"name": "triode",
-			"groupName": "Tubes",
-			"options": ["filament", "fullcathode"],
-			"pins": ["anode","cathode 1","cathode 2","control","filament 1","filament 2"]
-		},
-		{
-			"displayName": "Tetrode (filament, fullcathode)",
-			"name": "tetrode",
-			"groupName": "Tubes",
-			"options": ["filament", "fullcathode"],
-			"pins": ["anode","cathode 1","cathode 2","control","screen","filament 1","filament 2"]
-		},
-		{
-			"displayName": "Pentode (filament, fullcathode)",
-			"name": "pentode",
-			"groupName": "Tubes",
-			"options": ["filament", "fullcathode"],
-			"pins": ["anode","cathode 1","cathode 2","control","screen","suppressor","filament 1","filament 2"]
-		},
-		{
-			"displayName": "Pentode with suppressor grid connected to cathode (filament, fullcathode)",
-			"name": "pentode suppressor to cathode",
-			"groupName": "Tubes",
-			"options": ["filament", "fullcathode"],
-			"pins": ["anode","cathode 1","cathode 2","control","screen","filament 1","filament 2"]
-		},
-
-
 		{
 			"displayName": "Magnetron",
 			"name": "magnetron",
 			"groupName": "Tubes",
-			"pins": ["anode","cathode1","cathode2","top","right","left"]
+			"pins": ["anode", "cathode1", "cathode2", "top", "right", "left"]
 		},
 		{
 			"displayName": "Dynode",
 			"name": "dynode",
 			"groupName": "Tubes",
-			"pins": ["center","top","top right","top left"]
+			"pins": ["center", "top", "top right", "top left"]
 		},
 
 		// 4.16.4 Multi-anode tube
@@ -833,7 +701,7 @@
 			"displayName": "Bare Antenna",
 			"name": "bareantenna",
 			"groupName": "RF components",
-			"pins": ["center","top"]
+			"pins": ["center", "top"]
 		},
 		{
 			"displayName": "DIN Antenna",
@@ -845,31 +713,31 @@
 			"displayName": "Bare TX Antenna",
 			"name": "bareTXantenna",
 			"groupName": "RF components",
-			"pins": ["center","top","waves"]
+			"pins": ["center", "top", "waves"]
 		},
 		{
 			"displayName": "Bare RX Antenna",
 			"name": "bareRXantenna",
 			"groupName": "RF components",
-			"pins": ["center","top","waves"]
+			"pins": ["center", "top", "waves"]
 		},
 		{
 			"displayName": "Waves",
 			"name": "waves",
 			"groupName": "RF components",
-			"pins": ["left","right"]
+			"pins": ["left", "right"]
 		},
 		{
 			"displayName": "Microstrip linear stub",
 			"name": "mslstub",
 			"groupName": "RF components",
-			"pins": ["left","right"]
+			"pins": ["left", "right"]
 		},
 		{
 			"displayName": "Microstrip port",
 			"name": "msport",
 			"groupName": "RF components",
-			"pins": ["center","right"]
+			"pins": ["center", "right"]
 		},
 		{
 			"displayName": "Microstrip radial stub",
@@ -912,117 +780,47 @@
 		// TODO
 
 		// 4.19 Transformers
-		//inward
 		{
-			"displayName": "Transformer (cute)",
+			"displayName": "Transformer",
 			"name": "transformer",
 			"groupName": "Inductors",
-			"options": ["cute"],
-			"pins": ["A1","A2","B1","B2"]
+			"options": [
+				{
+					"enumOptions": [{ "name": "cute" }, { "name": "american" }, { "name": "european" }],
+					"selectNone": false,
+					"default": "cute"
+				},
+				{ "name": "circuitikz/quadpoles style=inline", "displayName": "inline" }
+			],
+			"pins": ["A1", "A2", "B1", "B2"]
 		},
 		{
-			"displayName": "Transformer (american)",
-			"name": "transformer",
-			"groupName": "Inductors",
-			"options": ["american"],
-			"pins": ["A1","A2","B1","B2"]
-		},
-		{
-			"displayName": "Transformer (european)",
-			"name": "transformer",
-			"groupName": "Inductors",
-			"options": ["european"],
-			"pins": ["A1","A2","B1","B2"]
-		},
-		{
-			"displayName": "Transformer core (cute)",
+			"displayName": "Transformer core",
 			"name": "transformer core",
 			"groupName": "Inductors",
-			"options": ["cute"],
-			"pins": ["A1","A2","B1","B2"]
-		},
-		{
-			"displayName": "Transformer core (american)",
-			"name": "transformer core",
-			"groupName": "Inductors",
-			"options": ["american"],
-			"pins": ["A1","A2","B1","B2"]
-		},
-		{
-			"displayName": "Transformer core (european)",
-			"name": "transformer core",
-			"groupName": "Inductors",
-			"options": ["european"],
-			"pins": ["A1","A2","B1","B2"]
+			"options": [
+				{
+					"enumOptions": [{ "name": "cute" }, { "name": "american" }, { "name": "european" }],
+					"selectNone": false,
+					"default": "cute"
+				},
+				{ "name": "circuitikz/quadpoles style=inline", "displayName": "inline" }
+			],
+			"pins": ["A1", "A2", "B1", "B2"]
 		},
 		{
 			"displayName": "Gyrator",
 			"name": "gyrator",
 			"groupName": "Inductors",
-			"pins": ["A1","A2","B1","B2"]
+			"options": [{ "name": "circuitikz/quadpoles style=inline", "displayName": "inline" }],
+			"pins": ["A1", "A2", "B1", "B2"]
 		},
 		{
 			"displayName": "Generic double bipole (configure in TikZ)",
 			"name": "double bipole",
 			"groupName": "Miscellaneous",
-			"pins": ["A1","A2","B1","B2"]
-		},
-		//inline
-		{
-			"displayName": "Transformer (cute, inline)",
-			"name": "transformer",
-			"groupName": "Inductors",
-			"options": ["cute","circuitikz/quadpoles style=inline"],
-			"pins": ["A1","A2","B1","B2"]
-		},
-		{
-			"displayName": "Transformer (american, inline)",
-			"name": "transformer",
-			"groupName": "Inductors",
-			"options": ["american","circuitikz/quadpoles style=inline"],
-			"pins": ["A1","A2","B1","B2"]
-		},
-		{
-			"displayName": "Transformer (european, inline)",
-			"name": "transformer",
-			"groupName": "Inductors",
-			"options": ["european","circuitikz/quadpoles style=inline"],
-			"pins": ["A1","A2","B1","B2"]
-		},
-		{
-			"displayName": "Transformer core (cute, inline)",
-			"name": "transformer core",
-			"groupName": "Inductors",
-			"options": ["cute","circuitikz/quadpoles style=inline"],
-			"pins": ["A1","A2","B1","B2"]
-		},
-		{
-			"displayName": "Transformer core (american, inline)",
-			"name": "transformer core",
-			"groupName": "Inductors",
-			"options": ["american","circuitikz/quadpoles style=inline"],
-			"pins": ["A1","A2","B1","B2"]
-		},
-		{
-			"displayName": "Transformer core (european, inline)",
-			"name": "transformer core",
-			"groupName": "Inductors",
-			"options": ["european","circuitikz/quadpoles style=inline"],
-			"pins": ["A1","A2","B1","B2"]
-		},
-		{
-			"displayName": "Gyrator (inline)",
-			"name": "gyrator",
-			"groupName": "Inductors",
-			"options": ["circuitikz/quadpoles style=inline"],
-			"pins": ["A1","A2","B1","B2"]
-		},
-		{
-			"displayName": "Generic double bipole (inline, configure in TikZ)",
-			"name": "double bipole",
-			"groupName": "Miscellaneous",
-			"options": ["circuitikz/quadpoles style=inline"],
-			"pins": ["A1","A2","B1","B2"]
+			"options": [{ "name": "circuitikz/quadpoles style=inline", "displayName": "inline" }],
+			"pins": ["A1", "A2", "B1", "B2"]
 		},
 
 		// 4.20 Amplifiers
@@ -1030,61 +828,61 @@
 			"displayName": "Operational amplifier",
 			"name": "op amp",
 			"groupName": "Amplifiers",
-			"pins": ["+","-","out","up","down"]
+			"pins": ["+", "-", "out", "up", "down"]
 		},
 		{
 			"displayName": "Operational amplifier compliant to DIN/EN 60617",
 			"name": "en amp",
 			"groupName": "Amplifiers",
-			"pins": ["+","-","out","up","down"]
+			"pins": ["+", "-", "out", "up", "down"]
 		},
 		{
 			"displayName": "Fully differential operational amplifier",
 			"name": "fd op amp",
 			"groupName": "Amplifiers",
-			"pins": ["+","-","out +","out -","up","down"]
+			"pins": ["+", "-", "out +", "out -", "up", "down"]
 		},
 		{
 			"displayName": "Transconductance amplifier",
 			"name": "gm amp",
 			"groupName": "Amplifiers",
-			"pins": ["+","-","out","up","down"]
+			"pins": ["+", "-", "out", "up", "down"]
 		},
 		{
 			"displayName": "Plain instrumentation amplifier",
 			"name": "inst amp",
 			"groupName": "Amplifiers",
-			"pins": ["+","-","out","up","down","refv up","refv down"]
+			"pins": ["+", "-", "out", "up", "down", "refv up", "refv down"]
 		},
 		{
 			"displayName": "Fully differential instrumentation amplifier",
 			"name": "fd inst amp",
 			"groupName": "Amplifiers",
-			"pins": ["+","-","out +","out -","up","down","refv up","refv down"]
+			"pins": ["+", "-", "out +", "out -", "up", "down", "refv up", "refv down"]
 		},
 		{
 			"displayName": "Instrumentation amplifier with amplification resistance terminals",
 			"name": "inst amp ra",
 			"groupName": "Amplifiers",
-			"pins": ["+","-","out","up","down","refv up","refv down","ra+","ra-"]
+			"pins": ["+", "-", "out", "up", "down", "refv up", "refv down", "ra+", "ra-"]
 		},
 		{
 			"displayName": "Plain amplifier (two inputs)",
 			"name": "plain amp",
 			"groupName": "Amplifiers",
-			"pins": ["in up","in down","out"]
+			"pins": ["in up", "in down", "out"]
 		},
 		{
 			"displayName": "Plain amplifier (one inputs)",
 			"name": "plain mono amp",
 			"groupName": "Amplifiers",
-			"pins": ["in","out"]
+			"pins": ["in", "out"]
 		},
 		{
 			"displayName": "Buffer",
 			"name": "buffer",
 			"groupName": "Amplifiers",
-			"pins": ["in","out"]
+			"pins": ["in", "out"]
 		},
 
 		// 4.21 Switches, Buttons and jumpers
@@ -1093,55 +891,55 @@
 			"displayName": "SPDT",
 			"name": "spdt",
 			"groupName": "Switches, buttons and jumpers",
-			"pins": ["in","out 1","out 2"]
+			"pins": ["in", "out 1", "out 2"]
 		},
 		// 4.21.2 Cute switches
 		{
 			"displayName": "Cute SPDT up",
 			"name": "cute spdt up",
 			"groupName": "Switches, buttons and jumpers",
-			"pins": ["in","out 1","out 2"]
+			"pins": ["in", "out 1", "out 2"]
 		},
 		{
 			"displayName": "Cute SPDT mid",
 			"name": "cute spdt mid",
 			"groupName": "Switches, buttons and jumpers",
-			"pins": ["in","out 1","out 2"]
+			"pins": ["in", "out 1", "out 2"]
 		},
 		{
 			"displayName": "Cute SPDT down",
 			"name": "cute spdt down",
 			"groupName": "Switches, buttons and jumpers",
-			"pins": ["in","out 1","out 2"]
+			"pins": ["in", "out 1", "out 2"]
 		},
 		{
 			"displayName": "Cute SPDT up with arrow",
 			"name": "cute spdt up arrow",
 			"groupName": "Switches, buttons and jumpers",
-			"pins": ["in","out 1","out 2"]
+			"pins": ["in", "out 1", "out 2"]
 		},
 		{
 			"displayName": "Cute SPDT mid with arrow",
 			"name": "cute spdt mid arrow",
 			"groupName": "Switches, buttons and jumpers",
-			"pins": ["in","out 1","out 2"]
+			"pins": ["in", "out 1", "out 2"]
 		},
 		{
 			"displayName": "Cute SPDT down with arrow",
 			"name": "cute spdt down arrow",
 			"groupName": "Switches, buttons and jumpers",
-			"pins": ["in","out 1","out 2"]
+			"pins": ["in", "out 1", "out 2"]
 		},
 		// 4.21.3 Proximity switches
 		{
 			"displayName": "Proximeter",
 			"name": "proximeter",
 			"groupName": "Switches, buttons and jumpers",
-			"pins": ["hlines nw","hlines sw","hlines ne","hlines se"]
+			"pins": ["hlines nw", "hlines sw", "hlines ne", "hlines se"]
 		},
 		// 4.21.4 Rotary switches
 		// skip - no generic switches with variable terminal count
-		
+
 		// 4.22 Logic gates
 		// TODO how to handle multiple inputs? all variations up to 4?
 		// 4.22.1 American Logic gates
@@ -1399,7 +1197,7 @@
 			"drawName": "american resistive sensor",
 			// "aliases": ["sR"]
 			"shapeName": "resistivesensshape",
-			"pins": ["wiper","label"]
+			"pins": ["wiper", "label"]
 		},
 		{
 			"displayName": "Ligth-Dependent resistor (american)",
@@ -1438,7 +1236,7 @@
 			"drawName": "european resistive sensor",
 			// "aliases": ["sR"]
 			"shapeName": "thermistorshape",
-			"pins": ["wiper","label"]
+			"pins": ["wiper", "label"]
 		},
 		{
 			"displayName": "Ligth-Dependent resistor (european)",
@@ -1501,7 +1299,7 @@
 			"displayName": "Electrolytic capacitor",
 			"groupName": "Capacitive and dynamic bipoles",
 			"drawName": "ecapacitor",
-			"aliases": ["eC","elko"]
+			"aliases": ["eC", "elko"]
 		},
 		{
 			"displayName": "Variable capacitor",
@@ -1517,7 +1315,7 @@
 			"drawName": "capacitive sensor",
 			"aliases": ["sC"],
 			"shapeName": "capacitivesensshape",
-			"pins": ["wiper","label"]
+			"pins": ["wiper", "label"]
 		},
 		{
 			"displayName": "Piezoelectric element",
@@ -1535,7 +1333,7 @@
 			"groupName": "Capacitive and dynamic bipoles",
 			"drawName": "ferrocap",
 			"aliases": ["feC"],
-			"pins": ["curve left","curve right","kink left","kink right"]
+			"pins": ["curve left", "curve right", "kink left", "kink right"]
 		},
 		// 4.3.4 Inductors
 		// cute
@@ -1560,7 +1358,7 @@
 			"drawName": "cute inductive sensor",
 			//"aliases": ["sL"],
 			"shapeName": "scuteinductorshape",
-			"pins": ["wiper","label"]
+			"pins": ["wiper", "label"]
 		},
 		// american
 		{
@@ -1584,7 +1382,7 @@
 			"drawName": "american inductive sensor",
 			//"aliases": ["sL"],
 			"shapeName": "samericaninductorshape",
-			"pins": ["wiper","label"]
+			"pins": ["wiper", "label"]
 		},
 		//european
 		{
@@ -1609,7 +1407,7 @@
 			"drawName": "european inductive sensor",
 			//"aliases": ["sL"],
 			"shapeName": "sfullgenericshape",
-			"pins": ["wiper","label"]
+			"pins": ["wiper", "label"]
 		},
 
 		{
@@ -2268,13 +2066,13 @@
 			"displayName": "Generic round meter",
 			"groupName": "Instruments",
 			"drawName": "rmeter",
-			"options": ["rotated instruments"]
+			"options": [{ "name": "rotated instruments" }]
 		},
 		{
 			"displayName": "Generic round meter with arrow",
 			"groupName": "Instruments",
 			"drawName": "rmeterwa",
-			"options": ["rotated instruments"]
+			"options": [{ "name": "rotated instruments" }]
 		},
 
 		{
@@ -2282,7 +2080,7 @@
 			"groupName": "Instruments",
 			"pins": ["in 1", "in 2"],
 			"drawName": "smeter",
-			"options": ["rotated instruments"]
+			"options": [{ "name": "rotated instruments" }]
 		},
 		{
 			"displayName": "Ampere meter (square)",
@@ -2306,7 +2104,7 @@
 			"groupName": "Instruments",
 			"pins": ["in 1", "in 2"],
 			"drawName": "oscope",
-			"options": ["rotated instruments"]
+			"options": [{ "name": "rotated instruments" }]
 		},
 
 		{
@@ -2377,7 +2175,7 @@
 			"groupName": "Miscellaneous",
 			"drawName": "wfuse"
 		},
-		{ 
+		{
 			"displayName": "Relais",
 			"groupName": "Miscellaneous",
 			"drawName": "relais"
@@ -2489,92 +2287,86 @@
 			"displayName": "Generic two port",
 			"drawName": "twoport",
 			"groupName": "Block diagram",
-			"pins": ["n", "s", "w", "e"] 
+			"pins": ["n", "s", "w", "e"]
 		},
 		{
 			"displayName": "Generic two port split",
 			"drawName": "twoportsplit",
 			"groupName": "Block diagram",
-			"pins": ["left up", "left down", "right up", "right down"] 
+			"pins": ["left up", "left down", "right up", "right down"]
 		},
 		{
 			"displayName": "VCO",
 			"drawName": "vco",
-			"groupName": "Block diagram" 
-		},
-		{
-			"displayName": "VCO (boxed)",
-			"drawName": "vco",
-			"options": ["box"],
-			"groupName": "Block diagram",
-			"pins": ["left up", "left down", "right up", "right down"] 
+			"options": [{ "name": "box", "addPins": ["left up", "left down", "right up", "right down"] }],
+			"groupName": "Block diagram"
 		},
 		{
 			"displayName": "Bandpass",
 			"drawName": "bandpass",
-			"groupName": "Block diagram" 
+			"groupName": "Block diagram"
 		},
 		{
 			"displayName": "Bandstop",
 			"drawName": "bandstop",
-			"groupName": "Block diagram" 
+			"groupName": "Block diagram"
 		},
 		{
 			"displayName": "Highpass",
 			"drawName": "highpass",
-			"groupName": "Block diagram" 
+			"groupName": "Block diagram"
 		},
 		{
 			"displayName": "Lowpass",
 			"drawName": "lowpass",
-			"groupName": "Block diagram" 
+			"groupName": "Block diagram"
 		},
 		{
 			"displayName": "Allpass",
 			"drawName": "allpass",
-			"groupName": "Block diagram" 
+			"groupName": "Block diagram"
 		},
 		{
 			"displayName": "Highpass (two waves)",
 			"drawName": "highpass2",
-			"groupName": "Block diagram" 
+			"groupName": "Block diagram"
 		},
 		{
 			"displayName": "Lowpass (two waves)",
 			"drawName": "lowpass2",
-			"groupName": "Block diagram" 
+			"groupName": "Block diagram"
 		},
 		{
 			"displayName": "A/D converter",
 			"drawName": "adc",
-			"groupName": "Block diagram" 
+			"groupName": "Block diagram"
 		},
 		{
 			"displayName": "D/A converter",
 			"drawName": "dac",
-			"groupName": "Block diagram" 
+			"groupName": "Block diagram"
 		},
 		{
 			"displayName": "DSP",
 			"drawName": "dsp",
-			"groupName": "Block diagram" 
+			"groupName": "Block diagram"
 		},
 		{
 			"displayName": "FFT",
 			"drawName": "fft",
-			"groupName": "Block diagram" 
+			"groupName": "Block diagram"
 		},
 		{
 			"displayName": "Amplifier",
 			"drawName": "amp",
 			"groupName": "Block diagram",
-			"pins": ["up","down"]
+			"pins": ["up", "down"]
 		},
 		{
 			"displayName": "Instrumentation amplifier",
 			"drawName": "iamp",
 			"groupName": "Block diagram",
-			"pins": ["up","down"]
+			"pins": ["up", "down"]
 		},
 		{
 			"displayName": "VGA",
@@ -2799,7 +2591,7 @@
 			"displayName": "Toggle switch",
 			"drawName": "toggle switch",
 			"groupName": "Switches, buttons and jumpers",
-			"pins": ["in","out 1","out 2"]
+			"pins": ["in", "out 1", "out 2"]
 		},
 		{
 			"displayName": "Reed switch",
@@ -2871,42 +2663,42 @@
 			"displayName": "Open solder jumper",
 			"drawName": "open solder jumper",
 			"groupName": "Switches, buttons and jumpers",
-			"pins": ["in","out"],
+			"pins": ["in", "out"],
 			"shapeName": "osjumpershape"
 		},
 		{
 			"displayName": "Closed solder jumper",
 			"drawName": "closed solder jumper",
 			"groupName": "Switches, buttons and jumpers",
-			"pins": ["left","right"],
+			"pins": ["left", "right"],
 			"shapeName": "csjumpershape"
 		},
 		{
 			"displayName": "Open double solder jumper",
 			"drawName": "open double solder jumper",
 			"groupName": "Switches, buttons and jumpers",
-			"pins": ["in","out","tap"],
+			"pins": ["in", "out", "tap"],
 			"shapeName": "odsjumpershape"
 		},
 		{
 			"displayName": "Left double solder jumper",
 			"drawName": "left double solder jumper",
 			"groupName": "Switches, buttons and jumpers",
-			"pins": ["left","right","tap up","tap down"],
+			"pins": ["left", "right", "tap up", "tap down"],
 			"shapeName": "ldsjumpershape"
 		},
 		{
 			"displayName": "Right double solder jumper",
 			"drawName": "right double solder jumper",
 			"groupName": "Switches, buttons and jumpers",
-			"pins": ["left","right","tap up","tap down"],
+			"pins": ["left", "right", "tap up", "tap down"],
 			"shapeName": "rdsjumpershape"
 		},
 		{
 			"displayName": "Closed double solder jumper",
 			"drawName": "closed double solder jumper",
 			"groupName": "Switches, buttons and jumpers",
-			"pins": ["left","right","tap up","tap down"],
+			"pins": ["left", "right", "tap up", "tap down"],
 			"shapeName": "cdsjumpershape"
 		}
 		// 4.22.4 Path-style logic gates
