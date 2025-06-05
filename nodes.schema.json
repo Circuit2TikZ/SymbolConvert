@@ -59,7 +59,6 @@
 											"$ref": "#/definitions/optionDef"
 										}
 									},
-									"default": { "type": "string" },
 									"selectNone": { "type": "boolean", "default": true }
 								},
 								"required": ["enumOptions"]

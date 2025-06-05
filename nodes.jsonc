@@ -787,8 +787,7 @@
 			"options": [
 				{
 					"enumOptions": [{ "name": "cute" }, { "name": "american" }, { "name": "european" }],
-					"selectNone": false,
-					"default": "cute"
+					"selectNone": false
 				},
 				{ "name": "circuitikz/quadpoles style=inline", "displayName": "inline" }
 			],
@@ -801,8 +800,7 @@
 			"options": [
 				{
 					"enumOptions": [{ "name": "cute" }, { "name": "american" }, { "name": "european" }],
-					"selectNone": false,
-					"default": "cute"
+					"selectNone": false
 				},
 				{ "name": "circuitikz/quadpoles style=inline", "displayName": "inline" }
 			],
