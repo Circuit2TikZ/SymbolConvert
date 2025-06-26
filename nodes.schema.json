@@ -59,9 +59,14 @@
 											"$ref": "#/definitions/optionDef"
 										}
 									},
-									"selectNone": { "type": "boolean", "default": true }
+									"selectNone": { "type": "boolean", "default": true },
+									"displayName": {
+										"type": "string",
+										"minLength": 1,
+										"title": "The name to show in the UI for this enum option"
+									}
 								},
-								"required": ["enumOptions"]
+								"required": ["enumOptions", "displayName"]
 							}
 						]
 					},

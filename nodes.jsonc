@@ -263,7 +263,8 @@
 				{ "name": "schottky base" },
 				{ "name": "photo", "addPins": ["arrows"], "subPins": ["B"] },
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
-				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] }
+				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] },
+				{ "name": "tr circle" }
 			],
 			"pins": ["B", "C", "E"]
 		},
@@ -275,7 +276,8 @@
 				{ "name": "schottky base" },
 				{ "name": "photo", "addPins": ["arrows"], "subPins": ["B"] },
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
-				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] }
+				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] },
+				{ "name": "tr circle" }
 			],
 			"pins": ["B", "C", "E"]
 		},
@@ -285,7 +287,8 @@
 			"groupName": "Transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
-				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] }
+				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] },
+				{ "name": "tr circle" }
 			],
 			"pins": ["B", "C", "E"]
 		},
@@ -295,7 +298,8 @@
 			"groupName": "Transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
-				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] }
+				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] },
+				{ "name": "tr circle" }
 			],
 			"pins": ["B", "C", "E"]
 		},
@@ -305,7 +309,8 @@
 			"groupName": "Transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
-				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] }
+				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] },
+				{ "name": "tr circle" }
 			],
 			"pins": ["B", "C", "E"]
 		},
@@ -315,7 +320,8 @@
 			"groupName": "Transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
-				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] }
+				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] },
+				{ "name": "tr circle" }
 			],
 			"pins": ["B", "C", "E"]
 		},
@@ -332,7 +338,8 @@
 				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
 				{ "name": "arrowmos" },
 				{ "name": "bulk", "addPins": ["bulk"] },
-				{ "name": "ferroel gate" }
+				{ "name": "ferroel gate" },
+				{ "name": "tr circle" }
 			],
 			"pins": ["D", "G", "S"]
 		},
@@ -345,8 +352,9 @@
 				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
 				{ "name": "arrowmos" },
 				{ "name": "bulk", "addPins": ["bulk"] },
-				{ "enumOptions": [{ "name": "nocircle" }, { "name": "emptycircle" }] },
-				{ "name": "ferroel gate" }
+				{ "enumOptions": [{ "name": "nocircle" }, { "name": "emptycircle" }], "displayName": "Circle" },
+				{ "name": "ferroel gate" },
+				{ "name": "tr circle" }
 			],
 			"pins": ["D", "G", "S"]
 		},
@@ -359,7 +367,8 @@
 				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
 				{ "name": "arrowmos" },
 				{ "name": "bulk", "addPins": ["bulk"] },
-				{ "name": "ferroel gate" }
+				{ "name": "ferroel gate" },
+				{ "name": "tr circle" }
 			],
 			"pins": ["D", "G", "S"]
 		},
@@ -372,8 +381,9 @@
 				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
 				{ "name": "arrowmos" },
 				{ "name": "bulk", "addPins": ["bulk"] },
-				{ "enumOptions": [{ "name": "nocircle" }, { "name": "emptycircle" }] },
-				{ "name": "ferroel gate" }
+				{ "enumOptions": [{ "name": "nocircle" }, { "name": "emptycircle" }], "displayName": "Circle" },
+				{ "name": "ferroel gate" },
+				{ "name": "tr circle" }
 			],
 			"pins": ["D", "G", "S"]
 		},
@@ -385,7 +395,15 @@
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
 				{ "name": "circuitikz/tripoles/hemt/split gate=true", "displayName": "split gate" },
-				{ "name": "circuitikz/tripoles/hemt/source arrow=1", "displayName": "source arrow" }
+				{
+					"enumOptions": [
+						{ "name": "circuitikz/tripoles/hemt/source arrow=1", "displayName": "source arrow" },
+						{ "name": "circuitikz/tripoles/hemt/source arrow=-1", "displayName": "source arrow reversed" }
+					],
+					"displayName": "Source arrow"
+				},
+				{ "name": "circuitikz/tripoles/hemt/source arrow=1", "displayName": "source arrow" },
+				{ "name": "tr circle" }
 			],
 			"pins": ["D", "G", "S"]
 		},
@@ -395,7 +413,8 @@
 			"groupName": "Transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
-				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] }
+				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
+				{ "name": "tr circle" }
 			],
 			"pins": ["D", "G", "S"]
 		},
@@ -407,7 +426,8 @@
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
-				{ "name": "ferroel gate" }
+				{ "name": "ferroel gate" },
+				{ "name": "tr circle" }
 			],
 			"pins": ["D", "G", "center", "S"] // bulk = center
 		},
@@ -418,7 +438,8 @@
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
-				{ "name": "ferroel gate" }
+				{ "name": "ferroel gate" },
+				{ "name": "tr circle" }
 			],
 			"pins": ["D", "G", "center", "S"] // bulk = center
 		},
@@ -432,10 +453,12 @@
 					"enumOptions": [
 						{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
 						{ "name": "doublegate", "addPins": ["G2"] }
-					]
+					],
+					"displayName": "Gate options"
 				},
 				{ "name": "ferroel gate" },
-				{ "name": "solderdot" }
+				{ "name": "solderdot" },
+				{ "name": "tr circle" }
 			],
 			"pins": ["D", "G", "S"]
 		},
@@ -449,10 +472,12 @@
 					"enumOptions": [
 						{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
 						{ "name": "doublegate", "addPins": ["G2"] }
-					]
+					],
+					"displayName": "Gate options"
 				},
 				{ "name": "ferroel gate" },
-				{ "name": "solderdot" }
+				{ "name": "solderdot" },
+				{ "name": "tr circle" }
 			],
 			"pins": ["D", "G", "center", "S"] // bulk = center
 		},
@@ -466,10 +491,12 @@
 					"enumOptions": [
 						{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
 						{ "name": "doublegate", "addPins": ["G2"] }
-					]
+					],
+					"displayName": "Gate options"
 				},
 				{ "name": "ferroel gate" },
-				{ "name": "solderdot" }
+				{ "name": "solderdot" },
+				{ "name": "tr circle" }
 			],
 			"pins": ["D", "G", "S"]
 		},
@@ -480,7 +507,8 @@
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
-				{ "name": "ferroel gate" }
+				{ "name": "ferroel gate" },
+				{ "name": "tr circle" }
 			],
 			"pins": ["D", "G", "center", "S"] // bulk = center
 		},
@@ -491,7 +519,8 @@
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
-				{ "name": "ferroel gate" }
+				{ "name": "ferroel gate" },
+				{ "name": "tr circle" }
 			],
 			"pins": ["D", "G", "center", "S"] // bulk = center
 		},
@@ -505,10 +534,12 @@
 					"enumOptions": [
 						{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
 						{ "name": "doublegate", "addPins": ["G2"] }
-					]
+					],
+					"displayName": "Gate options"
 				},
 				{ "name": "ferroel gate" },
-				{ "name": "solderdot" }
+				{ "name": "solderdot" },
+				{ "name": "tr circle" }
 			],
 			"pins": ["D", "G", "S"]
 		},
@@ -522,10 +553,12 @@
 					"enumOptions": [
 						{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
 						{ "name": "doublegate", "addPins": ["G2"] }
-					]
+					],
+					"displayName": "Gate options"
 				},
 				{ "name": "ferroel gate" },
-				{ "name": "solderdot" }
+				{ "name": "solderdot" },
+				{ "name": "tr circle" }
 			],
 			"pins": ["D", "G", "center", "S"] // bulk = center
 		},
@@ -539,10 +572,12 @@
 					"enumOptions": [
 						{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
 						{ "name": "doublegate", "addPins": ["G2"] }
-					]
+					],
+					"displayName": "Gate options"
 				},
 				{ "name": "ferroel gate" },
-				{ "name": "solderdot" }
+				{ "name": "solderdot" },
+				{ "name": "tr circle" }
 			],
 			"pins": ["D", "G", "S"]
 		},
@@ -551,14 +586,14 @@
 			"displayName": "n-type JFET",
 			"name": "njfet",
 			"groupName": "Transistors",
-			"options": [{ "name": "bodydiode", "addPins": ["body C out", "body E out"] }],
+			"options": [{ "name": "bodydiode", "addPins": ["body C out", "body E out"] }, { "name": "tr circle" }],
 			"pins": ["D", "G", "S"]
 		},
 		{
 			"displayName": "p-type JFET",
 			"name": "pjfet",
 			"groupName": "Transistors",
-			"options": [{ "name": "bodydiode", "addPins": ["body C out", "body E out"] }],
+			"options": [{ "name": "bodydiode", "addPins": ["body C out", "body E out"] }, { "name": "tr circle" }],
 			"pins": ["D", "G", "S"]
 		},
 		{
@@ -567,7 +602,8 @@
 			"groupName": "Transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
-				{ "name": "nogate", "subPins": ["G"] }
+				{ "name": "nogate", "subPins": ["G"] },
+				{ "name": "tr circle" }
 			],
 			"pins": ["B1", "G", "B2", "kink"]
 		},
@@ -577,7 +613,8 @@
 			"groupName": "Transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
-				{ "name": "nogate", "subPins": ["G"] }
+				{ "name": "nogate", "subPins": ["G"] },
+				{ "name": "tr circle" }
 			],
 			"pins": ["B1", "G", "B2"]
 		},
@@ -585,7 +622,7 @@
 			"displayName": "ISFET",
 			"name": "isfet",
 			"groupName": "Transistors",
-			"options": [{ "name": "bodydiode", "addPins": ["body C out", "body E out"] }],
+			"options": [{ "name": "bodydiode", "addPins": ["body C out", "body E out"] }, { "name": "tr circle" }],
 			"pins": ["D", "S"]
 		},
 		{
@@ -615,7 +652,8 @@
 					"enumOptions": [
 						{ "name": "nocathode", "subPins": ["cathode"] },
 						{ "name": "fullcathode", "subPins": ["cathode"], "addPins": ["cathode 1", "cathode 2"] }
-					]
+					],
+					"displayName": "Cathode style"
 				}
 			],
 			"pins": ["anode", "cathode"]
@@ -630,7 +668,8 @@
 					"enumOptions": [
 						{ "name": "nocathode", "subPins": ["cathode"] },
 						{ "name": "fullcathode", "subPins": ["cathode"], "addPins": ["cathode 1", "cathode 2"] }
-					]
+					],
+					"displayName": "Cathode style"
 				}
 			],
 			"pins": ["anode", "cathode", "control"]
@@ -645,7 +684,8 @@
 					"enumOptions": [
 						{ "name": "nocathode", "subPins": ["cathode"] },
 						{ "name": "fullcathode", "subPins": ["cathode"], "addPins": ["cathode 1", "cathode 2"] }
-					]
+					],
+					"displayName": "Cathode style"
 				}
 			],
 			"pins": ["anode", "cathode", "control", "screen"]
@@ -660,7 +700,8 @@
 					"enumOptions": [
 						{ "name": "nocathode", "subPins": ["cathode"] },
 						{ "name": "fullcathode", "subPins": ["cathode"], "addPins": ["cathode 1", "cathode 2"] }
-					]
+					],
+					"displayName": "Cathode style"
 				}
 			],
 			"pins": ["anode", "cathode", "control", "screen", "suppressor"]
@@ -675,7 +716,8 @@
 					"enumOptions": [
 						{ "name": "nocathode", "subPins": ["cathode"] },
 						{ "name": "fullcathode", "subPins": ["cathode"], "addPins": ["cathode 1", "cathode 2"] }
-					]
+					],
+					"displayName": "Cathode style"
 				}
 			],
 			"pins": ["anode", "cathode", "control", "screen"]
@@ -787,7 +829,8 @@
 			"options": [
 				{
 					"enumOptions": [{ "name": "cute" }, { "name": "american" }, { "name": "european" }],
-					"selectNone": false
+					"selectNone": false,
+					"displayName": "Style"
 				},
 				{ "name": "circuitikz/quadpoles style=inline", "displayName": "inline" }
 			],
@@ -800,7 +843,8 @@
 			"options": [
 				{
 					"enumOptions": [{ "name": "cute" }, { "name": "american" }, { "name": "european" }],
-					"selectNone": false
+					"selectNone": false,
+					"displayName": "Style"
 				},
 				{ "name": "circuitikz/quadpoles style=inline", "displayName": "inline" }
 			],
