@@ -106,3 +106,5 @@ symbols.svg
 ### Backups/Old versions
 *.old
 /buildOld/
+
+/__pycache__/
