@@ -1,18 +1,11 @@
 # Utility functions
-from dataclasses import dataclass
 from jsonc_parser.parser import JsoncParser
 import re
 import os
 import pathlib
-import json
-from svgelements import Color, Path, Point
-import itertools
+from svgelements import Color, Point
 
 NODES_AND_PATHS = JsoncParser.parse_file("nodes.jsonc")
-
-with open("svgColors.json", "r") as f:
-	colors: list[tuple[str, dict]] = json.load(f)
-	SVG_COLORS = {k.lower(): v for k, v in colors}
 
 
 # Generates a component name based on the index, id, and options.
@@ -99,57 +92,3 @@ def are_two_points_close(pointA: Point, pointB: Point, eps=1e-6):
 		and (pointA.y >= pointB.y - eps)
 		and (pointA.y <= pointB.y + eps)
 	)
-
-
-@dataclass
-class Pin_Anchor:
-	anchor_name: str
-	point: Point
-	default: bool
-
-
-def find_matching_line_point(lines: list[dict]):
-	points = [[line["start"], line["end"]] for line in lines]
-	points = list(itertools.chain.from_iterable(points))  # flatten list
-
-	acc: dict[Point, int] = {points[0]: 1}
-	for point in points[1:]:
-		close = next(
-			(k for k in acc.keys() if k and point and are_two_points_close(k, point)),
-			None,
-		)
-		if close is not None:
-			acc[close] += 1
-		else:
-			acc[point] = 1
-
-	point = None
-	max_count = 0
-	for entry in acc:
-		if acc[entry] > max_count:
-			point = entry
-			max_count = acc[entry]
-
-	return point
-
-
-def is_option_active(option_name, options):
-	for option in options:
-		if option_name == option["name"]:
-			return True
-	return False
-
-
-def svg_path_to_line(path):
-	line = {
-		"start": None,
-		"end": None,
-		"color": Color(path["stroke"] if "stroke" in path else "#000"),
-	}
-
-	d = Path(path["d"])
-	if len(d) != 2:
-		raise "Unexpected number of draw commands"  # Start & endpoint
-	line["start"] = d[-1].start
-	line["end"] = d[-1].end
-	return line

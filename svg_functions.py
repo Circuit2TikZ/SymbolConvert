@@ -1,3 +1,4 @@
+import itertools
 import subprocess
 import pathlib
 import glob
@@ -5,22 +6,21 @@ import re
 import xml.dom.minidom as dom
 import svgelements as svg
 import json
+import copy
+
+from dataclasses import dataclass
+from svgelements import Color, Path, Point
 from utils import (
-	Pin_Anchor,
 	are_two_points_close,
 	color_to_index,
 	component_name_from_info,
 	filter_newer,
-	find_matching_line_point,
-	is_option_active,
 	options_object_to_array,
 	parse_filename,
-	svg_path_to_line,
 )
 from tqdm.contrib.concurrent import thread_map
 from utils import NODES_AND_PATHS
-from settings import SVGO_BASE_CONFIG
-import copy
+from settings import SVGO_BASE_CONFIG, SVGO_CONFIG
 
 
 def _compile_DVI_to_SVG_worker(path: pathlib.Path, translateX=0, translateY=0, scale=1):
@@ -44,40 +44,89 @@ def _compile_DVI_to_SVG_worker(path: pathlib.Path, translateX=0, translateY=0, s
 	return out.decode()
 
 
-PATH_PATTERN = re.compile(r"^\s*(?P<tag><(?P<tagname>\w+) *(?P<inner>[^>]+?) *\/>)\s*$")
+def svg_path_to_line(path: dom.Element):
+	path_stroke = path.getAttribute("stroke")
+	line = {
+		"start": None,
+		"end": None,
+		"color": Color(path_stroke if path_stroke != "" else "#000"),
+	}
+
+	d = Path(path.getAttribute("d"))
+	if len(d) != 2:
+		raise "Unexpected number of draw commands"  # Start & endpoint
+	line["start"] = d[-1].start
+	line["end"] = d[-1].end
+	return line
+
+
+def is_option_active(option_name, options):
+	for option in options:
+		if option_name == option["name"]:
+			return True
+	return False
+
+
+def find_matching_line_point(lines: list[dict]):
+	points = [[line["start"], line["end"]] for line in lines]
+	points = list(itertools.chain.from_iterable(points))  # flatten list
+
+	acc: dict[Point, int] = {points[0]: 1}
+	for point in points[1:]:
+		close = next(
+			(k for k in acc.keys() if k and point and are_two_points_close(k, point)),
+			None,
+		)
+		if close is not None:
+			acc[close] += 1
+		else:
+			acc[point] = 1
+
+	point = None
+	max_count = 0
+	for entry in acc:
+		if acc[entry] > max_count:
+			point = entry
+			max_count = acc[entry]
+
+	return point
+
+
+@dataclass
+class Pin_Anchor:
+	anchor_name: str
+	point: Point
+	default: bool
 
 
 def _convert_SVG_to_symbol_worker(svg_content: str, index, is_node, node_description, ID, option_possibility):
-	view_box_string = get_SVG_options(svg_content)["viewbox"]
-	svg_content = get_SVG_inner_content(svg_content)
+	doc = dom.parseString(svg_content)
+	svg_doc = doc.firstChild
+
+	paths = svg_doc.getElementsByTagName("path")
+	lines = []
+	for path in paths:
+		try:
+			path_fill = path.getAttribute("fill")
+			if path_fill != "" and path_fill != "none":
+				raise ValueError("Path has a fill color, which is not allowed.")
+			svg_line = svg_path_to_line(path)
+			line_color: svg.Color = svg_line["color"]
+			if line_color is None or line_color == "black":
+				raise
+			lines.append(svg_line)
+			path.parentNode.removeChild(path)
+		except BaseException:
+			pass
 
 	errors = []
 	errorcode = 0
-
-	lines = []
-	filtered_content = []
-	for line in re.split(r"\r?\n", svg_content):
-		match = re.match(PATH_PATTERN, line)
-		try:
-			assert match and match["tagname"].lower() == "path" and len(match["inner"]) >= 10
-			tag_options = get_tag_options(match["inner"])
-			if "fill" in tag_options and tag_options["fill"].lower() != "none":
-				raise ValueError("Path has a fill color, which is not allowed.")
-
-			svg_lines = svg_path_to_line(tag_options)
-			line_color: svg.Color = svg_lines["color"]
-			if line_color is None or (line_color.red == 0 and line_color.green == 0 and line_color.blue == 0):
-				raise
-			lines.append(svg_lines)
-		except BaseException:
-			filtered_content.append(line)
-
-	filtered_content = "\n".join(filtered_content)
 
 	# the line corresponding to the text anchor point
 	text_line_colors = [svg.Color("#f00"), svg.Color("rgb(255,0,155)")]
 	zero_line_colors = [svg.Color("#ff0"), svg.Color("#0ff")]
 
+	# all lines which are not text or zero lines
 	pin_lines = [
 		line
 		for line in lines
@@ -143,44 +192,69 @@ def _convert_SVG_to_symbol_worker(svg_content: str, index, is_node, node_descrip
 		)
 	)
 
-	meta_lines = ["\t<metadata>"]
-	ci_line = f'\t\t<ci:componentInformation type="{"node" if is_node else "path"}"{' displayName="' + node_description["displayName"] + '"' if "displayName" in node_description else ""} tikzName="{tikz_name}" {'shapeName="' + shape_name + '" ' if shape_name is not None else ""}{'groupName="' + node_description["groupName"] + '" ' if "groupName" in node_description else '" '}refX="{ref_point.x}" refY="{ref_point.y}" viewBox="{view_box_string}">'
-	meta_lines.append(ci_line)
+	# build dom tree for metadata
+	metadata = doc.createElement("metadata")
+	# fill in attributes
+	componentInfo = doc.createElement("componentInformation")
+	componentInfo.setAttribute("type", "node" if is_node else "path")
+	if "displayName" in node_description:
+		componentInfo.setAttribute("displayName", node_description["displayName"])
+	componentInfo.setAttribute("tikzName", tikz_name)
+	if shape_name is not None:
+		componentInfo.setAttribute("shapeName", shape_name)
+	if "groupName" in node_description:
+		componentInfo.setAttribute("groupName", node_description["groupName"])
+	componentInfo.setAttribute("refX", str(ref_point.x))
+	componentInfo.setAttribute("refY", str(ref_point.y))
+	componentInfo.setAttribute("viewBox", svg_doc.getAttribute("viewBox"))
 
-	def format_option(option: dict) -> str:
-		if "enumOptions" in option:
-			# is an enum option
-			select_none = f' selectNone="{option["selectNone"]}"' if "selectNone" in option else ""
-			display_name = f' displayName="{option["displayName"]}"' if "displayName" in option else ""
+	# fill in options
+	if "options" in node_description:
+		tikz_options = doc.createElement("tikzOptions")
+		for option in node_description["options"]:
+			if "enumOptions" in option:
+				enum = doc.createElement("enumOption")
+				if "selectNone" in option:
+					enum.setAttribute("selectNone", str(option["selectNone"]))
+				if "displayName" in option:
+					enum.setAttribute("displayName", option["displayName"])
 
-			enum_lines = [f"\t\t\t\t<ci:enumOption{select_none}{display_name}>"]
-			for enum_option in option["enumOptions"]:
-				enum_lines.append(
-					option_str_from_option(enum_option, is_option_active(enum_option["name"], option_possibility))
+				for enum_option in option["enumOptions"]:
+					enum.appendChild(
+						_convert_option(enum_option, is_option_active(enum_option["name"], option_possibility), doc)
+					)
+				tikz_options.appendChild(enum)
+			else:
+				tikz_options.appendChild(
+					_convert_option(option, is_option_active(option["name"], option_possibility), doc)
 				)
-			enum_lines.append("\t\t\t</ci:enumOption>")
-			return "\n\t".join(enum_lines)
+		componentInfo.appendChild(tikz_options)
 
-	meta_lines.append("\t\t\t<ci:tikzOptions>")
-	meta_lines.extend(map(format_option, node_description["options"] if "options" in node_description else []))
-	meta_lines.append("\t\t\t</ci:tikzOptions>")
+	# fill in pins
+	if len(pin_anchors) > 0:
+		pins = doc.createElement("pins")
+		for pin_anchor in pin_anchors:
+			pin = doc.createElement("pin")
+			pin.setAttribute("anchorName", pin_anchor.anchor_name)
+			pin.setAttribute("x", str(pin_anchor.point.x))
+			pin.setAttribute("y", str(pin_anchor.point.y))
+			if pin_anchor.default:
+				pin.setAttribute("isDefault", "true")
+			pins.appendChild(pin)
+		componentInfo.appendChild(pins)
 
-	meta_lines.append("\t\t\t<ci:pins>")
-	meta_lines.extend(
-		[
-			f'\t\t\t\t<ci:pin anchorName="{pin_anchor.anchor_name}" x="{pin_anchor.point.x}" y="{pin_anchor.point.y}" {'isDefault="True" ' if pin_anchor.default else ""}/>'
-			for pin_anchor in pin_anchors
-		]
-	)
-	meta_lines.append("\t\t\t</ci:pins>")
+		##############################
 
 	text_line = [line for line in lines if svg.Color.distance_sq(line["color"], text_line_colors[0]) == 0]
 	if len(text_line) > 0:
 		text_point: svg.Point = text_line[0]["end"] - ref_point
-		meta_lines.append(f'\t\t\t<ci:textPosition x="${text_point.x}" y="${text_point.y}"/>')
+		text_position = doc.createElement("textPosition")
+		text_position.setAttribute("x", str(text_point.x))
+		text_position.setAttribute("y", str(text_point.y))
+		componentInfo.appendChild(text_position)
 
-	meta_lines.append("\t\t</ci:componentInformation>")
-	meta_lines.append("\t</metadata>")
+	metadata.appendChild(componentInfo)
+	svg_doc.appendChild(metadata)
 
 	# - put it all together ---
 	if ID is None:
@@ -190,34 +264,48 @@ def _convert_SVG_to_symbol_worker(svg_content: str, index, is_node, node_descrip
 			is_node,
 			node_description["options"],
 		)
+
+	svg_symbol = doc.createElement("symbol")
+	svg_symbol.setAttribute("id", ID)
+
+	while svg_doc.firstChild:
+		svg_symbol.appendChild(svg_doc.firstChild)
+
 	return (
 		errorcode,
 		"\n".join(errors),
-		f'<symbol id="{ID}">\n' + "\n".join(meta_lines) + "\n" + filtered_content + "\n</symbol>\n",
+		svg_symbol.toxml(),
 	)
 
 
-def option_str_from_option(option, active) -> str:
+def _convert_option(option: dict, active: bool, doc: dom.Document) -> dom.Element:
+	option_element = doc.createElement("option")
 	name: str = option["name"]
-	display_name = option["displayName"]
-	display_name = f' displayName="${display_name}"' if display_name else ""
-	active_str = ' active="true"' if active else ""
+	option_element.setAttribute("name", name)
+	if "displayName" in option:
+		option_element.setAttribute("displayName", option["displayName"])
+
+	if active:
+		option_element.setAttribute("active", "true")
+
 	if "=" in name:
 		[key, val] = name.split("=")
-		return f'\t\t\t\t<ci:option key="{key}" value="{val}"{display_name}{active_str} />'
+		option_element.setAttribute("key", key)
+		option_element.setAttribute("value", val)
 	else:
-		return f'\t\t\t\t<ci:option key="{name}"{display_name}{active_str} />'
+		option_element.setAttribute("key", name)
+
+	return option_element
 
 
 def _convert_DVI_to_symbol_worker(path: pathlib.Path):
 	# convert from dvi to svg
 	# then convert the svg to a symbol
 	svg_content = _compile_DVI_to_SVG_worker(path)
+	doc = dom.parseString(svg_content).getElementsByTagName("svg")[0]
 
-	svg_options = get_SVG_options(svg_content)
-	view_box_str = svg_options["viewbox"]
-	view_box_array = re.split(r" +", view_box_str)
-	if view_box_str == "" or len(view_box_array) != 4:
+	view_box_array = re.split(r" +", doc.getAttribute("viewBox"))
+	if len(view_box_array) != 4:
 		raise ValueError("SVG has no viewBox")
 
 	translate_x = -float(view_box_array[0])
@@ -321,7 +409,7 @@ def convert_DVI_to_SVGs():
 			print(r[1])
 
 	if len(errors) == 0 and len(warnings) == 0:
-		print("Sucessfully converted all .dvi files!")
+		print("Sucessfully converted all .dvi files to .svg files!")
 
 
 def combine_SVGs_to_symbol():
@@ -400,36 +488,9 @@ def combine_SVGs_to_symbol():
 
 	doc.getElementsByTagName("svg")[0].appendChild(metadata)
 
-	svgo_config = {
-		"multipass": False,
-		"floatPrecision": 5,
-		"js2svg": {
-			"indent": "\t",
-			"pretty": True,
-			"eol": "lf",
-			"finalNewline": True,
-		},
-		"plugins": [
-			"removeDimensions",
-			"removeViewBox",
-			{"name": "cleanupIds", "params": {"force": False, "minify": False, "remove": False}},
-			{
-				"name": "convertPathData",
-				"params": {
-					"applyTransforms": True,
-					"forceAbsolutePath": False,
-					"utilizeAbsolute": False,
-					"floatPrecision": 4,
-					"removeUseless": True,
-					"collapseRepeated": True,
-				},
-			},
-			{"name": "mergePaths", "params": {"noSpaceAfterFlags": True}},
-		],
-	}
 	config_name = "symbols.config.js"
 	with open(config_name, "w") as f:
-		f.write("module.exports=" + json.dumps(svgo_config, indent=4))
+		f.write("module.exports=" + json.dumps(SVGO_CONFIG, indent=4))
 
 	command = ["svgo", "--config", config_name, "-i", "-", "-o", "-"]
 	p = subprocess.Popen(
@@ -438,43 +499,10 @@ def combine_SVGs_to_symbol():
 	out, err = p.communicate(input=doc.toxml().encode())
 	svg_content = out.decode()
 	if p.returncode != 0:
-		print(f"Error combining symols to SVG:\n{err.decode()}")
+		print(f"Error combining symbols to SVG:\n{err.decode()}")
 		return
 
 	with open("symbols.svg", "w") as f:
 		f.write(svg_content)
 
 	pathlib.Path(config_name).unlink()
-
-
-OPTIONS_PATTERN = re.compile(r"<svg *(?P<inner>[^>]+) *>")
-
-
-def get_SVG_options(svg_content) -> dict[str, str]:
-	matches = re.search(OPTIONS_PATTERN, svg_content)
-	return get_tag_options(matches.group("inner"))
-
-
-INNER_TAG_PATTERN = re.compile(r"(?P<k>[\w:]+)=((?P<v1>\w)|(\"(?P<v2>[^\"]+)\")|(\'(?P<v3>[^']+)\'))")
-
-
-def get_tag_options(svg_tag_inner):
-	options = {}
-	for match in re.finditer(INNER_TAG_PATTERN, svg_tag_inner):
-		k = match["k"].lower()
-		v = match["v1"] or match["v2"] or match["v3"] or ""
-		options[k] = v
-	return options
-
-
-INNER_CONTENT_PATTERN = re.compile(r"<svg[^>]*>[ \t]*[\r\n]*(?P<inner>.*?)\s*<\/svg", re.IGNORECASE | re.DOTALL)
-
-
-def get_SVG_inner_content(svg_content):
-	match = re.search(INNER_CONTENT_PATTERN, svg_content)
-	inner = match.group("inner") if match else None
-	return inner
-
-
-# convert_DVI_to_SVGs()
-# combine_SVGs_to_symbol()
