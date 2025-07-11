@@ -430,43 +430,43 @@ def combine_SVGs_to_symbol():
 
 	clusteredSymbols: dict[str, list[dom.Element]] = {}
 	for symbol in symbols:
-		info = symbol.getElementsByTagName("ci:componentInformation")[0]
+		info = symbol.getElementsByTagName("componentInformation")[0]
 		tikzname = info.getAttribute("tikzName")
 		if tikzname in clusteredSymbols:
 			clusteredSymbols[tikzname].append(symbol)
 		else:
 			clusteredSymbols[tikzname] = [symbol]
 
-	metadata = doc.createElement("ci:metadata")
+	metadata = doc.createElement("metadata")
 
 	for key, clusteredSymbol in clusteredSymbols.items():
 		firstSymbol = clusteredSymbol[0]
-		firstComponentInfo = firstSymbol.getElementsByTagName("ci:componentInformation")[0]
-		component = doc.createElement("ci:component")
+		firstComponentInfo = firstSymbol.getElementsByTagName("componentInformation")[0]
+		component = doc.createElement("component")
 		component.setAttribute("type", firstComponentInfo.getAttribute("type"))
 		component.setAttribute("displayName", firstComponentInfo.getAttribute("displayName"))
 		component.setAttribute("tikzName", firstComponentInfo.getAttribute("tikzName"))
 		component.setAttribute("groupName", firstComponentInfo.getAttribute("groupName"))
 
-		tikzOptions = firstSymbol.getElementsByTagName("ci:tikzOptions")[0]
-		if tikzOptions.hasChildNodes():
+		tikzOptions = firstSymbol.getElementsByTagName("tikzOptions")
+		if len(tikzOptions) > 0 and tikzOptions[0].hasChildNodes():
 			try:
-				tikzOptions.removeAttribute("xmlns:ci")
+				tikzOptions[0].removeAttribute("xmlns:ci")
 			except BaseException:
 				pass
-			component.appendChild(tikzOptions.cloneNode(True))
+			component.appendChild(tikzOptions[0].cloneNode(True))
 
 		for symbol in clusteredSymbol:
-			variant = doc.createElement("ci:variant")
+			variant = doc.createElement("variant")
 
-			componentInfo = symbol.getElementsByTagName("ci:componentInformation")[0]
+			componentInfo = symbol.getElementsByTagName("componentInformation")[0]
 			variant.setAttribute("refX", componentInfo.getAttribute("refX"))
 			variant.setAttribute("refY", componentInfo.getAttribute("refY"))
 			variant.setAttribute("viewBox", componentInfo.getAttribute("viewBox"))
 
 			variant.setAttribute("for", symbol.getAttribute("id"))
-			activeOptions = symbol.getElementsByTagName("ci:option")
-			pins = symbol.getElementsByTagName("ci:pin")
+			activeOptions = symbol.getElementsByTagName("option")
+			pins = symbol.getElementsByTagName("pin")
 			for option in activeOptions:
 				if option.hasAttribute("active"):
 					variant.appendChild(option)
@@ -474,7 +474,7 @@ def combine_SVGs_to_symbol():
 
 			for pin in pins:
 				variant.appendChild(pin)
-			textPosition = symbol.getElementsByTagName("ci:textPosition")
+			textPosition = symbol.getElementsByTagName("textPosition")
 			if textPosition.length > 0:
 				variant.appendChild(textPosition[0])
 
