@@ -615,7 +615,7 @@
 				{ "name": "nogate", "subPins": ["G"] },
 				{ "name": "tr circle" }
 			],
-			"pins": ["B1", "G", "B2"]
+			"pins": ["B1", "G", "B2", "kink"]
 		},
 		{
 			"displayName": "ISFET",
