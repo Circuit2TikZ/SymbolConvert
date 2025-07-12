@@ -6,7 +6,8 @@ Symbol Convert allows the export of new CircuiTikZ symbols when they are added a
 ## Dependencies
 
 Install dependencies:
-```
+
+```bash
 pip install -r requirements.txt
 ```
 
