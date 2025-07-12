@@ -27,20 +27,20 @@ def _compile_worker(path: pathlib.Path):
 		outfile_path = path.parent / outfile
 		if outfile_path.suffix in extensionBlacklist:
 			outfile_path.unlink()
-	return p.returncode, out.decode(), path
+	if p.returncode != 0:
+		print(f"Error compiling {path.stem}:")
+		print(out.decode())
+	return p.returncode
 
 
 def compile_tex_files():
 	all_files = glob.glob("build/*.tex")
 	all_files = filter_newer(all_files, ".dvi")
 
-	results = thread_map(_compile_worker, all_files, desc="Compiling .tex files", unit="file")
-	error_rs = [r for r in results if r[0] != 0]
+	results = thread_map(_compile_worker, all_files, desc="Compiling .tex files", unit="file", smoothing=0.1)
+	error_rs = [r for r in results if r != 0]
 	if len(error_rs) > 0:
-		print(f"Errors ({len(error_rs)}) occurred during compilation:")
-		for r in error_rs:
-			print(f"Error compiling {r[2].stem}:")
-			print(r[1])
+		print(f"A total of {len(error_rs)} errors occurred during compilation:")
 	else:
 		print("Sucessfully compiled all .tex files!")
 
@@ -123,13 +123,16 @@ def create_tex_files_from_json(output_dir="build"):
 					subPins.extend(option["subPins"])
 
 			anchorLines = ""
-			if "pins" in path and len(path["pins"]) > 0:
-				anchors = [anchor for anchor in path["pins"] if anchor not in subPins and anchor != "center"]
-				anchors.extend(addPins)
-				for anchorIndex, anchor in enumerate(anchors):
-					color = index_to_color(anchorIndex)
-					color_str = f"rgb,255:red,{color.red};green,{color.green};blue,{color.blue}"
-					anchorLines += f"\t\t\\draw[draw={{{color_str}}}] (0,0) -- (P.{anchor});\n"
+			anchors = [
+				anchor
+				for anchor in (["b", "a"] + (path["pins"] if "pins" in path else []))
+				if anchor not in subPins and anchor != "center"
+			]
+			anchors.extend(addPins)
+			for anchorIndex, anchor in enumerate(anchors):
+				color = index_to_color(anchorIndex)
+				color_str = f"rgb,255:red,{color.red};green,{color.green};blue,{color.blue}"
+				anchorLines += f"\t\t\\draw[draw={{{color_str}}}] (0,0) -- (P.{anchor});\n"
 
 			if "stroke" in path and path["stroke"]:
 				anchorLines += "\t\t\\draw (P.b) -- (P.a);\n"

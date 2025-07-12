@@ -35,7 +35,7 @@ SVGO_BASE_CONFIG = {
 }
 
 SVGO_CONFIG = {
-	"multipass": False,
+	"multipass": True,
 	"floatPrecision": 5,
 	"js2svg": {
 		"indent": "\t",

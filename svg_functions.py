@@ -119,7 +119,8 @@ def _convert_SVG_to_symbol_worker(svg_content: str, index, is_node, node_descrip
 		except BaseException:
 			pass
 
-	errors = []
+	tikz_name = node_description["name"] if is_node else node_description["drawName"]
+
 	errorcode = 0
 
 	# the line corresponding to the text anchor point
@@ -151,7 +152,7 @@ def _convert_SVG_to_symbol_worker(svg_content: str, index, is_node, node_descrip
 				line["end"] = line["start"]
 				line["start"] = ref_point
 			else:
-				errors.append("Error parsing line: " + line["start"] + line["end"] + line["color"])
+				print(f"Error parsing line ({tikz_name}): {line['start']}; {line['end']}; {line['color']}")
 				errorcode = 1
 
 		index = color_to_index(line["color"])
@@ -170,18 +171,10 @@ def _convert_SVG_to_symbol_worker(svg_content: str, index, is_node, node_descrip
 	for pin_anchor in pin_anchors:
 		if not pin_anchor.point:
 			pin_anchor.point = svg.Point(0, 0)
-			errors.append(
-				"Warning["
-				+ (node_description["name"] if "name" in node_description else node_description["drawName"])
-				+ "]: Anchor "
-				+ pin_anchor.anchor_name
-				+ " not found; assuming (0, 0)"
-			)
 		if not has_default and are_two_points_close(zero_coordinate, pin_anchor.point):
 			has_default = True
 			pin_anchor.default = True
 
-	tikz_name = node_description["name"] if is_node else node_description["drawName"]
 	shape_name = (
 		None
 		if is_node
@@ -198,26 +191,26 @@ def _convert_SVG_to_symbol_worker(svg_content: str, index, is_node, node_descrip
 	componentInfo = doc.createElement("componentInformation")
 	componentInfo.setAttribute("type", "node" if is_node else "path")
 	if "displayName" in node_description:
-		componentInfo.setAttribute("displayName", node_description["displayName"])
-	componentInfo.setAttribute("tikzName", tikz_name)
+		componentInfo.setAttribute("display", node_description["displayName"])
+	componentInfo.setAttribute("tikz", tikz_name)
 	if shape_name is not None:
-		componentInfo.setAttribute("shapeName", shape_name)
+		componentInfo.setAttribute("shape", shape_name)
 	if "groupName" in node_description:
-		componentInfo.setAttribute("groupName", node_description["groupName"])
-	componentInfo.setAttribute("refX", str(ref_point.x))
-	componentInfo.setAttribute("refY", str(ref_point.y))
+		componentInfo.setAttribute("group", node_description["groupName"])
+	componentInfo.setAttribute("refX", f"{ref_point.x:.5f}")
+	componentInfo.setAttribute("refY", f"{ref_point.y:.5f}")
 	componentInfo.setAttribute("viewBox", svg_doc.getAttribute("viewBox"))
 
 	# fill in options
 	if "options" in node_description:
-		tikz_options = doc.createElement("tikzOptions")
+		tikz_options = doc.createElement("options")
 		for option in node_description["options"]:
 			if "enumOptions" in option:
-				enum = doc.createElement("enumOption")
+				enum = doc.createElement("enumopt")
 				if "selectNone" in option:
 					enum.setAttribute("selectNone", str(option["selectNone"]))
 				if "displayName" in option:
-					enum.setAttribute("displayName", option["displayName"])
+					enum.setAttribute("name", option["displayName"])
 
 				for enum_option in option["enumOptions"]:
 					enum.appendChild(
@@ -235,9 +228,11 @@ def _convert_SVG_to_symbol_worker(svg_content: str, index, is_node, node_descrip
 		pins = doc.createElement("pins")
 		for pin_anchor in pin_anchors:
 			pin = doc.createElement("pin")
-			pin.setAttribute("anchorName", pin_anchor.anchor_name)
-			pin.setAttribute("x", str(pin_anchor.point.x))
-			pin.setAttribute("y", str(pin_anchor.point.y))
+			pin.setAttribute("name", pin_anchor.anchor_name)
+			if pin_anchor.point.x != 0:
+				pin.setAttribute("x", f"{pin_anchor.point.x:.5f}")
+			if pin_anchor.point.y != 0:
+				pin.setAttribute("y", f"{pin_anchor.point.y:.5f}")
 			if pin_anchor.default:
 				pin.setAttribute("isDefault", "true")
 			pins.appendChild(pin)
@@ -248,9 +243,9 @@ def _convert_SVG_to_symbol_worker(svg_content: str, index, is_node, node_descrip
 	text_line = [line for line in lines if svg.Color.distance_sq(line["color"], text_line_colors[0]) == 0]
 	if len(text_line) > 0:
 		text_point: svg.Point = text_line[0]["end"] - ref_point
-		text_position = doc.createElement("textPosition")
-		text_position.setAttribute("x", str(text_point.x))
-		text_position.setAttribute("y", str(text_point.y))
+		text_position = doc.createElement("textpos")
+		text_position.setAttribute("x", f"{text_point.x:.5f}")
+		text_position.setAttribute("y", f"{text_point.y:.5f}")
 		componentInfo.appendChild(text_position)
 
 	metadata.appendChild(componentInfo)
@@ -273,7 +268,6 @@ def _convert_SVG_to_symbol_worker(svg_content: str, index, is_node, node_descrip
 
 	return (
 		errorcode,
-		"\n".join(errors),
 		svg_symbol.toxml(),
 	)
 
@@ -281,10 +275,8 @@ def _convert_SVG_to_symbol_worker(svg_content: str, index, is_node, node_descrip
 def _convert_option(option: dict, active: bool, doc: dom.Document) -> dom.Element:
 	option_element = doc.createElement("option")
 	name: str = option["name"]
-	option_element.setAttribute("name", name)
 	if "displayName" in option:
-		option_element.setAttribute("displayName", option["displayName"])
-
+		option_element.setAttribute("display", option["displayName"])
 	if active:
 		option_element.setAttribute("active", "true")
 
@@ -377,17 +369,18 @@ def _convert_DVI_to_symbol_worker(path: pathlib.Path):
 	svg_content = out.decode()
 	(path.parent / config_name).unlink()
 	returncode = p.returncode
-	returnstr = out.decode()
 	if p.returncode == 0:
-		returncode, returnstr, svg_content = _convert_SVG_to_symbol_worker(
+		returncode, svg_content = _convert_SVG_to_symbol_worker(
 			svg_content, index, is_node, node_description_copy, ID, option_possibility
 		)
 
 		if svg_content:
 			with open(path.parent / (path.stem + ".svg"), "w") as f:
 				f.write(svg_content)
+	else:
+		print(f"Error while svg optimizing {path.stem}:", out.decode())
 
-	return returncode, returnstr, path
+	return returncode
 
 
 def convert_DVI_to_SVGs():
@@ -395,20 +388,13 @@ def convert_DVI_to_SVGs():
 	all_files = glob.glob("build/*.dvi")
 	all_files = filter_newer(all_files, ".svg")
 	# _convert_DVI_to_symbol_worker(pathlib.Path(all_files[0]))
-	results = thread_map(_convert_DVI_to_symbol_worker, all_files, desc="Converting .dvi files", unit="file")
-	errors = [r for r in results if r[0] != 0]
-	warnings = [r for r in results if r[0] == 0 and r[1].strip() != ""]
+	results = thread_map(
+		_convert_DVI_to_symbol_worker, all_files, desc="Converting .dvi files", unit="file", smoothing=0.1
+	)
+	errors = [r for r in results if r != 0]
 	if len(errors) > 0:
-		print(f"Errors ({len(errors)}) occurred during compilation:")
-		for r in errors:
-			print(r[1])
-
-	if len(warnings) > 0:
-		print(f"Warnings ({len(warnings)}) occurred during compilation:")
-		for r in warnings:
-			print(r[1])
-
-	if len(errors) == 0 and len(warnings) == 0:
+		print(f"A total of {len(errors)} errors occurred during compilation:")
+	else:
 		print("Sucessfully converted all .dvi files to .svg files!")
 
 
@@ -431,7 +417,7 @@ def combine_SVGs_to_symbol():
 	clusteredSymbols: dict[str, list[dom.Element]] = {}
 	for symbol in symbols:
 		info = symbol.getElementsByTagName("componentInformation")[0]
-		tikzname = info.getAttribute("tikzName")
+		tikzname = info.getAttribute("tikz")
 		if tikzname in clusteredSymbols:
 			clusteredSymbols[tikzname].append(symbol)
 		else:
@@ -443,38 +429,47 @@ def combine_SVGs_to_symbol():
 		firstSymbol = clusteredSymbol[0]
 		firstComponentInfo = firstSymbol.getElementsByTagName("componentInformation")[0]
 		component = doc.createElement("component")
-		component.setAttribute("type", firstComponentInfo.getAttribute("type"))
-		component.setAttribute("displayName", firstComponentInfo.getAttribute("displayName"))
-		component.setAttribute("tikzName", firstComponentInfo.getAttribute("tikzName"))
-		component.setAttribute("groupName", firstComponentInfo.getAttribute("groupName"))
+		symbol_type = firstComponentInfo.getAttribute("type")
+		component.setAttribute("type", symbol_type)
+		component.setAttribute("display", firstComponentInfo.getAttribute("display"))
+		component.setAttribute("tikz", firstComponentInfo.getAttribute("tikz"))
+		component.setAttribute("group", firstComponentInfo.getAttribute("group"))
+		if symbol_type == "path":
+			component.setAttribute("shape", firstComponentInfo.getAttribute("shape"))
 
-		tikzOptions = firstSymbol.getElementsByTagName("tikzOptions")
-		if len(tikzOptions) > 0 and tikzOptions[0].hasChildNodes():
+		tikz_options = firstSymbol.getElementsByTagName("options")
+		if len(tikz_options) > 0 and tikz_options[0].hasChildNodes():
 			try:
-				tikzOptions[0].removeAttribute("xmlns:ci")
+				tikz_options[0].removeAttribute("xmlns:ci")
 			except BaseException:
 				pass
-			component.appendChild(tikzOptions[0].cloneNode(True))
+			component.appendChild(tikz_options[0].cloneNode(True))
 
 		for symbol in clusteredSymbol:
 			variant = doc.createElement("variant")
 
 			componentInfo = symbol.getElementsByTagName("componentInformation")[0]
-			variant.setAttribute("refX", componentInfo.getAttribute("refX"))
-			variant.setAttribute("refY", componentInfo.getAttribute("refY"))
+			ref_x = float(componentInfo.getAttribute("refX"))
+			ref_y = float(componentInfo.getAttribute("refY"))
+			if ref_x != 0:
+				variant.setAttribute("x", str(ref_x))
+			if ref_y != 0:
+				variant.setAttribute("y", str(ref_y))
 			variant.setAttribute("viewBox", componentInfo.getAttribute("viewBox"))
 
 			variant.setAttribute("for", symbol.getAttribute("id"))
 			activeOptions = symbol.getElementsByTagName("option")
-			pins = symbol.getElementsByTagName("pin")
 			for option in activeOptions:
 				if option.hasAttribute("active"):
-					variant.appendChild(option)
 					option.removeAttribute("active")
+					if option.hasAttribute("display"):
+						option.removeAttribute("display")
+					variant.appendChild(option)
 
+			pins = symbol.getElementsByTagName("pin")
 			for pin in pins:
 				variant.appendChild(pin)
-			textPosition = symbol.getElementsByTagName("textPosition")
+			textPosition = symbol.getElementsByTagName("textpos")
 			if textPosition.length > 0:
 				variant.appendChild(textPosition[0])
 

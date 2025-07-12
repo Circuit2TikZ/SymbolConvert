@@ -17,7 +17,7 @@ def component_name_from_info(index: int, id: str, isnode=True, options=[]):
 		basename_array.append(f"{index:03d}")
 	basename_array.append(id)
 	if len(options) > 0:
-		basename_array.append("-".join(options))
+		basename_array.append("_".join(options))
 	basename_array = [re.sub(r"\W", "-", part) for part in basename_array]  # Remove spaces from each part
 	return "_".join(basename_array)
 
@@ -43,7 +43,7 @@ def index_to_color(index) -> Color:
 #          (252, 153, 153) -> 63
 # Raises ValueError if the color format is invalid.
 def color_to_index(color: Color):
-	if color.red & 0x11 != 0 or color.green != 0x99 or color.blue != 0x99:
+	if color.red & 0x3 != 0 or color.green != 0x99 or color.blue != 0x99:
 		raise ValueError("Invalid color format. Expected RGB with r in [0, 252], g=153, b=153.")
 	return color.red >> 2
 

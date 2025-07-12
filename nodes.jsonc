@@ -402,7 +402,6 @@
 					],
 					"displayName": "Source arrow"
 				},
-				{ "name": "circuitikz/tripoles/hemt/source arrow=1", "displayName": "source arrow" },
 				{ "name": "tr circle" }
 			],
 			"pins": ["D", "G", "S"]
