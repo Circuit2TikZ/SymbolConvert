@@ -11,7 +11,6 @@
 			"args": ["--init-file", "${workspaceFolder}/.vscode/.bashrc", "-i"]
 		}
 	},
-	"latex-workshop.latex.autoBuild.run": "never",
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": true,
 	"notebook.formatOnSave.enabled": true,
