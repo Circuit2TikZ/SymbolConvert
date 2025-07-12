@@ -399,7 +399,7 @@ def convert_DVI_to_SVGs():
 
 
 def combine_SVGs_to_symbol():
-	header = '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>\n<svg\n\tversion="1.1"\n\txmlns:xlink="http://www.w3.org/1999/xlink">\n\t<defs>\n'
+	header = '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>\n<svg\n\tversion="1.1"\n\txmlns="http://www.w3.org/2000/svg"\n\txmlns:xlink="http://www.w3.org/1999/xlink">\n\t<defs>\n'
 	footer = "\n\t</defs>\n</svg>"
 
 	all_files = glob.glob("build/*.svg")
