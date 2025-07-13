@@ -280,12 +280,7 @@ def _convert_option(option: dict, active: bool, doc: dom.Document) -> dom.Elemen
 	if active:
 		option_element.setAttribute("active", "true")
 
-	if "=" in name:
-		[key, val] = name.split("=")
-		option_element.setAttribute("key", key)
-		option_element.setAttribute("value", val)
-	else:
-		option_element.setAttribute("key", name)
+	option_element.setAttribute("name", name)
 
 	return option_element
 
