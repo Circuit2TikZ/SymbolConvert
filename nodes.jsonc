@@ -1191,10 +1191,59 @@
 			"name": "ieeestd invschmitt port",
 			"groupName": "Logic gates",
 			"pins": ["in", "bin", "out", "bout"]
-		}
+		},
 
 		// 4.23 Flip Flops
-		// TODO
+		{
+			"displayName": "D-type latch",
+			"name": "latch",
+			"groupName": "Flipflops",
+			"pins": ["pin 1","pin 3","pin 4","pin 6"],
+			"options": [
+				{"name": "dot on notQ", "displayName": "Dot on not Q"},
+				{"name": "add async SR", "displayName": "Add async SR", "addPins": ["up", "down"]}
+			]
+		},
+		{
+			"displayName": "Flip-flop SR",
+			"name": "flipflop SR",
+			"groupName": "Flipflops",
+			"pins": ["pin 1","pin 3","pin 4","pin 6"],
+			"options": [
+				{"name": "dot on notQ", "displayName": "Dot on not Q"},
+				{"name": "add async SR", "displayName": "Add async SR", "addPins": ["up", "down"]}
+			]
+		},
+		{
+			"displayName": "Edge-triggered synchronous flip-flop D",
+			"name": "flipflop D",
+			"groupName": "Flipflops",
+			"pins": ["pin 1","pin 3","pin 4","pin 6"],
+			"options": [
+				{"name": "dot on notQ", "displayName": "Dot on not Q"},
+				{"name": "add async SR", "displayName": "Add async SR", "addPins": ["up", "down"]}
+			]
+		},
+		{
+			"displayName": "Edge-triggered synchronous flip-flop T",
+			"name": "flipflop T",
+			"groupName": "Flipflops",
+			"pins": ["pin 1","pin 3","pin 4","pin 6"],
+			"options": [
+				{"name": "dot on notQ", "displayName": "Dot on not Q"},
+				{"name": "add async SR", "displayName": "Add async SR", "addPins": ["up", "down"]}
+			]
+		},
+		{
+			"displayName": "Edge-triggered synchronous flip-flop JK",
+			"name": "flipflop JK",
+			"groupName": "Flipflops",
+			"pins": ["pin 1","pin 2","pin 3","pin 4","pin 6"],
+			"options": [
+				{"name": "dot on notQ", "displayName": "Dot on not Q"},
+				{"name": "add async SR", "displayName": "Add async SR", "addPins": ["up", "down"]}
+			]
+		}
 
 		// 4.24 Multiplexer and de-multiplexer
 		// skip - no variable number of ports (maybe include some of the most common ones?)
