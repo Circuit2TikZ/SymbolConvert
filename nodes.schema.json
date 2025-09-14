@@ -39,6 +39,16 @@
 					"type": "string",
 					"minLength": 1
 				},
+				"class":{
+					"title": "which ctikz class this component belongs to",
+					"type":"string",
+					"minLength":1
+				},
+				"fillable":{
+					"title": "if the component is fillable",
+					"type":"boolean",
+					"default":false
+				},
 				"options": {
 					"title": "A list of options to set in CircuiTikZ",
 					"type": "array",
@@ -131,6 +141,8 @@
 						"title": "Draw a line through the component",
 						"type": "boolean",
 						"default": false
+					},
+					"source":{"enum":["isVoltage","isCurrent"]
 					}
 				},
 				"required": ["drawName"]

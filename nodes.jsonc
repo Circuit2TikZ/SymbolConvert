@@ -7,60 +7,72 @@
 			"displayName": "Ground",
 			"name": "ground",
 			"groupName": "Grounds and supply voltages",
+			"class": "grounds",
 			"pins": ["center"]
 		},
 		{
 			"displayName": "Ground (tailless)",
 			"name": "tlground",
 			"groupName": "Grounds and supply voltages",
+			"class": "grounds",
 			"pins": ["center"]
 		},
 		{
 			"displayName": "Reference ground",
 			"name": "rground",
 			"groupName": "Grounds and supply voltages",
+			"class": "grounds",
 			"pins": ["center"]
 		},
 		{
 			"displayName": "Signal ground",
 			"name": "sground",
 			"groupName": "Grounds and supply voltages",
+			"class": "grounds",
+			"fillable": true,
 			"pins": ["center"]
 		},
 		{
 			"displayName": "Thicker tailless reference ground",
 			"name": "tground",
 			"groupName": "Grounds and supply voltages",
+			"class": "grounds",
 			"pins": ["center"]
 		},
 		{
 			"displayName": "Noiseless ground",
 			"name": "nground",
 			"groupName": "Grounds and supply voltages",
+			"class": "grounds",
 			"pins": ["center"]
 		},
 		{
 			"displayName": "Protective ground",
 			"name": "pground",
 			"groupName": "Grounds and supply voltages",
+			"class": "grounds",
+			"fillable": true,
 			"pins": ["center"]
 		},
 		{
 			"displayName": "Chassis ground",
 			"name": "cground",
 			"groupName": "Grounds and supply voltages",
+			"class": "grounds",
 			"pins": ["center"]
 		},
 		{
 			"displayName": "European style ground",
 			"name": "eground",
 			"groupName": "Grounds and supply voltages",
+			"class": "grounds",
 			"pins": ["center"]
 		},
 		{
 			"displayName": "European style ground (v2)",
 			"name": "eground2",
 			"groupName": "Grounds and supply voltages",
+			"class": "grounds",
 			"pins": ["center"]
 		},
 		// 4.1.2 Power supplies
@@ -68,12 +80,14 @@
 			"displayName": "VCC/VDD",
 			"name": "vcc",
 			"groupName": "Grounds and supply voltages",
+			"class": "power supplies",
 			"pins": ["center"]
 		},
 		{
 			"displayName": "VEE/VSS",
 			"name": "vee",
 			"groupName": "Grounds and supply voltages",
+			"class": "power supplies",
 			"pins": ["center"]
 		},
 		// 4.10 Crossings - done
@@ -95,23 +109,32 @@
 			"groupName": "Wiring"
 		},
 		// 4.11 Arrows
-		/*{
-			"name": "currarrow"
+		{
+			"displayName": "Arrow for current and voltage",
+			"name": "currarrow",
+			"groupName": "Wiring"
 		},
 		{
-			"name": "inputarrow"
+			"displayName": "Arrow that is anchored at its tip",
+			"name": "inputarrow",
+			"groupName": "Wiring"
 		},
 		{
-			"name": "trarrow"
+			"displayName": "Arrow the same size of currarrow but only filled",
+			"name": "trarrow",
+			"groupName": "Wiring",
+			"pins": ["tip"]
 		},
 		{
-			"name": "flowarrow"
-		},*/
+			"displayName": "Arrow used for the flows",
+			"name": "flowarrow",
+			"groupName": "Wiring"
+		},
 		// 4.12 Terminal shapes - done
 		{
 			"displayName": "Unconnected terminal",
 			"name": "ocirc",
-			"groupName": "Wiring"
+			"groupName": "Wiring",
 		},
 		{
 			"displayName": "Diamond-square terminal",
@@ -139,37 +162,43 @@
 			"displayName": "BNC connector",
 			"name": "bnc",
 			"groupName": "Wiring",
-			"pins": ["center", "shield"] // hot=center
+			"class": "connectors",
+			"pins": ["center", "shield", "zero"] // hot=center
 		},
 		// 4.13.2 IEC 60617 socket-plug connectors
 		{
 			"displayName": "IEC 60617 connector",
 			"name": "iecconnshape", // is a path: iec connector
 			"groupName": "Wiring",
+			"class": "connectors",
 			"pins": ["left", "right"]
 		},
 		{
 			"displayName": "IEC 60617 female socket (left side)",
 			"name": "iecsocketL",
 			"groupName": "Wiring",
+			"class": "connectors",
 			"pins": ["left", "right"] // left = center
 		},
 		{
 			"displayName": "IEC 60617 male plug (right side)",
 			"name": "iecplugR",
 			"groupName": "Wiring",
+			"class": "connectors",
 			"pins": ["left", "right"] // left = center
 		},
 		{
 			"displayName": "IEC 60617 male plug (left side)",
 			"name": "iecplugL",
 			"groupName": "Wiring",
+			"class": "connectors",
 			"pins": ["left", "right"] // left = center
 		},
 		{
 			"displayName": "IEC 60617 female socket (right side)",
 			"name": "iecsocketR",
 			"groupName": "Wiring",
+			"class": "connectors",
 			"pins": ["left", "right"] // left = center
 		},
 		// 4.14 Block diagram components
@@ -177,11 +206,23 @@
 			"displayName": "Mixer",
 			"name": "mixer",
 			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
 			"options": [
 				{
-					"name": "boxed",
-					"addPins": ["left up", "left down", "right up", "right down"],
-					"subPins": ["n", "s", "w", "e"]
+					"enumOptions": [
+						{
+							"name": "box",
+							"addPins": ["left up", "left down", "right up", "right down"],
+							"subPins": ["n", "s", "w", "e"]
+						},
+						{
+							"name": "box only",
+							"addPins": ["left up", "left down", "right up", "right down"],
+							"subPins": ["n", "s", "w", "e"]
+						}
+					],
+					"displayName": "Boxed"
 				}
 			],
 			"pins": ["n", "s", "w", "e"]
@@ -190,66 +231,139 @@
 			"displayName": "Adder",
 			"name": "adder",
 			"groupName": "Block diagram",
-			"pins": ["north", "south", "west", "east"]
+			"class": "blocks",
+			"fillable": true,
+			"options": [
+				{
+					"enumOptions": [
+						{
+							"name": "box",
+							"addPins": ["left up", "left down", "right up", "right down"],
+							"subPins": ["n", "s", "w", "e"]
+						},
+						{
+							"name": "box only",
+							"addPins": ["left up", "left down", "right up", "right down"],
+							"subPins": ["n", "s", "w", "e"]
+						}
+					],
+					"displayName": "Boxed"
+				}
+			],
+			"pins": ["n", "s", "w", "e"]
 		},
 		{
 			"displayName": "Oscillator",
 			"name": "oscillator",
 			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
+			"options": [
+				{
+					"enumOptions": [
+						{
+							"name": "box",
+							"addPins": ["left up", "left down", "right up", "right down"],
+							"subPins": ["n", "s", "w", "e"]
+						},
+						{
+							"name": "box only",
+							"addPins": ["left up", "left down", "right up", "right down"],
+							"subPins": ["n", "s", "w", "e"]
+						}
+					],
+					"displayName": "Boxed"
+				}
+			],
 			"pins": ["n", "s", "w", "e"]
 		},
 		{
 			"displayName": "Circulator",
 			"name": "circulator",
 			"groupName": "Block diagram",
-			"pins": ["left", "up", "right", "down"]
+			"class": "blocks",
+			"fillable": true,
+			"options": [
+				{
+					"enumOptions": [
+						{
+							"name": "box",
+							"addPins": ["left up", "left down", "right up", "right down"],
+							"subPins": ["n", "s", "w", "e"]
+						},
+						{
+							"name": "box only",
+							"addPins": ["left up", "left down", "right up", "right down"],
+							"subPins": ["n", "s", "w", "e"]
+						}
+					],
+					"displayName": "Boxed"
+				}
+			],
+			"pins": ["n", "s", "w", "e"]
 		},
 		{
 			"displayName": "Wilkinson divider",
 			"name": "wilkinson",
 			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
 			"pins": ["in", "out1", "out2"]
 		},
 		{
 			"displayName": "Resistive splitter",
 			"name": "splitter",
 			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
 			"pins": ["in", "out1", "out2"]
 		},
 		{
 			"displayName": "Generic splitter",
 			"name": "genericsplitter",
 			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
 			"pins": ["in", "out1", "out2"]
 		},
 		{
 			"displayName": "Grid node",
 			"name": "gridnode",
 			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
 			"pins": ["left", "up", "right", "down"]
 		},
 		{
 			"displayName": "Mach Zehnder Modulator",
 			"name": "mzm",
 			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
 			"pins": ["in", "out", "mod"]
 		},
 		{
 			"displayName": "Generic fourport",
 			"name": "fourport",
 			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
 			"pins": ["port1", "port2", "port3", "port4"]
 		},
 		{
 			"displayName": "Coupler",
 			"name": "coupler",
 			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
 			"pins": ["left up", "left down", "right up", "right down"]
 		},
 		{
 			"displayName": "Coupler (rounded arrows)",
 			"name": "coupler2",
 			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
 			"pins": ["port1", "port2", "port3", "port4"]
 		},
 
@@ -259,6 +373,7 @@
 			"displayName": "NPN",
 			"name": "npn",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "schottky base" },
 				{ "name": "photo", "addPins": ["arrows"], "subPins": ["B"] },
@@ -272,6 +387,7 @@
 			"displayName": "PNP",
 			"name": "pnp",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "schottky base" },
 				{ "name": "photo", "addPins": ["arrows"], "subPins": ["B"] },
@@ -285,6 +401,7 @@
 			"displayName": "NIGBT",
 			"name": "nigbt",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] },
@@ -296,6 +413,7 @@
 			"displayName": "PIGBT",
 			"name": "pigbt",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] },
@@ -307,6 +425,7 @@
 			"displayName": "LNIGBT",
 			"name": "Lnigbt",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] },
@@ -318,6 +437,7 @@
 			"displayName": "LPIGBT",
 			"name": "Lpigbt",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{ "name": "nobase", "addPins": ["nobase"], "subPins": ["B"] },
@@ -333,6 +453,7 @@
 			"displayName": "NMOS",
 			"name": "nmos",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
@@ -347,6 +468,7 @@
 			"displayName": "PMOS",
 			"name": "pmos",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
@@ -362,6 +484,7 @@
 			"displayName": "NMOS (depletion)",
 			"name": "nmosd",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
@@ -376,6 +499,7 @@
 			"displayName": "PMOS (depletion)",
 			"name": "pmosd",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
@@ -391,6 +515,7 @@
 			"displayName": "HEMT",
 			"name": "hemt",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
@@ -410,6 +535,7 @@
 			"displayName": "GaN HEMT",
 			"name": "GaN hemt",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
@@ -422,6 +548,7 @@
 			"displayName": "NFET",
 			"name": "nfet",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
@@ -434,6 +561,7 @@
 			"displayName": "NFET (depletion)",
 			"name": "nfetd",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
@@ -446,6 +574,7 @@
 			"displayName": "NIGFET",
 			"name": "nigfete",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{
@@ -465,6 +594,7 @@
 			"displayName": "NIGFET (bulk)",
 			"name": "nigfetebulk",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{
@@ -484,6 +614,7 @@
 			"displayName": "NIGFET (depletion)",
 			"name": "nigfetd",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{
@@ -503,6 +634,7 @@
 			"displayName": "PFET",
 			"name": "pfet",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
@@ -515,6 +647,7 @@
 			"displayName": "PFET (depletion)",
 			"name": "pfetd",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{ "name": "nogate", "addPins": ["nogate"], "subPins": ["G"] },
@@ -527,6 +660,7 @@
 			"displayName": "PIGFET",
 			"name": "pigfete",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{
@@ -546,6 +680,7 @@
 			"displayName": "PIGFET (bulk)",
 			"name": "pigfetebulk",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{
@@ -565,6 +700,7 @@
 			"displayName": "PIGFET (depletion)",
 			"name": "pigfetd",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{
@@ -585,6 +721,7 @@
 			"displayName": "n-type JFET",
 			"name": "njfet",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [{ "name": "bodydiode", "addPins": ["body C out", "body E out"] }, { "name": "tr circle" }],
 			"pins": ["D", "G", "S"]
 		},
@@ -592,6 +729,7 @@
 			"displayName": "p-type JFET",
 			"name": "pjfet",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [{ "name": "bodydiode", "addPins": ["body C out", "body E out"] }, { "name": "tr circle" }],
 			"pins": ["D", "G", "S"]
 		},
@@ -599,6 +737,7 @@
 			"displayName": "n-type UJT",
 			"name": "nujt",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{ "name": "nogate", "subPins": ["G"] },
@@ -610,6 +749,7 @@
 			"displayName": "p-type UJT",
 			"name": "pujt",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [
 				{ "name": "bodydiode", "addPins": ["body C out", "body E out"] },
 				{ "name": "nogate", "subPins": ["G"] },
@@ -621,6 +761,7 @@
 			"displayName": "ISFET",
 			"name": "isfet",
 			"groupName": "Transistors",
+			"class": "transistors",
 			"options": [{ "name": "bodydiode", "addPins": ["body C out", "body E out"] }, { "name": "tr circle" }],
 			"pins": ["D", "S"]
 		},
@@ -628,6 +769,8 @@
 			"displayName": "n-type graphene FET",
 			"name": "ngfet",
 			"groupName": "Transistors",
+			"class": "transistors",
+			"fillable": true,
 			"options": [{ "name": "bodydiode", "addPins": ["body C out", "body E out"] }],
 			"pins": ["D", "G", "S"]
 		},
@@ -635,16 +778,19 @@
 			"displayName": "p-type graphene FET",
 			"name": "pgfet",
 			"groupName": "Transistors",
+			"class": "transistors",
+			"fillable": true,
 			"options": [{ "name": "bodydiode", "addPins": ["body C out", "body E out"] }],
 			"pins": ["D", "G", "S"]
 		},
 
 		// 4.16 Electronic Tubes
-		// 1 cathode x no filament
 		{
 			"displayName": "Tube diode",
 			"name": "diodetube",
 			"groupName": "Tubes",
+			"class": "tubes",
+			"fillable": true,
 			"options": [
 				{ "name": "filament", "addPins": ["filament 1", "filament 2", "filament center"] },
 				{
@@ -661,6 +807,8 @@
 			"displayName": "Triode",
 			"name": "triode",
 			"groupName": "Tubes",
+			"class": "tubes",
+			"fillable": true,
 			"options": [
 				{ "name": "filament", "addPins": ["filament 1", "filament 2", "filament center"] },
 				{
@@ -677,6 +825,8 @@
 			"displayName": "Tetrode",
 			"name": "tetrode",
 			"groupName": "Tubes",
+			"class": "tubes",
+			"fillable": true,
 			"options": [
 				{ "name": "filament", "addPins": ["filament 1", "filament 2", "filament center"] },
 				{
@@ -693,6 +843,8 @@
 			"displayName": "Pentode",
 			"name": "pentode",
 			"groupName": "Tubes",
+			"class": "tubes",
+			"fillable": true,
 			"options": [
 				{ "name": "filament", "addPins": ["filament 1", "filament 2", "filament center"] },
 				{
@@ -709,6 +861,8 @@
 			"displayName": "Pentode with suppressor grid connected to cathode",
 			"name": "pentode suppressor to cathode",
 			"groupName": "Tubes",
+			"class": "tubes",
+			"fillable": true,
 			"options": [
 				{ "name": "filament", "addPins": ["filament 1", "filament 2", "filament center"] },
 				{
@@ -725,12 +879,15 @@
 			"displayName": "Magnetron",
 			"name": "magnetron",
 			"groupName": "Tubes",
+			"class": "tubes",
+			"fillable": true,
 			"pins": ["anode", "cathode1", "cathode2", "top", "right", "left"]
 		},
 		{
 			"displayName": "Dynode",
 			"name": "dynode",
 			"groupName": "Tubes",
+			"class": "tubes",
 			"pins": ["center", "top", "top right", "top left"]
 		},
 
@@ -742,78 +899,104 @@
 			"displayName": "Bare Antenna",
 			"name": "bareantenna",
 			"groupName": "RF components",
+			"class": "RF",
+			"fillable": true,
 			"pins": ["center", "top"]
 		},
 		{
 			"displayName": "DIN Antenna",
 			"name": "dinantenna",
 			"groupName": "RF components",
+			"class": "RF",
 			"pins": ["center"]
 		},
 		{
 			"displayName": "Bare TX Antenna",
 			"name": "bareTXantenna",
 			"groupName": "RF components",
+			"class": "RF",
+			"fillable": true,
 			"pins": ["center", "top", "waves"]
 		},
 		{
 			"displayName": "Bare RX Antenna",
 			"name": "bareRXantenna",
 			"groupName": "RF components",
+			"class": "RF",
+			"fillable": true,
 			"pins": ["center", "top", "waves"]
 		},
 		{
 			"displayName": "Waves",
 			"name": "waves",
 			"groupName": "RF components",
+			"class": "RF",
 			"pins": ["left", "right"]
+		},
+		{
+			"displayName": "Harmonics",
+			"name": "harmonics",
+			"groupName": "RF components",
+			"class": "RF"
 		},
 		{
 			"displayName": "Microstrip linear stub",
 			"name": "mslstub",
 			"groupName": "RF components",
+			"class": "RF",
+			"fillable": true,
 			"pins": ["left", "right"]
 		},
 		{
 			"displayName": "Microstrip port",
 			"name": "msport",
 			"groupName": "RF components",
+			"class": "RF",
+			"fillable": true,
 			"pins": ["center", "right"]
 		},
 		{
 			"displayName": "Microstrip radial stub",
 			"name": "msrstub",
 			"groupName": "RF components",
+			"class": "RF",
+			"fillable": true,
 			"pins": ["center"]
 		},
 		{
 			"displayName": "Legacy antenna (with tails)",
 			"name": "antenna",
 			"groupName": "RF components",
+			"class": "RF",
 			"pins": ["center"]
 		},
 		{
 			"displayName": "Legacy receiving antenna (with tails)",
 			"name": "rxantenna",
 			"groupName": "RF components",
+			"class": "RF",
 			"pins": ["center"]
 		},
 		{
 			"displayName": "Legacy transmitting antenna (with tails)",
 			"name": "txantenna",
 			"groupName": "RF components",
+			"class": "RF",
 			"pins": ["center"]
 		},
 		{
 			"displayName": "Transmission line stub",
 			"name": "tlinestub",
 			"groupName": "RF components",
+			"class": "RF",
+			"fillable": true,
 			"pins": ["center"]
 		},
 		{
 			"displayName": "Match",
 			"name": "match",
 			"groupName": "RF components",
+			"class": "RF",
 			"pins": ["center"]
 		},
 
@@ -825,6 +1008,7 @@
 			"displayName": "Transformer",
 			"name": "transformer",
 			"groupName": "Inductors",
+			"class": "inductors",
 			"options": [
 				{
 					"enumOptions": [{ "name": "cute" }, { "name": "american" }, { "name": "european" }],
@@ -833,12 +1017,13 @@
 				},
 				{ "name": "circuitikz/quadpoles style=inline", "displayName": "inline" }
 			],
-			"pins": ["A1", "A2", "B1", "B2"]
+			"pins": ["A1", "A2", "B1", "B2","inner dot A1","inner dot A2","inner dot B1","inner dot B2"]
 		},
 		{
 			"displayName": "Transformer core",
 			"name": "transformer core",
 			"groupName": "Inductors",
+			"class": "inductors",
 			"options": [
 				{
 					"enumOptions": [{ "name": "cute" }, { "name": "american" }, { "name": "european" }],
@@ -847,12 +1032,14 @@
 				},
 				{ "name": "circuitikz/quadpoles style=inline", "displayName": "inline" }
 			],
-			"pins": ["A1", "A2", "B1", "B2"]
+			"pins": ["A1", "A2", "B1", "B2","inner dot A1","inner dot A2","inner dot B1","inner dot B2"]
 		},
 		{
 			"displayName": "Gyrator",
 			"name": "gyrator",
 			"groupName": "Inductors",
+			"class": "inductors",
+			"fillable": true,
 			"options": [{ "name": "circuitikz/quadpoles style=inline", "displayName": "inline" }],
 			"pins": ["A1", "A2", "B1", "B2"]
 		},
@@ -860,6 +1047,7 @@
 			"displayName": "Generic double bipole (configure in TikZ)",
 			"name": "double bipole",
 			"groupName": "Miscellaneous",
+			"class": "misc",
 			"options": [{ "name": "circuitikz/quadpoles style=inline", "displayName": "inline" }],
 			"pins": ["A1", "A2", "B1", "B2"]
 		},
@@ -869,60 +1057,80 @@
 			"displayName": "Operational amplifier",
 			"name": "op amp",
 			"groupName": "Amplifiers",
+			"class": "amplifiers",
+			"fillable": true,
 			"pins": ["+", "-", "out", "up", "down"]
 		},
 		{
 			"displayName": "Operational amplifier compliant to DIN/EN 60617",
 			"name": "en amp",
 			"groupName": "Amplifiers",
+			"class": "amplifiers",
+			"fillable": true,
 			"pins": ["+", "-", "out", "up", "down"]
 		},
 		{
 			"displayName": "Fully differential operational amplifier",
 			"name": "fd op amp",
 			"groupName": "Amplifiers",
+			"class": "amplifiers",
+			"fillable": true,
 			"pins": ["+", "-", "out +", "out -", "up", "down"]
 		},
 		{
 			"displayName": "Transconductance amplifier",
 			"name": "gm amp",
 			"groupName": "Amplifiers",
+			"class": "amplifiers",
+			"fillable": true,
 			"pins": ["+", "-", "out", "up", "down"]
 		},
 		{
 			"displayName": "Plain instrumentation amplifier",
 			"name": "inst amp",
 			"groupName": "Amplifiers",
+			"class": "amplifiers",
+			"fillable": true,
 			"pins": ["+", "-", "out", "up", "down", "refv up", "refv down"]
 		},
 		{
 			"displayName": "Fully differential instrumentation amplifier",
 			"name": "fd inst amp",
 			"groupName": "Amplifiers",
+			"class": "amplifiers",
+			"fillable": true,
 			"pins": ["+", "-", "out +", "out -", "up", "down", "refv up", "refv down"]
 		},
 		{
 			"displayName": "Instrumentation amplifier with amplification resistance terminals",
 			"name": "inst amp ra",
 			"groupName": "Amplifiers",
+			"class": "amplifiers",
+			"fillable": true,
 			"pins": ["+", "-", "out", "up", "down", "refv up", "refv down", "ra+", "ra-"]
 		},
 		{
 			"displayName": "Plain amplifier (two inputs)",
 			"name": "plain amp",
 			"groupName": "Amplifiers",
+			"class": "amplifiers",
+			"fillable": true,
 			"pins": ["in up", "in down", "out"]
 		},
 		{
 			"displayName": "Plain amplifier (one inputs)",
 			"name": "plain mono amp",
 			"groupName": "Amplifiers",
+			"class": "amplifiers",
+			"fillable": true,
 			"pins": ["in", "out"]
 		},
 		{
 			"displayName": "Buffer",
 			"name": "buffer",
 			"groupName": "Amplifiers",
+			"class": "amplifiers",
+			"fillable": true,
 			"pins": ["in", "out"]
 		},
 
@@ -932,6 +1140,7 @@
 			"displayName": "SPDT",
 			"name": "spdt",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"pins": ["in", "out 1", "out 2"]
 		},
 		// 4.21.2 Cute switches
@@ -939,36 +1148,42 @@
 			"displayName": "Cute SPDT up",
 			"name": "cute spdt up",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"pins": ["in", "out 1", "out 2"]
 		},
 		{
 			"displayName": "Cute SPDT mid",
 			"name": "cute spdt mid",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"pins": ["in", "out 1", "out 2"]
 		},
 		{
 			"displayName": "Cute SPDT down",
 			"name": "cute spdt down",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"pins": ["in", "out 1", "out 2"]
 		},
 		{
 			"displayName": "Cute SPDT up with arrow",
 			"name": "cute spdt up arrow",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"pins": ["in", "out 1", "out 2"]
 		},
 		{
 			"displayName": "Cute SPDT mid with arrow",
 			"name": "cute spdt mid arrow",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"pins": ["in", "out 1", "out 2"]
 		},
 		{
 			"displayName": "Cute SPDT down with arrow",
 			"name": "cute spdt down arrow",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"pins": ["in", "out 1", "out 2"]
 		},
 		// 4.21.3 Proximity switches
@@ -976,6 +1191,8 @@
 			"displayName": "Proximeter",
 			"name": "proximeter",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
+			"fillable": true,
 			"pins": ["hlines nw", "hlines sw", "hlines ne", "hlines se"]
 		},
 		// 4.21.4 Rotary switches
@@ -988,48 +1205,64 @@
 			"displayName": "AND gate (american)",
 			"name": "american and port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "in 2", "out"]
 		},
 		{
 			"displayName": "OR gate (american)",
 			"name": "american or port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "in 2", "out"]
 		},
 		{
 			"displayName": "NAND gate (american)",
 			"name": "american nand port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "in 2", "out"]
 		},
 		{
 			"displayName": "NOR gate (american)",
 			"name": "american nor port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "in 2", "out"]
 		},
 		{
 			"displayName": "XOR gate (american)",
 			"name": "american xor port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "in 2", "out"]
 		},
 		{
 			"displayName": "XNOR gate (american)",
 			"name": "american xnor port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "in 2", "out"]
 		},
 		{
 			"displayName": "Buffer port (american)",
 			"name": "american buffer port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "out"]
 		},
 		{
 			"displayName": "NOT gate (american)",
 			"name": "american not port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "out"]
 		},
 		// 4.22.2 IEEE logic gates
@@ -1037,72 +1270,96 @@
 			"displayName": "AND gate (IEEE)",
 			"name": "ieeestd and port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "bin 1", "in 2", "bin 2", "out", "bout"]
 		},
 		{
 			"displayName": "OR gate (IEEE)",
 			"name": "ieeestd or port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "bin 1", "in 2", "bin 2", "out", "bout"]
 		},
 		{
 			"displayName": "NAND gate (IEEE)",
 			"name": "ieeestd nand port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "bin 1", "in 2", "bin 2", "out", "bout"]
 		},
 		{
 			"displayName": "NOR gate (IEEE)",
 			"name": "ieeestd nor port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "bin 1", "in 2", "bin 2", "out", "bout"]
 		},
 		{
 			"displayName": "XOR gate (IEEE)",
 			"name": "ieeestd xor port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "bin 1", "in 2", "bin 2", "out", "bout"]
 		},
 		{
 			"displayName": "XNOR gate (IEEE)",
 			"name": "ieeestd xnor port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "bin 1", "in 2", "bin 2", "out", "bout"]
 		},
 		{
 			"displayName": "Buffer port (IEEE)",
 			"name": "ieeestd buffer port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in", "bin", "out", "up", "down"]
 		},
 		{
 			"displayName": "NOT gate (IEEE)",
 			"name": "ieeestd not port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in", "bin", "out", "bout"]
 		},
 		{
 			"displayName": "Transmission gate (IEEE)",
 			"name": "ieee tgate",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in", "bin", "out", "bout", "gate", "notgate"]
 		},
 		{
 			"displayName": "Double Transmission gate (IEEE)",
 			"name": "ieee double tgate",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in", "bin", "out", "bout", "gate", "notgate"]
 		},
 		{
 			"displayName": "Inverting dot for IEEE ports",
 			"name": "notcirc",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["east", "west"]
 		},
 		{
 			"displayName": "Schmitt symbol for input pins",
 			"name": "schmitt symbol",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["south east", "north west"]
 		},
 		// 4.22.3 European Logic gates
@@ -1110,60 +1367,80 @@
 			"displayName": "AND gate (european)",
 			"name": "european and port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "in 2", "out"]
 		},
 		{
 			"displayName": "OR gate (european)",
 			"name": "european or port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "in 2", "out"]
 		},
 		{
 			"displayName": "NAND gate (european)",
 			"name": "european nand port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "in 2", "out"]
 		},
 		{
 			"displayName": "NOR gate (european)",
 			"name": "european nor port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "in 2", "out"]
 		},
 		{
 			"displayName": "XOR gate (european)",
 			"name": "european xor port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "in 2", "out"]
 		},
 		{
 			"displayName": "XNOR gate (european)",
 			"name": "european xnor port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "in 2", "out"]
 		},
 		{
 			"displayName": "Buffer port (european)",
 			"name": "european buffer port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "out"]
 		},
 		{
 			"displayName": "NOT gate (european)",
 			"name": "european not port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "out"]
 		},
 		{
 			"displayName": "Blank port (european)",
 			"name": "european blank port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "out"]
 		},
 		{
 			"displayName": "Blank not port (european)",
 			"name": "european blank not port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in 1", "out"]
 		},
 
@@ -1172,24 +1449,32 @@
 			"displayName": "Non-Inverting Schmitt trigger",
 			"name": "schmitt",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in", "out"]
 		},
 		{
 			"displayName": "Inverting Schmitt trigger",
 			"name": "invschmitt",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in", "out"]
 		},
 		{
 			"displayName": "Non-Inverting Schmitt trigger (IEEE)",
 			"name": "ieeestd schmitt port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in", "bin", "out", "bout"]
 		},
 		{
 			"displayName": "Inverting Schmitt trigger (IEEE)",
 			"name": "ieeestd invschmitt port",
 			"groupName": "Logic gates",
+			"class": "logic ports",
+			"fillable": true,
 			"pins": ["in", "bin", "out", "bout"]
 		},
 
@@ -1198,6 +1483,8 @@
 			"displayName": "D-type latch",
 			"name": "latch",
 			"groupName": "Flipflops",
+			"class": "flipflops",
+			"fillable": true,
 			"pins": ["pin 1","pin 3","pin 4","pin 6"],
 			"options": [
 				{"name": "dot on notQ", "displayName": "Dot on not Q"},
@@ -1208,6 +1495,8 @@
 			"displayName": "Flip-flop SR",
 			"name": "flipflop SR",
 			"groupName": "Flipflops",
+			"class": "flipflops",
+			"fillable": true,
 			"pins": ["pin 1","pin 3","pin 4","pin 6"],
 			"options": [
 				{"name": "dot on notQ", "displayName": "Dot on not Q"},
@@ -1218,6 +1507,8 @@
 			"displayName": "Edge-triggered synchronous flip-flop D",
 			"name": "flipflop D",
 			"groupName": "Flipflops",
+			"class": "flipflops",
+			"fillable": true,
 			"pins": ["pin 1","pin 3","pin 4","pin 6"],
 			"options": [
 				{"name": "dot on notQ", "displayName": "Dot on not Q"},
@@ -1228,6 +1519,8 @@
 			"displayName": "Edge-triggered synchronous flip-flop T",
 			"name": "flipflop T",
 			"groupName": "Flipflops",
+			"class": "flipflops",
+			"fillable": true,
 			"pins": ["pin 1","pin 3","pin 4","pin 6"],
 			"options": [
 				{"name": "dot on notQ", "displayName": "Dot on not Q"},
@@ -1238,6 +1531,8 @@
 			"displayName": "Edge-triggered synchronous flip-flop JK",
 			"name": "flipflop JK",
 			"groupName": "Flipflops",
+			"class": "flipflops",
+			"fillable": true,
 			"pins": ["pin 1","pin 2","pin 3","pin 4","pin 6"],
 			"options": [
 				{"name": "dot on notQ", "displayName": "Dot on not Q"},
@@ -1256,11 +1551,54 @@
 	],
 	"path": [
 		// 4.2 Resistive bipoles - done
-		// skip short, open, generic...
+		// generic
+		{
+			"displayName": "Generic (symmetric) bipole",
+			"groupName": "Resistive bipoles",
+			"class": "resistors",
+			"drawName": "generic",
+			"fillable": true
+		},
+		{
+			"displayName": "Crossed generic (symmetric) bipole",
+			"groupName": "Resistive bipoles",
+			"class": "resistors",
+			"drawName": "xgeneric",
+			"fillable": true
+		},
+		{
+			"displayName": "Slashed generic bipole",
+			"groupName": "Resistive bipoles",
+			"class": "resistors",
+			"drawName": "sgeneric",
+			"fillable": true
+		},
+		{
+			"displayName": "Tunable generic bipole",
+			"groupName": "Resistive bipoles",
+			"class": "resistors",
+			"drawName": "tgeneric",
+			"fillable": true
+		},
+		{
+			"displayName": "Generic asymmetric bipole",
+			"groupName": "Resistive bipoles",
+			"class": "resistors",
+			"drawName": "ageneric",
+			"fillable": true
+		},
+		{
+			"displayName": "Memristor",
+			"groupName": "Resistive bipoles",
+			"class": "resistors",
+			"drawName": "memristor",
+			"fillable": true
+		},
 		// american resistors
 		{
 			"displayName": "Resistor (american)",
 			"groupName": "Resistive bipoles",
+			"class": "resistors",
 			"drawName": "american resistor",
 			// "aliases": ["R"]
 			"shapeName": "resistorshape"
@@ -1268,6 +1606,7 @@
 		{
 			"displayName": "Variable resistor (american)",
 			"groupName": "Resistive bipoles",
+			"class": "resistors",
 			"drawName": "variable american resistor",
 			// "aliases": ["vR"]
 			"shapeName": "vresistorshape",
@@ -1276,6 +1615,7 @@
 		{
 			"displayName": "Potentiometer (american)",
 			"groupName": "Resistive bipoles",
+			"class": "resistors",
 			"drawName": "american potentiometer",
 			// "aliases": ["pR"]
 			"shapeName": "potentiometershape",
@@ -1284,6 +1624,7 @@
 		{
 			"displayName": "Resistive sensor (american)",
 			"groupName": "Resistive bipoles",
+			"class": "resistors",
 			"drawName": "american resistive sensor",
 			// "aliases": ["sR"]
 			"shapeName": "resistivesensshape",
@@ -1292,6 +1633,8 @@
 		{
 			"displayName": "Ligth-Dependent resistor (american)",
 			"groupName": "Resistive bipoles",
+			"class": "resistors",
+			"fillable": true,
 			"drawName": "american light dependent resistor",
 			// "aliases": ["ldr"]
 			"shapeName": "ldresistorshape"
@@ -1300,6 +1643,8 @@
 		{
 			"displayName": "Resistor (european)",
 			"groupName": "Resistive bipoles",
+			"class": "resistors",
+			"fillable": true,
 			"drawName": "european resistor",
 			// "aliases": ["R"]
 			"shapeName": "genericshape"
@@ -1307,6 +1652,8 @@
 		{
 			"displayName": "Variable resistor (european)",
 			"groupName": "Resistive bipoles",
+			"class": "resistors",
+			"fillable": true,
 			"drawName": "variable european resistor",
 			// "aliases": ["vR"]
 			"shapeName": "tgenericshape",
@@ -1315,6 +1662,8 @@
 		{
 			"displayName": "Potentiometer (european)",
 			"groupName": "Resistive bipoles",
+			"class": "resistors",
+			"fillable": true,
 			"drawName": "european potentiometer",
 			// "aliases": ["pR"]
 			"shapeName": "genericpotentiometershape",
@@ -1323,6 +1672,8 @@
 		{
 			"displayName": "Resistive sensor (european)",
 			"groupName": "Resistive bipoles",
+			"class": "resistors",
+			"fillable": true,
 			"drawName": "european resistive sensor",
 			// "aliases": ["sR"]
 			"shapeName": "thermistorshape",
@@ -1331,6 +1682,8 @@
 		{
 			"displayName": "Ligth-Dependent resistor (european)",
 			"groupName": "Resistive bipoles",
+			"class": "resistors",
+			"fillable": true,
 			"drawName": "european light dependent resistor",
 			// "aliases": ["ldr"]
 			"shapeName": "ldgenericshape"
@@ -1339,34 +1692,46 @@
 		{
 			"displayName": "Varistor",
 			"groupName": "Resistive bipoles",
+			"class": "resistors",
+			"fillable": true,
 			"drawName": "varistor"
 		},
 		{
 			"displayName": "Metal-Oxide varistor",
 			"groupName": "Resistive bipoles",
+			"class": "resistors",
+			"fillable": true,
 			"drawName": "mov"
 		},
 		{
 			"displayName": "Photoresistor",
 			"groupName": "Resistive bipoles",
+			"class": "resistors",
+			"fillable": true,
 			"drawName": "photoresistor",
 			"aliases": ["phR"]
 		},
 		{
 			"displayName": "Thermistor",
 			"groupName": "Resistive bipoles",
+			"class": "resistors",
+			"fillable": true,
 			"drawName": "thermistor",
 			"aliases": ["thR"]
 		},
 		{
 			"displayName": "Thermistor (PTC)",
 			"groupName": "Resistive bipoles",
+			"class": "resistors",
+			"fillable": true,
 			"drawName": "thermistor ptc",
 			"aliases": ["thRp"]
 		},
 		{
 			"displayName": "Thermistor (NTC)",
 			"groupName": "Resistive bipoles",
+			"class": "resistors",
+			"fillable": true,
 			"drawName": "thermistor ntc",
 			"aliases": ["thRn"]
 		},
@@ -1375,12 +1740,16 @@
 		{
 			"displayName": "Capacitor",
 			"groupName": "Capacitive and dynamic bipoles",
+			"class": "capacitors",
+			"fillable": true,
 			"drawName": "capacitor",
 			"aliases": ["C"]
 		},
 		{
 			"displayName": "Curved (polarized) capacitor",
 			"groupName": "Capacitive and dynamic bipoles",
+			"class": "capacitors",
+			"fillable": true,
 			"drawName": "curved capacitor",
 			"aliases": ["cC"],
 			"shapeName": "ccapacitorshape"
@@ -1388,12 +1757,16 @@
 		{
 			"displayName": "Electrolytic capacitor",
 			"groupName": "Capacitive and dynamic bipoles",
+			"class": "capacitors",
+			"fillable": true,
 			"drawName": "ecapacitor",
 			"aliases": ["eC", "elko"]
 		},
 		{
 			"displayName": "Variable capacitor",
 			"groupName": "Capacitive and dynamic bipoles",
+			"class": "capacitors",
+			"fillable": true,
 			"drawName": "variable capacitor",
 			"aliases": ["vC"],
 			"shapeName": "vcapacitorshape",
@@ -1402,6 +1775,8 @@
 		{
 			"displayName": "Capacitive sensor",
 			"groupName": "Capacitive and dynamic bipoles",
+			"class": "capacitors",
+			"fillable": true,
 			"drawName": "capacitive sensor",
 			"aliases": ["sC"],
 			"shapeName": "capacitivesensshape",
@@ -1410,17 +1785,23 @@
 		{
 			"displayName": "Piezoelectric element",
 			"groupName": "Capacitive and dynamic bipoles",
+			"class": "capacitors",
+			"fillable": true,
 			"drawName": "piezoelectric",
 			"aliases": ["PZ"]
 		},
 		{
 			"displayName": "Constant phase element",
 			"groupName": "Capacitive and dynamic bipoles",
+			"class": "capacitors",
+			"fillable": true,
 			"drawName": "cpe"
 		},
 		{
 			"displayName": "Ferroelectric capacitor",
 			"groupName": "Capacitive and dynamic bipoles",
+			"class": "capacitors",
+			"fillable": true,
 			"drawName": "ferrocap",
 			"aliases": ["feC"],
 			"pins": ["curve left", "curve right", "kink left", "kink right"]
@@ -1430,6 +1811,7 @@
 		{
 			"displayName": "Inductor (cute)",
 			"groupName": "Inductors",
+			"class": "inductors",
 			"drawName": "cute inductor",
 			//"aliases": ["L"],
 			"pins": ["midtap"]
@@ -1437,6 +1819,7 @@
 		{
 			"displayName": "Variable inductor (cute)",
 			"groupName": "Inductors",
+			"class": "inductors",
 			"drawName": "variable cute inductor",
 			//"aliases": ["vL"],
 			"shapeName": "vcuteinductorshape",
@@ -1445,6 +1828,7 @@
 		{
 			"displayName": "Inductive sensor (cute)",
 			"groupName": "Inductors",
+			"class": "inductors",
 			"drawName": "cute inductive sensor",
 			//"aliases": ["sL"],
 			"shapeName": "scuteinductorshape",
@@ -1454,6 +1838,7 @@
 		{
 			"displayName": "Inductor (american)",
 			"groupName": "Inductors",
+			"class": "inductors",
 			"drawName": "american inductor",
 			//"aliases": ["L"],
 			"pins": ["center"] // midtap = center
@@ -1461,6 +1846,7 @@
 		{
 			"displayName": "Variable inductor (american)",
 			"groupName": "Inductors",
+			"class": "inductors",
 			"drawName": "variable american inductor",
 			//"aliases": ["vL"],
 			"shapeName": "vamericaninductorshape",
@@ -1469,6 +1855,7 @@
 		{
 			"displayName": "Inductive sensor (american)",
 			"groupName": "Inductors",
+			"class": "inductors",
 			"drawName": "american inductive sensor",
 			//"aliases": ["sL"],
 			"shapeName": "samericaninductorshape",
@@ -1478,6 +1865,7 @@
 		{
 			"displayName": "Inductor (european)",
 			"groupName": "Inductors",
+			"class": "inductors",
 			"drawName": "european inductor",
 			//"aliases": ["L"],
 			"shapeName": "fullgenericshape",
@@ -1486,6 +1874,7 @@
 		{
 			"displayName": "Variable inductor (european)",
 			"groupName": "Inductors",
+			"class": "inductors",
 			"drawName": "variable european inductor",
 			//"aliases": ["vL"],
 			"shapeName": "tfullgenericshape",
@@ -1494,6 +1883,7 @@
 		{
 			"displayName": "Inductive sensor (european)",
 			"groupName": "Inductors",
+			"class": "inductors",
 			"drawName": "european inductive sensor",
 			//"aliases": ["sL"],
 			"shapeName": "sfullgenericshape",
@@ -1503,6 +1893,7 @@
 		{
 			"displayName": "Choke",
 			"groupName": "Inductors",
+			"class": "inductors",
 			"drawName": "cute choke"
 		},
 
@@ -1511,12 +1902,16 @@
 		{
 			"displayName": "Empty diode",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "empty diode",
 			"aliases": ["Do"]
 		},
 		{
 			"displayName": "Empty Schottky diode",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "empty Schottky diode",
 			"aliases": ["sDo"],
 			"shapeName": "emptysdiodeshape"
@@ -1524,6 +1919,8 @@
 		{
 			"displayName": "Empty Zener diode",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "empty Zener diode",
 			"aliases": ["zDo"],
 			"shapeName": "emptyzdiodeshape"
@@ -1531,6 +1928,8 @@
 		{
 			"displayName": "Empty ZZener diode",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "empty ZZener diode",
 			"aliases": ["zzDo"],
 			"shapeName": "emptyzzdiodeshape"
@@ -1538,6 +1937,8 @@
 		{
 			"displayName": "Empty tunnel diode",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "empty tunnel diode",
 			"aliases": ["tDo"],
 			"shapeName": "emptytdiodeshape"
@@ -1545,6 +1946,8 @@
 		{
 			"displayName": "Empty photodiode",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "empty photodiode",
 			"aliases": ["pDo"],
 			"shapeName": "emptypdiodeshape"
@@ -1552,6 +1955,8 @@
 		{
 			"displayName": "Empty LED",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "empty led",
 			"aliases": ["leDo"],
 			"shapeName": "emptylediodeshape"
@@ -1559,6 +1964,8 @@
 		{
 			"displayName": "Empty laser diode",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "empty laser diode",
 			"aliases": ["lasD"],
 			"shapeName": "emptylaserdiodeshape"
@@ -1566,6 +1973,8 @@
 		{
 			"displayName": "Empty varcap",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "empty varcap",
 			"aliases": ["VCo"],
 			"shapeName": "emptyvarcapshape"
@@ -1573,6 +1982,8 @@
 		{
 			"displayName": "Empty TVS diode",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "empty TVS diode",
 			"aliases": ["tvsDo"],
 			"shapeName": "emptytvsdiodeshape"
@@ -1580,6 +1991,8 @@
 		{
 			"displayName": "Empty Shockley diode",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "empty Shockley diode",
 			"aliases": ["shDo"],
 			"shapeName": "emptyshdiodeshape"
@@ -1587,6 +2000,8 @@
 		{
 			"displayName": "Empty bidirectional diode",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "empty bidirectionaldiode",
 			"aliases": ["biDo"],
 			"shapeName": "emptybidirectionaldiodeshape"
@@ -1595,12 +2010,14 @@
 		{
 			"displayName": "Full diode",
 			"groupName": "Diodes",
+			"class": "diodes",
 			"drawName": "full diode",
 			"aliases": ["D*"]
 		},
 		{
 			"displayName": "Full Schottky diode",
 			"groupName": "Diodes",
+			"class": "diodes",
 			"drawName": "full Schottky diode",
 			"aliases": ["sD*"],
 			"shapeName": "fullsdiodeshape"
@@ -1608,6 +2025,7 @@
 		{
 			"displayName": "Full Zener diode",
 			"groupName": "Diodes",
+			"class": "diodes",
 			"drawName": "full Zener diode",
 			"aliases": ["zD*"],
 			"shapeName": "fullzdiodeshape"
@@ -1615,6 +2033,7 @@
 		{
 			"displayName": "Full ZZener diode",
 			"groupName": "Diodes",
+			"class": "diodes",
 			"drawName": "full ZZener diode",
 			"aliases": ["zzD*"],
 			"shapeName": "fullzzdiodeshape"
@@ -1622,6 +2041,7 @@
 		{
 			"displayName": "Full tunnel diode",
 			"groupName": "Diodes",
+			"class": "diodes",
 			"drawName": "full tunnel diode",
 			"aliases": ["tD*"],
 			"shapeName": "fulltdiodeshape"
@@ -1629,6 +2049,7 @@
 		{
 			"displayName": "Full photodiode",
 			"groupName": "Diodes",
+			"class": "diodes",
 			"drawName": "full photodiode",
 			"aliases": ["pD*"],
 			"shapeName": "fullpdiodeshape"
@@ -1636,6 +2057,7 @@
 		{
 			"displayName": "Full LED",
 			"groupName": "Diodes",
+			"class": "diodes",
 			"drawName": "full led",
 			"aliases": ["leD*"],
 			"shapeName": "fulllediodeshape"
@@ -1643,6 +2065,7 @@
 		{
 			"displayName": "Full laser diode",
 			"groupName": "Diodes",
+			"class": "diodes",
 			"drawName": "full laser diode",
 			"aliases": ["lasD*"],
 			"shapeName": "fulllaserdiodeshape"
@@ -1650,6 +2073,7 @@
 		{
 			"displayName": "Full varcap",
 			"groupName": "Diodes",
+			"class": "diodes",
 			"drawName": "full varcap",
 			"aliases": ["VC*"],
 			"shapeName": "fullvarcapshape"
@@ -1657,6 +2081,7 @@
 		{
 			"displayName": "Full TVS diode",
 			"groupName": "Diodes",
+			"class": "diodes",
 			"drawName": "full TVS diode",
 			"aliases": ["tvsD*"],
 			"shapeName": "fulltvsdiodeshape"
@@ -1664,6 +2089,7 @@
 		{
 			"displayName": "Full Shockley diode",
 			"groupName": "Diodes",
+			"class": "diodes",
 			"drawName": "full Shockley diode",
 			"aliases": ["shD*"],
 			"shapeName": "fullshdiodeshape"
@@ -1671,6 +2097,7 @@
 		{
 			"displayName": "Full bidirectional diode",
 			"groupName": "Diodes",
+			"class": "diodes",
 			"drawName": "full bidirectionaldiode",
 			"aliases": ["biD*"],
 			"shapeName": "fullbidirectionaldiodeshape"
@@ -1679,6 +2106,8 @@
 		{
 			"displayName": "Stroke diode",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "stroke diode",
 			"aliases": ["D-"],
 			"shapeName": "emptydiodeshape",
@@ -1687,6 +2116,8 @@
 		{
 			"displayName": "Stroke Schottky diode",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "stroke Schottky diode",
 			"aliases": ["sD-"],
 			"shapeName": "emptysdiodeshape",
@@ -1695,6 +2126,8 @@
 		{
 			"displayName": "Stroke Zener diode",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "stroke Zener diode",
 			"aliases": ["zD-"],
 			"shapeName": "emptyzdiodeshape",
@@ -1703,6 +2136,8 @@
 		{
 			"displayName": "Stroke ZZener diode",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "stroke ZZener diode",
 			"aliases": ["zzD-"],
 			"shapeName": "emptyzzdiodeshape",
@@ -1711,6 +2146,8 @@
 		{
 			"displayName": "Stroke tunnel diode",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "stroke tunnel diode",
 			"aliases": ["tD-"],
 			"shapeName": "emptytdiodeshape",
@@ -1719,6 +2156,8 @@
 		{
 			"displayName": "Stroke photodiode",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "stroke photodiode",
 			"aliases": ["pD-"],
 			"shapeName": "emptypdiodeshape",
@@ -1727,6 +2166,8 @@
 		{
 			"displayName": "Stroke LED",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "stroke led",
 			"aliases": ["leD-"],
 			"shapeName": "emptylediodeshape",
@@ -1735,6 +2176,8 @@
 		{
 			"displayName": "Stroke laser diode",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "stroke laser diode",
 			"aliases": ["lasD-"],
 			"shapeName": "emptylaserdiodeshape",
@@ -1743,6 +2186,8 @@
 		{
 			"displayName": "Stroke varcap",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "stroke varcap",
 			"aliases": ["VC-"],
 			"shapeName": "emptyvarcapshape",
@@ -1754,6 +2199,8 @@
 		{
 			"displayName": "Empty triac",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "empty triac",
 			"aliases": ["Tro"],
 			"pins": ["gate"]
@@ -1761,6 +2208,8 @@
 		{
 			"displayName": "Empty thyristor",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "empty thyristor",
 			"aliases": ["Tyo"],
 			"pins": ["gate"]
@@ -1768,6 +2217,8 @@
 		{
 			"displayName": "Empty PUT",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "empty put",
 			"aliases": ["PUTo"],
 			"pins": ["gate"]
@@ -1775,6 +2226,8 @@
 		{
 			"displayName": "Empty GTO",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "empty gto",
 			"aliases": ["GTOo"],
 			"pins": ["gate"]
@@ -1782,6 +2235,8 @@
 		{
 			"displayName": "Empty GTO (bar-type)",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "empty gtobar",
 			"aliases": ["GTObo"],
 			"pins": ["gate"]
@@ -1789,6 +2244,8 @@
 		{
 			"displayName": "Empty GTO (bar-type on anode)",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "empty agtobar",
 			"aliases": ["aGTObo"],
 			"pins": ["gate"]
@@ -1797,6 +2254,7 @@
 		{
 			"displayName": "Full triac",
 			"groupName": "Diodes",
+			"class": "diodes",
 			"drawName": "full triac",
 			"aliases": ["Tr*"],
 			"pins": ["gate"]
@@ -1804,6 +2262,7 @@
 		{
 			"displayName": "Full thyristor",
 			"groupName": "Diodes",
+			"class": "diodes",
 			"drawName": "full thyristor",
 			"aliases": ["Ty*"],
 			"pins": ["gate"]
@@ -1811,6 +2270,7 @@
 		{
 			"displayName": "Full PUT",
 			"groupName": "Diodes",
+			"class": "diodes",
 			"drawName": "full put",
 			"aliases": ["PUT*"],
 			"pins": ["gate"]
@@ -1818,6 +2278,7 @@
 		{
 			"displayName": "Full GTO",
 			"groupName": "Diodes",
+			"class": "diodes",
 			"drawName": "full gto",
 			"aliases": ["GTO*"],
 			"pins": ["gate"]
@@ -1825,6 +2286,7 @@
 		{
 			"displayName": "Full GTO (bar-type)",
 			"groupName": "Diodes",
+			"class": "diodes",
 			"drawName": "full gtobar",
 			"aliases": ["GTOb*"],
 			"pins": ["gate"]
@@ -1832,6 +2294,7 @@
 		{
 			"displayName": "Full GTO  (bar-type on anode)",
 			"groupName": "Diodes",
+			"class": "diodes",
 			"drawName": "full agtobar",
 			"aliases": ["aGTOb*"],
 			"pins": ["gate"]
@@ -1840,6 +2303,8 @@
 		{
 			"displayName": "Stroke triac",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "stroke triac",
 			"aliases": ["Tr-"],
 			"shapeName": "emptytriacshape",
@@ -1849,6 +2314,8 @@
 		{
 			"displayName": "Stroke thyristor",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "stroke thyristor",
 			"aliases": ["Ty-"],
 			"shapeName": "emptythyristorshape",
@@ -1858,6 +2325,8 @@
 		{
 			"displayName": "Stroke PUT",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "stroke put",
 			"aliases": ["PUT-"],
 			"shapeName": "emptyputshape",
@@ -1867,6 +2336,8 @@
 		{
 			"displayName": "Stroke GTO",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "stroke gto",
 			"aliases": ["GTO-"],
 			"shapeName": "emptygtoshape",
@@ -1876,6 +2347,8 @@
 		{
 			"displayName": "Stroke GTO (bar-type)",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "stroke gtobar",
 			"aliases": ["GTOb-"],
 			"shapeName": "emptygtobarshape",
@@ -1885,6 +2358,8 @@
 		{
 			"displayName": "Stroke GTO  (bar-type on anode)",
 			"groupName": "Diodes",
+			"class": "diodes",
+			"fillable": true,
 			"drawName": "stroke agtobar",
 			"aliases": ["aGTOb-"],
 			"shapeName": "emptyagtobarshape",
@@ -1897,27 +2372,45 @@
 		{
 			"displayName": "Battery",
 			"groupName": "Sources and generators",
+			"class": "batteries",
+			"source": "isVoltage",
 			"drawName": "battery"
 		},
 		{
 			"displayName": "Battery (single cell)",
 			"groupName": "Sources and generators",
+			"class": "batteries",
+			"source": "isVoltage",
 			"drawName": "battery1"
 		},
 		{
 			"displayName": "Battery (single cell)",
 			"groupName": "Sources and generators",
+			"class": "batteries",
+			"source": "isVoltage",
 			"drawName": "battery2"
+		},
+		{
+			"displayName": "Solar-driven battery",
+			"groupName": "Sources and generators",
+			"class": "batteries",
+			"source": "isVoltage",
+			"drawName": "solar"
 		},
 		{
 			"displayName": "Randall Munroe's baertty",
 			"groupName": "Sources and generators",
+			"class": "batteries",
+			"source": "isVoltage",
 			"drawName": "baertty"
 		},
 		// 4.5.2 Stationary sources
 		{
 			"displayName": "Voltage source (european)",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
+			"source": "isVoltage",
 			"drawName": "european voltage source",
 			"aliases": ["vsource"],
 			"shapeName": "vsourceshape"
@@ -1925,6 +2418,9 @@
 		{
 			"displayName": "Current source (european)",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
+			"source": "isCurrent",
 			"drawName": "european current source",
 			"aliases": ["isource"],
 			"shapeName": "isourceshape"
@@ -1933,6 +2429,9 @@
 		{
 			"displayName": "Voltage source (cute)",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
+			"source": "isVoltage",
 			"drawName": "cute european voltage source",
 			"aliases": ["vsourceC", "ceV"],
 			"shapeName": "vsourceCshape"
@@ -1940,6 +2439,9 @@
 		{
 			"displayName": "Current source (cute)",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
+			"source": "isCurrent",
 			"drawName": "cute european current source",
 			"aliases": ["isourceC", "ceI"],
 			"shapeName": "isourceCshape"
@@ -1948,6 +2450,9 @@
 		{
 			"displayName": "Voltage source (american)",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
+			"source": "isVoltage",
 			"drawName": "american voltage source",
 			"aliases": ["vsourceAM"],
 			"shapeName": "vsourceAMshape"
@@ -1955,6 +2460,9 @@
 		{
 			"displayName": "Current source (american)",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
+			"source": "isCurrent",
 			"drawName": "american current source",
 			"aliases": ["isourceAM"],
 			"shapeName": "isourceAMshape"
@@ -1964,6 +2472,9 @@
 		{
 			"displayName": "Sinusoidal voltage source",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
+			"source": "isVoltage",
 			"drawName": "sinusoidal voltage source",
 			"aliases": ["vsourcesin", "sV"],
 			"shapeName": "vsourcesinshape"
@@ -1971,6 +2482,9 @@
 		{
 			"displayName": "Sinusoidal current source",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
+			"source": "isCurrent",
 			"drawName": "sinusoidal current source",
 			"aliases": ["isourcesin", "sI"],
 			"shapeName": "isourcesinshape"
@@ -1980,6 +2494,9 @@
 		{
 			"displayName": "Controlled voltage source (european)",
 			"groupName": "Sources and generators",
+			"class": "csources",
+			"fillable": true,
+			"source": "isVoltage",
 			"drawName": "european controlled voltage source",
 			"aliases": ["cvsource"],
 			"shapeName": "cvsourceshape"
@@ -1987,6 +2504,9 @@
 		{
 			"displayName": "Controlled current source (european)",
 			"groupName": "Sources and generators",
+			"class": "csources",
+			"fillable": true,
+			"source": "isCurrent",
 			"drawName": "european controlled current source",
 			"aliases": ["cisource"],
 			"shapeName": "cisourceshape"
@@ -1995,6 +2515,9 @@
 		{
 			"displayName": "Controlled voltage source (cute)",
 			"groupName": "Sources and generators",
+			"class": "csources",
+			"fillable": true,
+			"source": "isVoltage",
 			"drawName": "cute european controlled voltage source",
 			"aliases": ["cvsourceC", "cceV"],
 			"shapeName": "cvsourceCshape"
@@ -2002,6 +2525,9 @@
 		{
 			"displayName": "Controlled current source (cute)",
 			"groupName": "Sources and generators",
+			"class": "csources",
+			"fillable": true,
+			"source": "isCurrent",
 			"drawName": "cute european controlled current source",
 			"aliases": ["cisourceC", "cceI"],
 			"shapeName": "cisourceCshape"
@@ -2010,6 +2536,9 @@
 		{
 			"displayName": "Controlled voltage source (american)",
 			"groupName": "Sources and generators",
+			"class": "csources",
+			"fillable": true,
+			"source": "isVoltage",
 			"drawName": "american controlled voltage source",
 			"aliases": ["cvsourceAM"],
 			"shapeName": "cvsourceAMshape"
@@ -2017,6 +2546,9 @@
 		{
 			"displayName": "Controlled current source (american)",
 			"groupName": "Sources and generators",
+			"class": "csources",
+			"fillable": true,
+			"source": "isCurrent",
 			"drawName": "american controlled current source",
 			"aliases": ["cisourceAM"],
 			"shapeName": "cisourceAMshape"
@@ -2025,6 +2557,9 @@
 		{
 			"displayName": "Empty controlled source",
 			"groupName": "Sources and generators",
+			"class": "csources",
+			"fillable": true,
+			"source": "isVoltage",
 			"drawName": "empty controlled source",
 			"aliases": ["ecsource"],
 			"shapeName": "ecsourceshape"
@@ -2033,6 +2568,9 @@
 		{
 			"displayName": "Controlled sinusoidal voltage source",
 			"groupName": "Sources and generators",
+			"class": "csources",
+			"fillable": true,
+			"source": "isVoltage",
 			"drawName": "controlled sinusoidal voltage source",
 			"aliases": ["controlled vsourcesin", "cvsourcesin", "csV"],
 			"shapeName": "cvsourcesinshape"
@@ -2040,6 +2578,9 @@
 		{
 			"displayName": "Controlled sinusoidal current source (european)",
 			"groupName": "Sources and generators",
+			"class": "csources",
+			"fillable": true,
+			"source": "isCurrent",
 			"drawName": "controlled sinusoidal current source",
 			"aliases": ["controlled isourcesin", "cisourcesin", "csI"],
 			"shapeName": "cisourcesinshape"
@@ -2049,6 +2590,8 @@
 		{
 			"displayName": "Noise voltage source",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"source": "isVoltage",
 			"drawName": "noise voltage source",
 			"aliases": ["vsourceN", "nV"],
 			"shapeName": "vsourceNshape"
@@ -2056,6 +2599,8 @@
 		{
 			"displayName": "Noise current source",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"source": "isVoltage",
 			"drawName": "noise current source",
 			"aliases": ["isourceN", "nI"],
 			"shapeName": "isourceNshape"
@@ -2065,6 +2610,9 @@
 		{
 			"displayName": "Square voltage source",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
+			"source": "isVoltage",
 			"drawName": "square voltage source",
 			"aliases": ["vsourcesquare", "sqV"],
 			"shapeName": "vsourcesquareshape"
@@ -2072,41 +2620,78 @@
 		{
 			"displayName": "Triangle voltage source",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
+			"source": "isVoltage",
 			"drawName": "vsourcetri",
 			"aliases": ["tV"],
 			"shapeName": "vsourcetrishape"
 		},
-		// esource is mentioned twice
+		{
+			"displayName": "Empty voltage source",
+			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
+			"source": "isVoltage",
+			"drawName": "esource",
+			"shapeName": "esourceshape"
+		},
 		{
 			"displayName": "Photovoltaic-voltage source",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
+			"source": "isVoltage",
 			"drawName": "pvsource"
 		},
 		{
 			"displayName": "Photovoltaic module source",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
+			"source": "isVoltage",
 			"drawName": "pvmodule"
 		},
 		{
-			"displayName": "Current source",
+			"displayName": "Double Zero style current source",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
+			"source": "isCurrent",
 			"drawName": "ioosource",
 			"shapeName": "oosourceshape"
 		},
 		{
-			"displayName": "Voltage source",
+			"displayName": "Double Zero style voltage source",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
+			"source": "isVoltage",
 			"drawName": "voosource",
 			"shapeName": "oosourceshape"
 		},
 		{
+			"displayName": "Auto-transformer source",
+			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
+			"source": "isVoltage",
+			"drawName": "oosourcetrans"
+		},
+		{
 			"displayName": "Transformer source",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
+			"source": "isVoltage",
 			"drawName": "oosourcetrans"
 		},
 		{
 			"displayName": "Transformer with three windings",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
+			"source": "isVoltage",
 			"drawName": "ooosource"
 		},
 
@@ -2114,11 +2699,15 @@
 		{
 			"displayName": "Nullator",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
 			"drawName": "nullator"
 		},
 		{
 			"displayName": "Norator",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
 			"drawName": "norator"
 		},
 
@@ -2126,11 +2715,17 @@
 		{
 			"displayName": "DC voltage source",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
+			"source": "isVoltage",
 			"drawName": "dcvsource"
 		},
 		{
 			"displayName": "DC current source",
 			"groupName": "Sources and generators",
+			"class": "sources",
+			"fillable": true,
+			"source": "isCurrent",
 			"drawName": "dcisource"
 		},
 
@@ -2139,28 +2734,38 @@
 		{
 			"displayName": "Ampere meter",
 			"groupName": "Instruments",
+			"class": "instruments",
+			"fillable": true,
 			"drawName": "ammeter"
 		},
 		{
 			"displayName": "Volt meter",
 			"groupName": "Instruments",
+			"class": "instruments",
+			"fillable": true,
 			"drawName": "voltmeter"
 		},
 		{
 			"displayName": "Ohm meter",
 			"groupName": "Instruments",
+			"class": "instruments",
+			"fillable": true,
 			"drawName": "ohmmeter"
 		},
 
 		{
 			"displayName": "Generic round meter",
 			"groupName": "Instruments",
+			"class": "instruments",
+			"fillable": true,
 			"drawName": "rmeter",
 			"options": [{ "name": "rotated instruments" }]
 		},
 		{
 			"displayName": "Generic round meter with arrow",
 			"groupName": "Instruments",
+			"class": "instruments",
+			"fillable": true,
 			"drawName": "rmeterwa",
 			"options": [{ "name": "rotated instruments" }]
 		},
@@ -2168,23 +2773,31 @@
 		{
 			"displayName": "Generic square meter",
 			"groupName": "Instruments",
+			"class": "instruments",
+			"fillable": true,
 			"pins": ["in 1", "in 2"],
 			"drawName": "smeter",
 			"options": [{ "name": "rotated instruments" }]
 		},
 		{
-			"displayName": "Ampere meter (square)",
+			"displayName": "QUCS-style current probe",
 			"groupName": "Instruments",
+			"class": "instruments",
+			"fillable": true,
 			"drawName": "qiprobe"
 		},
 		{
-			"displayName": "Volt meter (square)",
+			"displayName": "QUCS-style voltage probe",
 			"groupName": "Instruments",
+			"class": "instruments",
+			"fillable": true,
 			"drawName": "qvprobe"
 		},
 		{
-			"displayName": "Watt meter (square)",
+			"displayName": "QUCS-style power probe",
 			"groupName": "Instruments",
+			"class": "instruments",
+			"fillable": true,
 			"pins": ["v+", "v-"],
 			"drawName": "qpprobe"
 		},
@@ -2192,6 +2805,8 @@
 		{
 			"displayName": "Oscilloscope",
 			"groupName": "Instruments",
+			"class": "instruments",
+			"fillable": true,
 			"pins": ["in 1", "in 2"],
 			"drawName": "oscope",
 			"options": [{ "name": "rotated instruments" }]
@@ -2200,18 +2815,21 @@
 		{
 			"displayName": "Current loop (symbolic)",
 			"groupName": "Instruments",
+			"class": "instruments",
 			"pins": ["i"],
 			"drawName": "iloop"
 		},
 		{
 			"displayName": "Current loop (real)",
 			"groupName": "Instruments",
+			"class": "instruments",
 			"pins": ["i+", "i-"],
 			"drawName": "iloop2"
 		},
 		{
 			"displayName": "Current tap (probe)",
 			"groupName": "Instruments",
+			"class": "instruments",
 			"pins": ["tap"],
 			"drawName": "currtap"
 		},
@@ -2220,26 +2838,35 @@
 		{
 			"displayName": "Mechanical damping",
 			"groupName": "Mechanical",
+			"class": "mechanicals",
+			"fillable": true,
 			"drawName": "damper"
 		},
 		{
 			"displayName": "Mechanical inerter",
 			"groupName": "Mechanical",
+			"class": "mechanicals",
+			"fillable": true,
 			"drawName": "inerter"
 		},
 		{
 			"displayName": "Mechanical stiffness",
 			"groupName": "Mechanical",
+			"class": "mechanicals",
 			"drawName": "spring"
 		},
 		{
 			"displayName": "Mechanical viscoelastic element",
 			"groupName": "Mechanical",
+			"class": "mechanicals",
+			"fillable": true,
 			"drawName": "viscoe"
 		},
 		{
 			"displayName": "Mechanical mass",
 			"groupName": "Mechanical",
+			"class": "mechanicals",
+			"fillable": true,
 			"drawName": "mass"
 		},
 
@@ -2247,54 +2874,69 @@
 		{
 			"displayName": "Thermocouple",
 			"groupName": "Miscellaneous",
+			"class": "misc",
 			"drawName": "thermocouple"
 		},
 		{
 			"displayName": "Fuse",
 			"groupName": "Miscellaneous",
+			"class": "misc",
+			"fillable": true,
 			"drawName": "fuse"
 		},
 		{
 			"displayName": "Fuse (asymetric)",
 			"groupName": "Miscellaneous",
+			"class": "misc",
+			"fillable": true,
 			"aliases": ["asymmetric fuse"],
 			"drawName": "afuse"
 		},
 		{
 			"displayName": "Fuse (wiggly)",
 			"groupName": "Miscellaneous",
+			"class": "misc",
 			"drawName": "wfuse"
 		},
 		{
 			"displayName": "Relais",
 			"groupName": "Miscellaneous",
+			"class": "misc",
+			"fillable": true,
 			"drawName": "relais"
 		},
 		{
 			"displayName": "Squid",
 			"groupName": "Miscellaneous",
+			"class": "misc",
 			"drawName": "squid"
 		},
 		{
 			"displayName": "Barrier",
 			"groupName": "Miscellaneous",
+			"class": "misc",
 			"drawName": "barrier"
 		},
 		{
 			"displayName": "Open barrier",
 			"groupName": "Miscellaneous",
+			"class": "misc",
 			"drawName": "openbarrier"
 		},
 
 		{
 			"displayName": "Gas filled surge arrester (european)",
 			"groupName": "Miscellaneous",
+			"class": "misc",
+			"fillable": true,
 			"drawName": "european gas filled surge arrester",
 			"shapeName": "european gas filled surge arrestershape"
 		},
 		{
 			"displayName": "Gas filled surge arrester (american)",
 			"groupName": "Miscellaneous",
+			"class": "misc",
+			"fillable": true,
 			"drawName": "american gas filled surge arrester",
 			"shapeName": "american gas filled surge arrestershape"
 		},
@@ -2302,67 +2944,93 @@
 		{
 			"displayName": "Lamp",
 			"groupName": "Miscellaneous",
+			"class": "misc",
+			"fillable": true,
 			"drawName": "lamp"
 		},
 		{
 			"displayName": "Bulb",
 			"groupName": "Miscellaneous",
+			"class": "misc",
+			"fillable": true,
 			"drawName": "bulb"
 		},
 		{
 			"displayName": "Neon lamp (double cathode style),",
 			"groupName": "Miscellaneous",
+			"class": "misc",
+			"fillable": true,
 			"drawName": "neonlampcc"
 		},
 		{
 			"displayName": "Neon lamp (anode and cathode style)",
 			"groupName": "Miscellaneous",
+			"class": "misc",
+			"fillable": true,
 			"drawName": "neonlampac"
 		},
 		{
 			"displayName": "Spark gap (unenclosed)",
 			"groupName": "Miscellaneous",
+			"class": "misc",
+			"options": [
+				{"name": "sparkgap/circle","displayName": "circle"},
+				{"name": "sparkgap/dot","displayName": "dot"}
+			],
 			"drawName": "sparkgap"
 		},
 		{
 			"displayName": "Loudspeaker",
 			"groupName": "Miscellaneous",
+			"class": "misc",
+			"fillable": true,
 			"drawName": "loudspeaker"
 		},
 		{
 			"displayName": "Microphone",
 			"groupName": "Miscellaneous",
+			"class": "misc",
+			"fillable": true,
 			"drawName": "mic"
 		},
 		{
 			"displayName": "Microphone (tailless)",
 			"groupName": "Miscellaneous",
+			"class": "misc",
+			"fillable": true,
 			"drawName": "tlmic"
 		},
 		{
 			"displayName": "Buzzer",
 			"groupName": "Miscellaneous",
+			"class": "misc",
+			"fillable": true,
 			"drawName": "buzzer"
 		},
 		{
 			"displayName": "Buzzer (reversed)",
 			"groupName": "Miscellaneous",
+			"class": "misc",
+			"fillable": true,
 			"drawName": "rbuzzer"
 		},
 		// 4.9 Multiple wires (buses) - done
 		{
 			"displayName": "Single line multiple wires",
 			"groupName": "Wiring",
+			"class": "default",
 			"drawName": "multiwire"
 		},
 		{
 			"displayName": "Double line multiple wires",
 			"groupName": "Wiring",
+			"class": "default",
 			"drawName": "bmultiwire"
 		},
 		{
 			"displayName": "Triple line multiple wires",
 			"groupName": "Wiring",
+			"class": "default",
 			"drawName": "tmultiwire"
 		},
 		// 4.13.2 - done
@@ -2377,199 +3045,367 @@
 			"displayName": "Generic two port",
 			"drawName": "twoport",
 			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
 			"pins": ["n", "s", "w", "e"]
 		},
 		{
 			"displayName": "Generic two port split",
 			"drawName": "twoportsplit",
 			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
 			"pins": ["left up", "left down", "right up", "right down"]
 		},
 		{
 			"displayName": "VCO",
 			"drawName": "vco",
-			"options": [{ "name": "box", "addPins": ["left up", "left down", "right up", "right down"] }],
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
+			"options": [{ "name": "box", "addPins": ["left up", "left down", "right up", "right down"] }]
 		},
 		{
 			"displayName": "Bandpass",
 			"drawName": "bandpass",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "Bandstop",
 			"drawName": "bandstop",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "Highpass",
 			"drawName": "highpass",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "Lowpass",
 			"drawName": "lowpass",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "Allpass",
 			"drawName": "allpass",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
+		},
+		{
+			"displayName": "Variable allpass",
+			"drawName": "vallpass",
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
+		},
+		{
+			"displayName": "Block generator",
+			"drawName": "bgenerator",
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
+		},
+		{
+			"displayName": "Crystal generator",
+			"drawName": "qgenerator",
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
+		},
+		{
+			"displayName": "Clock generator",
+			"drawName": "cgenerator",
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
+		},
+		{
+			"displayName": "Generic generator",
+			"drawName": "ngenerator",
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "Highpass (two waves)",
 			"drawName": "highpass2",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "Lowpass (two waves)",
 			"drawName": "lowpass2",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "A/D converter",
 			"drawName": "adc",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "D/A converter",
 			"drawName": "dac",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "DSP",
 			"drawName": "dsp",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "FFT",
 			"drawName": "fft",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "Amplifier",
 			"drawName": "amp",
 			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
 			"pins": ["up", "down"]
 		},
 		{
 			"displayName": "Instrumentation amplifier",
 			"drawName": "iamp",
 			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
 			"pins": ["up", "down"]
 		},
 		{
 			"displayName": "VGA",
 			"drawName": "vamp",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "PI attenuator",
 			"drawName": "piattenuator",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "Var. PI attenuator",
 			"drawName": "vpiattenuator",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "T attenuator",
 			"drawName": "tattenuator",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "Var. T attenuator",
 			"drawName": "vtattenuator",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "Phase shifter",
 			"drawName": "phaseshifter",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "Var. phase shifter",
 			"drawName": "vphaseshifter",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
+		},
+		{
+			"displayName": "BIAS-T circuit as block",
+			"drawName": "biast",
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
+		},
+		{
+			"displayName": "Sine lookup table",
+			"drawName": "sinetable",
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
+		},
+		{
+			"displayName": "Register",
+			"drawName": "register",
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
+			"pins": ["clk"]
 		},
 		{
 			"displayName": "Detector",
 			"drawName": "detector",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "Saturation",
 			"drawName": "saturation",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "Sigmoid",
 			"drawName": "sigmoid",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "Comparison (all-or-nothing)",
 			"drawName": "allornothing",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "Optical fiber",
 			"drawName": "fiber",
-			"groupName": "Block diagram"
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
 		},
 		{
 			"displayName": "Single wire DC/DC converter",
 			"drawName": "sdcdc",
 			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
 			"pins": ["dc up in", "dc up out", "dc down in", "dc down out"]
 		},
 		{
 			"displayName": "Single phase AC/DC converter",
 			"drawName": "sacdc",
 			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
 			"pins": ["ac up in", "dc up out", "ac down in", "dc down out"]
 		},
 		{
 			"displayName": "Single phase DC/AC converter",
 			"drawName": "sdcac",
 			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
 			"pins": ["dc up in", "ac up out", "dc down in", "ac down out"]
 		},
 		{
 			"displayName": "Single phase AC/AC converter",
 			"drawName": "sacac",
 			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
 			"pins": ["ac up in", "ac up out", "ac down in", "ac down out"]
 		},
 		{
 			"displayName": "Three phases AC/DC converter",
 			"drawName": "tacdc",
 			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
 			"pins": ["ac up in", "dc up out", "ac down in", "dc down out"]
 		},
 		{
 			"displayName": "Three phases DC/AC converter",
 			"drawName": "tdcac",
 			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
 			"pins": ["dc up in", "ac up out", "dc down in", "ac down out"]
 		},
 		{
 			"displayName": "Three phases AC/AC converter",
 			"drawName": "tacac",
 			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
 			"pins": ["ac up in", "ac up out", "ac down in", "ac down out"]
+		},
+		{
+			"displayName": "Videocamera",
+			"drawName": "camera",
+			"groupName": "Block diagram",
+			"class": "misc",
+			"fillable": true
+		},
+		{
+			"displayName": "Television (TV)",
+			"drawName": "tvset",
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
+		},
+		{
+			"displayName": "Radio tranceiver (HAM-Radio)",
+			"drawName": "trx",
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
+			"pins": ["plus","minus"]
+		},
+		{
+			"displayName": "Standing Wave Ratio (SWR) meter",
+			"drawName": "swr",
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true
+		},
+		{
+			"displayName": "Power Supply",
+			"drawName": "power",
+			"groupName": "Block diagram",
+			"class": "blocks",
+			"fillable": true,
+			"pins": ["u1","u2","plus","minus"]
 		},
 		// 4.17 RF components
 		{
 			"displayName": "Microstrip transmission line",
 			"drawName": "mstline",
+			"class": "RF",
+			"fillable": true,
 			"groupName": "RF components"
 		},
 		{
 			"displayName": "Transmission line",
 			"drawName": "tline",
 			"groupName": "RF components",
+			"class": "RF",
+			"fillable": true,
 			"aliases": ["TL", "transmission line"]
 		},
 		// 4.21 Switches, Buttons and jumpers
@@ -2578,6 +3414,7 @@
 			"displayName": "Switch",
 			"drawName": "switch",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"aliases": ["spst"],
 			"shapeName": "cspstshape",
 			"pins": ["left", "right"]
@@ -2586,6 +3423,7 @@
 			"displayName": "Closing switch",
 			"drawName": "closing switch",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"aliases": ["cspst"],
 			"shapeName": "cspstshape",
 			"pins": ["left", "right"]
@@ -2594,6 +3432,7 @@
 			"displayName": "Opening switch",
 			"drawName": "opening switch",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"aliases": ["ospst"],
 			"shapeName": "ospstshape",
 			"pins": ["left", "right"]
@@ -2602,6 +3441,7 @@
 			"displayName": "Normally open switch",
 			"drawName": "normal open switch",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"aliases": ["nos"],
 			"shapeName": "nosshape",
 			"pins": ["left", "right"]
@@ -2610,6 +3450,7 @@
 			"displayName": "Normally closed switch",
 			"drawName": "normal closed switch",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"aliases": ["ncs"],
 			"shapeName": "ncsshape",
 			"pins": ["left", "right"]
@@ -2618,6 +3459,7 @@
 			"displayName": "Opening normally closed switch",
 			"drawName": "opening normal closed switch",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"aliases": ["oncs"],
 			"shapeName": "oncsshape",
 			"pins": ["left", "right"]
@@ -2626,6 +3468,7 @@
 			"displayName": "Closing normally closed switch",
 			"drawName": "closing normal closed switch",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"aliases": ["cncs"],
 			"shapeName": "cncsshape",
 			"pins": ["left", "right"]
@@ -2634,6 +3477,7 @@
 			"displayName": "Opening normally open switch",
 			"drawName": "opening normal open switch",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"aliases": ["onos"],
 			"shapeName": "onosshape",
 			"pins": ["left", "right"]
@@ -2642,6 +3486,7 @@
 			"displayName": "Closing normally open switch",
 			"drawName": "closing normal open switch",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"aliases": ["cnos"],
 			"shapeName": "cnosshape",
 			"pins": ["left", "right"]
@@ -2650,6 +3495,7 @@
 			"displayName": "Normally open push button",
 			"drawName": "push button",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"aliases": ["nopb"],
 			"pins": ["tip"]
 		},
@@ -2657,6 +3503,7 @@
 			"displayName": "Normally closed push button",
 			"drawName": "normally closed push button",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"aliases": ["ncpb"],
 			"shapeName": "ncpushbuttonshape",
 			"pins": ["tip"]
@@ -2665,6 +3512,7 @@
 			"displayName": "Normally open push button (in closed position)",
 			"drawName": "normally open push button closed",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"aliases": ["nopbc"],
 			"shapeName": "pushbuttoncshape",
 			"pins": ["tip"]
@@ -2673,6 +3521,7 @@
 			"displayName": "Normally closed push button (in open position)",
 			"drawName": "normally closed push button open",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"aliases": ["ncpbo"],
 			"shapeName": "ncpushbuttonoshape",
 			"pins": ["tip"]
@@ -2681,12 +3530,15 @@
 			"displayName": "Toggle switch",
 			"drawName": "toggle switch",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "default",
 			"pins": ["in", "out 1", "out 2"]
 		},
 		{
 			"displayName": "Reed switch",
 			"drawName": "reed",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
+			"fillable": true,
 			"pins": ["left", "right"]
 		},
 		// 4.21.2 Cute switches
@@ -2694,40 +3546,46 @@
 			"displayName": "Cute closed switch",
 			"drawName": "cute closed switch",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"pins": ["in", "out"]
 		},
 		{
 			"displayName": "Cute open switch",
 			"drawName": "cute open switch",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"pins": ["in", "out"]
 		},
 		{
 			"displayName": "Cute closing switch",
 			"drawName": "cute closing switch",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"pins": ["in", "out"]
 		},
 		{
 			"displayName": "Cute opening switch",
 			"drawName": "cute opening switch",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"pins": ["in", "out"]
 		},
 		// 4.21.3 Proximity switches
-		//Doesn't compile for some reason
-		// {
-		// 	"displayName": "Proximeter inline",
-		// 	"drawName": "inline proximeter",
-		// 	"groupName": "Switches, buttons and jumpers",
-		// 	"pins": ["hlines nw","hlines sw","hlines ne","hlines se","left","right"],
-		// 	"shapeName": "proximeter"
-		// },
+		{
+			"displayName": "Proximeter inline",
+			"drawName": "inline proximeter",
+			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
+			"fillable": true,
+			"pins": ["hlines nw","hlines sw","hlines ne","hlines se","left","right"],
+			"shapeName": "proximeter"
+		},
 		// 4.21.6 Jumpers
 		{
 			"displayName": "Bare jumper",
 			"drawName": "bare jumper",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"pins": ["in", "out"],
 			"shapeName": "bjumpershape"
 		},
@@ -2735,6 +3593,7 @@
 			"displayName": "Open jumper",
 			"drawName": "open jumper",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"pins": ["in", "out", "top arc"],
 			"shapeName": "ojumpershape"
 		},
@@ -2742,6 +3601,7 @@
 			"displayName": "Closed jumper",
 			"drawName": "closed jumper",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"pins": ["left", "right", "top arc"],
 			"shapeName": "cjumpershape"
 		},
@@ -2753,6 +3613,7 @@
 			"displayName": "Open solder jumper",
 			"drawName": "open solder jumper",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"pins": ["in", "out"],
 			"shapeName": "osjumpershape"
 		},
@@ -2760,6 +3621,7 @@
 			"displayName": "Closed solder jumper",
 			"drawName": "closed solder jumper",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"pins": ["left", "right"],
 			"shapeName": "csjumpershape"
 		},
@@ -2767,6 +3629,7 @@
 			"displayName": "Open double solder jumper",
 			"drawName": "open double solder jumper",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"pins": ["in", "out", "tap"],
 			"shapeName": "odsjumpershape"
 		},
@@ -2774,6 +3637,7 @@
 			"displayName": "Left double solder jumper",
 			"drawName": "left double solder jumper",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"pins": ["left", "right", "tap up", "tap down"],
 			"shapeName": "ldsjumpershape"
 		},
@@ -2781,6 +3645,7 @@
 			"displayName": "Right double solder jumper",
 			"drawName": "right double solder jumper",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"pins": ["left", "right", "tap up", "tap down"],
 			"shapeName": "rdsjumpershape"
 		},
@@ -2788,6 +3653,7 @@
 			"displayName": "Closed double solder jumper",
 			"drawName": "closed double solder jumper",
 			"groupName": "Switches, buttons and jumpers",
+			"class": "switches",
 			"pins": ["left", "right", "tap up", "tap down"],
 			"shapeName": "cdsjumpershape"
 		}
