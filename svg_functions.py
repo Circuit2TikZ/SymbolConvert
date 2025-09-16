@@ -4,6 +4,7 @@ import pathlib
 import glob
 import re
 import xml.dom.minidom as dom
+import xml.etree.ElementTree as ET
 import svgelements as svg
 import json
 import copy
@@ -44,19 +45,20 @@ def _compile_DVI_to_SVG_worker(path: pathlib.Path, translateX=0, translateY=0, s
 	return out.decode()
 
 
-def svg_path_to_line(path: dom.Element):
-	path_stroke = path.getAttribute("stroke")
-	line = {
-		"start": None,
-		"end": None,
-		"color": Color(path_stroke if path_stroke != "" else "#000"),
-	}
-
-	d = Path(path.getAttribute("d"))
+def svg_path_to_line(path: ET.Element):
+	d = Path(path.get("d"))
 	if len(d) != 2:
-		raise "Unexpected number of draw commands"  # Start & endpoint
-	line["start"] = d[-1].start
-	line["end"] = d[-1].end
+		return None
+
+	path_stroke = path.get("stroke")
+
+	if path_stroke is None or path_stroke == "":
+		return None
+	line = {
+		"start": d[-1].start,
+		"end": d[-1].end,
+		"color": Color(path_stroke),
+	}
 	return line
 
 
@@ -100,24 +102,21 @@ class Pin_Anchor:
 
 
 def _convert_SVG_to_symbol_worker(svg_content: str, index, is_node, node_description, ID, option_possibility):
-	doc = dom.parseString(svg_content)
-	svg_doc = doc.firstChild
-
-	paths = svg_doc.getElementsByTagName("path")
+	svg_doc = ET.fromstring(svg_content)
+	parent_map = {c: p for p in svg_doc.iter() for c in p}
+	# extract colored, non-filled metadata lines
+	paths = svg_doc.findall(".//path")
 	lines = []
 	for path in paths:
-		try:
-			path_fill = path.getAttribute("fill")
-			if path_fill != "" and path_fill != "none":
-				raise ValueError("Path has a fill color, which is not allowed.")
-			svg_line = svg_path_to_line(path)
-			line_color: svg.Color = svg_line["color"]
-			if line_color is None or line_color == "black":
-				raise
-			lines.append(svg_line)
-			path.parentNode.removeChild(path)
-		except BaseException:
-			pass
+		path_fill = path.get("fill")
+		if path_fill != "" and path_fill != "none" and path_fill is not None:
+			continue
+		svg_line = svg_path_to_line(path)
+		if svg_line is None:
+			continue
+		lines.append(svg_line)
+		parent_map[path].remove(path)
+		# path.find("..").remove(path)
 
 	tikz_name = node_description["name"] if is_node else node_description["drawName"]
 
@@ -126,6 +125,11 @@ def _convert_SVG_to_symbol_worker(svg_content: str, index, is_node, node_descrip
 	# the line corresponding to the text anchor point
 	text_line_colors = [svg.Color("#f00"), svg.Color("rgb(255,0,155)")]
 	zero_line_colors = [svg.Color("#ff0"), svg.Color("#0ff")]
+
+	# extract the fill color for fillable components
+	for element in svg_doc.findall(".//*[@fill='#0f0']"):
+		element.set("class", "fillable")
+		element.set("fill", "none")
 
 	# all lines which are not text or zero lines
 	pin_lines = [
@@ -186,70 +190,77 @@ def _convert_SVG_to_symbol_worker(svg_content: str, index, is_node, node_descrip
 	)
 
 	# build dom tree for metadata
-	metadata = doc.createElement("metadata")
+
+	metadata: ET.Element = svg_doc.makeelement("metadata", {})
 	# fill in attributes
-	componentInfo = doc.createElement("componentInformation")
-	componentInfo.setAttribute("type", "node" if is_node else "path")
+	componentInfo: ET.Element = svg_doc.makeelement("componentInformation", {})
+	componentInfo.set("type", "node" if is_node else "path")
 	if "displayName" in node_description:
-		componentInfo.setAttribute("display", node_description["displayName"])
-	componentInfo.setAttribute("tikz", tikz_name)
+		componentInfo.set("display", node_description["displayName"])
+	componentInfo.set("tikz", tikz_name)
 	if shape_name is not None:
-		componentInfo.setAttribute("shape", shape_name)
+		componentInfo.set("shape", shape_name)
 	if "groupName" in node_description:
-		componentInfo.setAttribute("group", node_description["groupName"])
-	componentInfo.setAttribute("refX", f"{ref_point.x:.5f}")
-	componentInfo.setAttribute("refY", f"{ref_point.y:.5f}")
-	componentInfo.setAttribute("viewBox", svg_doc.getAttribute("viewBox"))
+		componentInfo.set("group", node_description["groupName"])
+	if "class" in node_description:
+		componentInfo.set("class", node_description["class"])
+	if "fillable" in node_description:
+		componentInfo.set("fillable", str(node_description["fillable"]))
+	if "source" in node_description:
+		componentInfo.set("source", node_description["source"])
+	componentInfo.set("refX", f"{ref_point.x:.5f}")
+	componentInfo.set("refY", f"{ref_point.y:.5f}")
+	componentInfo.set("viewBox", svg_doc.get("viewBox"))
 
 	# fill in options
 	if "options" in node_description:
-		tikz_options = doc.createElement("options")
+		tikz_options = svg_doc.makeelement("options", {})
 		for option in node_description["options"]:
 			if "enumOptions" in option:
-				enum = doc.createElement("enumopt")
+				enum: ET.Element = svg_doc.makeelement("enumopt", {})
 				if "selectNone" in option:
-					enum.setAttribute("selectNone", str(option["selectNone"]))
+					enum.set("selectNone", str(option["selectNone"]))
 				if "displayName" in option:
-					enum.setAttribute("name", option["displayName"])
+					enum.set("name", option["displayName"])
 
 				for enum_option in option["enumOptions"]:
-					enum.appendChild(
-						_convert_option(enum_option, is_option_active(enum_option["name"], option_possibility), doc)
+					enum.append(
+						_convert_option(enum_option, is_option_active(enum_option["name"], option_possibility), svg_doc)
 					)
-				tikz_options.appendChild(enum)
+				tikz_options.append(enum)
 			else:
-				tikz_options.appendChild(
-					_convert_option(option, is_option_active(option["name"], option_possibility), doc)
+				tikz_options.append(
+					_convert_option(option, is_option_active(option["name"], option_possibility), svg_doc)
 				)
-		componentInfo.appendChild(tikz_options)
+		componentInfo.append(tikz_options)
 
 	# fill in pins
 	if len(pin_anchors) > 0:
-		pins = doc.createElement("pins")
+		pins: ET.Element = svg_doc.makeelement("pins", {})
 		for pin_anchor in pin_anchors:
-			pin = doc.createElement("pin")
-			pin.setAttribute("name", pin_anchor.anchor_name)
+			pin: ET.Element = svg_doc.makeelement("pin", {})
+			pin.set("name", pin_anchor.anchor_name)
 			if pin_anchor.point.x != 0:
-				pin.setAttribute("x", f"{pin_anchor.point.x:.5f}")
+				pin.set("x", f"{pin_anchor.point.x:.5f}")
 			if pin_anchor.point.y != 0:
-				pin.setAttribute("y", f"{pin_anchor.point.y:.5f}")
+				pin.set("y", f"{pin_anchor.point.y:.5f}")
 			if pin_anchor.default:
-				pin.setAttribute("isDefault", "true")
-			pins.appendChild(pin)
-		componentInfo.appendChild(pins)
+				pin.set("isDefault", "true")
+			pins.append(pin)
+		componentInfo.append(pins)
 
 		##############################
 
 	text_line = [line for line in lines if svg.Color.distance_sq(line["color"], text_line_colors[0]) == 0]
 	if len(text_line) > 0:
 		text_point: svg.Point = text_line[0]["end"] - ref_point
-		text_position = doc.createElement("textpos")
-		text_position.setAttribute("x", f"{text_point.x:.5f}")
-		text_position.setAttribute("y", f"{text_point.y:.5f}")
-		componentInfo.appendChild(text_position)
+		text_position: ET.Element = svg_doc.makeelement("textpos", {})
+		text_position.set("x", f"{text_point.x:.5f}")
+		text_position.set("y", f"{text_point.y:.5f}")
+		componentInfo.append(text_position)
 
-	metadata.appendChild(componentInfo)
-	svg_doc.appendChild(metadata)
+	metadata.append(componentInfo)
+	svg_doc.append(metadata)
 
 	# - put it all together ---
 	if ID is None:
@@ -260,27 +271,27 @@ def _convert_SVG_to_symbol_worker(svg_content: str, index, is_node, node_descrip
 			node_description["options"],
 		)
 
-	svg_symbol = doc.createElement("symbol")
-	svg_symbol.setAttribute("id", ID)
+	svg_symbol: ET.Element = svg_doc.makeelement("symbol", {})
+	svg_symbol.set("id", ID)
 
-	while svg_doc.firstChild:
-		svg_symbol.appendChild(svg_doc.firstChild)
+	for child in svg_doc:
+		svg_symbol.append(child)
 
 	return (
 		errorcode,
-		svg_symbol.toxml(),
+		ET.tostring(svg_symbol, encoding="unicode"),
 	)
 
 
-def _convert_option(option: dict, active: bool, doc: dom.Document) -> dom.Element:
-	option_element = doc.createElement("option")
+def _convert_option(option: dict, active: bool, doc: ET.Element) -> ET.Element:
+	option_element: ET.Element = doc.makeelement("option", {})
 	name: str = option["name"]
 	if "displayName" in option:
-		option_element.setAttribute("display", option["displayName"])
+		option_element.set("display", option["displayName"])
 	if active:
-		option_element.setAttribute("active", "true")
+		option_element.set("active", "true")
 
-	option_element.setAttribute("name", name)
+	option_element.set("name", name)
 
 	return option_element
 
@@ -299,6 +310,8 @@ def _convert_DVI_to_symbol_worker(path: pathlib.Path):
 	translate_y = -float(view_box_array[1])
 
 	svg_content = _compile_DVI_to_SVG_worker(path, translateX=translate_x, translateY=translate_y, scale=4 / 3)
+	# regular expression that matches the xmlns attribute in the svg_content (<svg ... xmlns='...' ... >...)
+	svg_content = re.sub(r"\s+xmlns='[^']+'", "", svg_content, count=1)
 
 	# get node information (name, pins, ...)
 	index, is_node = parse_filename(path.stem)
@@ -496,3 +509,6 @@ def combine_SVGs_to_symbol():
 		f.write(svg_content)
 
 	pathlib.Path(config_name).unlink()
+
+
+# convert_DVI_to_SVGs()

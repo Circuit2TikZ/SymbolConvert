@@ -143,7 +143,9 @@
 						"default": false
 					},
 					"source":{"enum":["isVoltage","isCurrent"]
-					}
+					},
+					"start":{"type":"string","default":"b"},
+					"end":{"type":"string","default":"a"}
 				},
 				"required": ["drawName"]
 			}

@@ -134,7 +134,7 @@
 		{
 			"displayName": "Unconnected terminal",
 			"name": "ocirc",
-			"groupName": "Wiring",
+			"groupName": "Wiring"
 		},
 		{
 			"displayName": "Diamond-square terminal",
@@ -2973,10 +2973,11 @@
 			"displayName": "Spark gap (unenclosed)",
 			"groupName": "Miscellaneous",
 			"class": "misc",
-			"options": [
-				{"name": "sparkgap/circle","displayName": "circle"},
-				{"name": "sparkgap/dot","displayName": "dot"}
-			],
+			// bug: not working for now
+			// "options": [
+			// 	{"name": "sparkgap/circle","displayName": "circle"},
+			// 	{"name": "sparkgap/dot","displayName": "dot"}
+			// ],
 			"drawName": "sparkgap"
 		},
 		{
@@ -3577,8 +3578,10 @@
 			"groupName": "Switches, buttons and jumpers",
 			"class": "switches",
 			"fillable": true,
-			"pins": ["hlines nw","hlines sw","hlines ne","hlines se","left","right"],
-			"shapeName": "proximeter"
+			"pins": ["hlines nw","hlines sw","hlines ne","hlines se"],
+			"shapeName": "proximeter",
+			"start": "left",
+			"end": "right"
 		},
 		// 4.21.6 Jumpers
 		{

@@ -55,13 +55,10 @@ def create_tex_files_from_json(output_dir="build"):
 	# load node stencil
 	with open("stencil_pgf_node.tex", "r") as f:
 		node_stencil = f.read()
-		node_stencil_pre, node_stencil_mid = node_stencil.split("<nodename>", 2)
-		node_stencil_mid, node_stencil_post = node_stencil_mid.split("<anchorLines>", 2)
-		if not (node_stencil_pre and node_stencil_mid and node_stencil_post):
-			raise ValueError("Node stencil is not properly formatted. Missing <nodename> or <anchorLines> tags.")
 
 	# Iterate through each node in the JSON data
 	for index, node in enumerate(NODES_AND_PATHS["nodes"]):
+		fillable = node["fillable"] if "fillable" in node else False
 		option_possibilities = options_object_to_array(node["options"] if "options" in node else [])
 		for tmp, option_possibility in enumerate(option_possibilities):
 			options = [option["name"] for option in option_possibility]
@@ -88,7 +85,11 @@ def create_tex_files_from_json(output_dir="build"):
 					color_str = f"rgb,255:red,{color.red};green,{color.green};blue,{color.blue}"
 					anchorLines += f"\t\t\\draw[draw={{{color_str}}}] (0,0) -- (N.{anchor});\n"
 
-			file_content = node_stencil_pre + name_options + node_stencil_mid + anchorLines + node_stencil_post
+			if fillable:
+				name_options += ", fill=green"
+
+			file_content = node_stencil.replace("<nodename>", name_options)
+			file_content = file_content.replace("<anchorLines>", anchorLines)
 
 			# Write the content to a .tex file
 			with open(os.path.join(output_dir, f"{basename}.tex"), "w") as f:
@@ -97,13 +98,10 @@ def create_tex_files_from_json(output_dir="build"):
 	# load path stencil
 	with open("stencil_pgf_path.tex", "r") as f:
 		path_stencil = f.read()
-		path_stencil_pre, path_stencil_mid = path_stencil.split("<pathname>", 2)
-		path_stencil_mid, path_stencil_post = path_stencil_mid.split("<anchorLines>", 2)
-		if not (path_stencil_pre and path_stencil_mid and path_stencil_post):
-			raise ValueError("Path stencil is not properly formatted. Missing <pathname> or <anchorLines> tags.")
 
 	# Iterate through each path in the JSON data
 	for index, path in enumerate(NODES_AND_PATHS["path"]):
+		fillable = node["fillable"] if "fillable" in path else False
 		option_possibilities = options_object_to_array(path["options"] if "options" in path else [])
 		for tmp, option_possibility in enumerate(option_possibilities):
 			options = [option["name"] for option in option_possibility]
@@ -123,9 +121,11 @@ def create_tex_files_from_json(output_dir="build"):
 					subPins.extend(option["subPins"])
 
 			anchorLines = ""
+			start = path["start"] if "start" in path else "b"
+			end = path["end"] if "end" in path else "a"
 			anchors = [
 				anchor
-				for anchor in (["b", "a"] + (path["pins"] if "pins" in path else []))
+				for anchor in ([start, end] + (path["pins"] if "pins" in path else []))
 				if anchor not in subPins and anchor != "center"
 			]
 			anchors.extend(addPins)
@@ -137,7 +137,11 @@ def create_tex_files_from_json(output_dir="build"):
 			if "stroke" in path and path["stroke"]:
 				anchorLines += "\t\t\\draw (P.b) -- (P.a);\n"
 
-			file_content = path_stencil_pre + name_options + path_stencil_mid + anchorLines + path_stencil_post
+			if fillable:
+				name_options += ", fill=green"
+
+			file_content = path_stencil.replace("<pathname>", name_options)
+			file_content = file_content.replace("<anchorLines>", anchorLines)
 
 			# Write the content to a .tex file
 			with open(os.path.join(output_dir, f"{basename}.tex"), "w") as f:
