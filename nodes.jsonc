@@ -2973,11 +2973,10 @@
 			"displayName": "Spark gap (unenclosed)",
 			"groupName": "Miscellaneous",
 			"class": "misc",
-			// bug: not working for now
-			// "options": [
-			// 	{"name": "sparkgap/circle","displayName": "circle"},
-			// 	{"name": "sparkgap/dot","displayName": "dot"}
-			// ],
+			"options": [
+				{"name": "sparkgap/circle","displayName": "circle"},
+				{"name": "sparkgap/dot","displayName": "dot"}
+			],
 			"drawName": "sparkgap"
 		},
 		{
