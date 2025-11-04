@@ -444,6 +444,12 @@ def combine_SVGs_to_symbol():
 		component.setAttribute("group", firstComponentInfo.getAttribute("group"))
 		if symbol_type == "path":
 			component.setAttribute("shape", firstComponentInfo.getAttribute("shape"))
+		if firstComponentInfo.hasAttribute("class"):
+			component.setAttribute("class", firstComponentInfo.getAttribute("class"))
+		if firstComponentInfo.hasAttribute("fillable"):
+			component.setAttribute("fillable", firstComponentInfo.getAttribute("fillable"))
+		if firstComponentInfo.hasAttribute("source"):
+			component.setAttribute("source", firstComponentInfo.getAttribute("source"))
 
 		tikz_options = firstSymbol.getElementsByTagName("options")
 		if len(tikz_options) > 0 and tikz_options[0].hasChildNodes():
@@ -512,3 +518,4 @@ def combine_SVGs_to_symbol():
 
 
 # convert_DVI_to_SVGs()
+# combine_SVGs_to_symbol()
