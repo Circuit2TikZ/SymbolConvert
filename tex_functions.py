@@ -138,7 +138,7 @@ def create_tex_files_from_json(output_dir="build"):
 				anchorLines += "\t\t\\draw (P.b) -- (P.a);\n"
 
 			if fillable:
-				name_options += ", fill=green"
+				name_options += ", color=black, fill=green"
 
 			file_content = path_stencil.replace("<pathname>", name_options)
 			file_content = file_content.replace("<anchorLines>", anchorLines)
