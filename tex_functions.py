@@ -109,7 +109,9 @@ def create_tex_files_from_json(output_dir="build"):
 				option["displayName"] if "displayName" in option else option["name"] for option in option_possibility
 			]
 			shapeName = path["shapeName"] if "shapeName" in path else path["drawName"].replace(" ", "") + "shape"
-			name_options = ", ".join([shapeName, *(options if len(options) > 0 else [])])
+			name_options = ", ".join(
+				[shapeName, *(["circuitikz/" + option for option in options] if len(options) > 0 else [])]
+			)
 			basename = component_name_from_info(index, path["drawName"], False, options_display)
 
 			addPins = []
